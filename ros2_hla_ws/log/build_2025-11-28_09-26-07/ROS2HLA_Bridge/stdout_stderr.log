@@ -1,0 +1,25 @@
+running egg_info
+writing ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/PKG-INFO
+writing dependency_links to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/dependency_links.txt
+writing entry points to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/entry_points.txt
+writing requirements to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/requires.txt
+writing top-level names to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/top_level.txt
+reading manifest file '../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/SOURCES.txt'
+writing manifest file '../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/SOURCES.txt'
+running build
+running build_py
+copying ROS2HLA_Bridge/fom_generator.py -> /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build/lib/ROS2HLA_Bridge
+running install
+running install_lib
+copying /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build/lib/ROS2HLA_Bridge/fom_generator.py -> /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge
+byte-compiling /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge/fom_generator.py to fom_generator.cpython-312.pyc
+running install_data
+copying launch/bridge.launch.py -> /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/share/ROS2HLA_Bridge/launch
+copying config/bridge_config.yaml -> /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/share/ROS2HLA_Bridge/config
+copying config/client_config.yaml -> /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/share/ROS2HLA_Bridge/config
+running install_egg_info
+removing '/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info to /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge-0.0.0-py3.12.egg-info
+running install_scripts
+Installing bridge_node script to /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/ROS2HLA_Bridge
+writing list of installed files to '/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/install.log'

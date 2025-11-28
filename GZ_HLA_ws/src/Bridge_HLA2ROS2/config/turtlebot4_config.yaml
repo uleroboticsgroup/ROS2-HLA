@@ -1,0 +1,26 @@
+federation_name: "TurtleBotFed2"
+fom_name: "TurtleBotFom"
+
+# Time Synchronization Mode
+# Use 'ros_master' so Gazebo drives the simulation time
+time:
+  mode: "ros_master" 
+  step: 0.01          
+  lookahead: 0.01     
+
+nodes:
+  turtlebot4:
+    object_class: "TurtleBot"
+    attributes:
+      pose:
+        ros_topic: "/odom"
+        ros_type: "nav_msgs.msg.Odometry"
+        direction: "ros2_to_hla" # Bridge sends Odometry to HLA
+      cmd_vel:
+        ros_topic: "/cmd_vel"
+        ros_type: "geometry_msgs.msg.Twist"
+        direction: "hla_to_ros2" # Bridge receives Twist from HLA
+      undock_trigger:
+        ros_topic: "/hla_undock_trigger"
+        ros_type: "std_msgs.msg.Bool"
+        direction: "hla_to_ros2"

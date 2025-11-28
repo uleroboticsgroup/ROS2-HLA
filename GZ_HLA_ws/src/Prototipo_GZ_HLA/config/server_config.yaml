@@ -1,0 +1,33 @@
+federation_name: "GazeboHlaFed"
+federate_name: "ServerBridge"
+fom_name: "UniversalRosFom"
+time:
+  mode: "ros_master" # Gazebo drives time
+  step: 0.01 # 100Hz
+  lookahead: 0.01
+nodes:
+  # Server manages the physics of the robot
+  # It publishes the pose (Odom/TF) to HLA
+  # It subscribes to cmd_vel from HLA
+  robot_1:
+    object_class: "Robot"
+    attributes:
+      pose:
+        ros_topic: "/model/robot_1/odometry" # GZ Bridge topic
+        ros_type: "nav_msgs.msg.Odometry"
+        direction: "ros2_to_hla"
+      cmd_vel:
+        ros_topic: "/model/robot_1/cmd_vel" # GZ Bridge topic
+        ros_type: "geometry_msgs.msg.Twist"
+        direction: "hla_to_ros2"
+  robot_2:
+    object_class: "Robot"
+    attributes:
+      pose:
+        ros_topic: "/model/robot_2/odometry" # GZ Bridge topic
+        ros_type: "nav_msgs.msg.Odometry"
+        direction: "ros2_to_hla"
+      cmd_vel:
+        ros_topic: "/model/robot_2/cmd_vel" # GZ Bridge topic
+        ros_type: "geometry_msgs.msg.Twist"
+        direction: "hla_to_ros2"

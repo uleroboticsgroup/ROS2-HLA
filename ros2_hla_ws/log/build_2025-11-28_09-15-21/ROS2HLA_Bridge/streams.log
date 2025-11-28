@@ -1,0 +1,26 @@
+[1.762s] Invoking command in '/home/vicen/ISDEFE/ros2_hla_ws/src/ROS2HLA_Bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ROS2HLA_Bridge build --build-base /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build install --record /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/install.log --single-version-externally-managed install_data
+[2.307s] running egg_info
+[2.347s] writing ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/PKG-INFO
+[2.347s] writing dependency_links to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/dependency_links.txt
+[2.347s] writing entry points to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/entry_points.txt
+[2.348s] writing requirements to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/requires.txt
+[2.348s] writing top-level names to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/top_level.txt
+[2.430s] reading manifest file '../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/SOURCES.txt'
+[2.432s] writing manifest file '../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/SOURCES.txt'
+[2.432s] running build
+[2.432s] running build_py
+[2.432s] copying ROS2HLA_Bridge/bridge_node.py -> /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build/lib/ROS2HLA_Bridge
+[2.433s] running install
+[2.443s] running install_lib
+[2.486s] copying /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build/lib/ROS2HLA_Bridge/bridge_node.py -> /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge
+[2.487s] byte-compiling /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge/bridge_node.py to bridge_node.cpython-312.pyc
+[2.491s] running install_data
+[2.492s] copying launch/bridge.launch.py -> /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/share/ROS2HLA_Bridge/launch
+[2.492s] copying launch/client.launch.py -> /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/share/ROS2HLA_Bridge/launch
+[2.492s] running install_egg_info
+[2.541s] removing '/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge-0.0.0-py3.12.egg-info' (and everything under it)
+[2.541s] Copying ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info to /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge-0.0.0-py3.12.egg-info
+[2.542s] running install_scripts
+[2.799s] Installing bridge_node script to /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/ROS2HLA_Bridge
+[2.800s] writing list of installed files to '/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/install.log'
+[2.854s] Invoked command in '/home/vicen/ISDEFE/ros2_hla_ws/src/ROS2HLA_Bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ROS2HLA_Bridge build --build-base /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build install --record /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/install.log --single-version-externally-managed install_data

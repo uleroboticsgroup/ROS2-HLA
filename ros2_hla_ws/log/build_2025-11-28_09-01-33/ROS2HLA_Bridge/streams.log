@@ -1,0 +1,24 @@
+[1.539s] Invoking command in '/home/vicen/ISDEFE/ros2_hla_ws/src/ROS2HLA_Bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ROS2HLA_Bridge build --build-base /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build install --record /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/install.log --single-version-externally-managed install_data
+[2.040s] running egg_info
+[2.078s] writing ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/PKG-INFO
+[2.078s] writing dependency_links to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/dependency_links.txt
+[2.078s] writing entry points to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/entry_points.txt
+[2.079s] writing requirements to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/requires.txt
+[2.079s] writing top-level names to ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/top_level.txt
+[2.150s] reading manifest file '../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/SOURCES.txt'
+[2.151s] writing manifest file '../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info/SOURCES.txt'
+[2.151s] running build
+[2.152s] running build_py
+[2.152s] copying ROS2HLA_Bridge/hla_manager.py -> /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build/lib/ROS2HLA_Bridge
+[2.152s] running install
+[2.162s] running install_lib
+[2.242s] copying /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build/lib/ROS2HLA_Bridge/hla_manager.py -> /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge
+[2.244s] byte-compiling /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge/hla_manager.py to hla_manager.cpython-312.pyc
+[2.257s] running install_data
+[2.258s] running install_egg_info
+[2.348s] removing '/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge-0.0.0-py3.12.egg-info' (and everything under it)
+[2.348s] Copying ../../build/ROS2HLA_Bridge/ROS2HLA_Bridge.egg-info to /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA_Bridge-0.0.0-py3.12.egg-info
+[2.350s] running install_scripts
+[2.608s] Installing bridge_node script to /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/ROS2HLA_Bridge
+[2.609s] writing list of installed files to '/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/install.log'
+[2.657s] Invoked command in '/home/vicen/ISDEFE/ros2_hla_ws/src/ROS2HLA_Bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ROS2HLA_Bridge build --build-base /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build install --record /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/install.log --single-version-externally-managed install_data

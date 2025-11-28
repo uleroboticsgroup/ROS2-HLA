@@ -1,0 +1,2 @@
+[console_scripts]
+universal_bridge = bridge_hla2ros2.universal_bridge:main

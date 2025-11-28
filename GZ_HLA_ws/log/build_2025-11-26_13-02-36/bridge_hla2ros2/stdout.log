@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/PKG-INFO
+writing dependency_links to ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/dependency_links.txt
+writing entry points to ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/entry_points.txt
+writing requirements to ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/requires.txt
+writing top-level names to ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/top_level.txt
+reading manifest file '../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/SOURCES.txt'
+writing manifest file '../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/SOURCES.txt'
+running build
+running build_py
+copying src/universal_bridge.py -> /home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/build/lib/bridge_hla2ros2
+running install
+running install_lib
+copying /home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/build/lib/bridge_hla2ros2/universal_bridge.py -> /home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages/bridge_hla2ros2
+byte-compiling /home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages/bridge_hla2ros2/universal_bridge.py to universal_bridge.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages/bridge_hla2ros2-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info to /home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages/bridge_hla2ros2-0.0.0-py3.12.egg-info
+running install_scripts
+Installing universal_bridge script to /home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/bridge_hla2ros2
+writing list of installed files to '/home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/install.log'

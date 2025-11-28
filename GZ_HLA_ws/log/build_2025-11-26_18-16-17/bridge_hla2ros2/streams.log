@@ -1,0 +1,24 @@
+[0.722s] Invoking command in '/home/vicen/ISDEFE/GZ_HLA_ws/src/Bridge_HLA2ROS2': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bridge_hla2ros2 build --build-base /home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/build install --record /home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/install.log --single-version-externally-managed install_data
+[0.949s] running egg_info
+[0.966s] writing ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/PKG-INFO
+[0.967s] writing dependency_links to ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/dependency_links.txt
+[0.967s] writing entry points to ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/entry_points.txt
+[0.967s] writing requirements to ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/requires.txt
+[0.967s] writing top-level names to ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/top_level.txt
+[1.002s] reading manifest file '../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/SOURCES.txt'
+[1.002s] writing manifest file '../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info/SOURCES.txt'
+[1.002s] running build
+[1.002s] running build_py
+[1.002s] copying src/universal_bridge.py -> /home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/build/lib/bridge_hla2ros2
+[1.003s] running install
+[1.007s] running install_lib
+[1.025s] copying /home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/build/lib/bridge_hla2ros2/universal_bridge.py -> /home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages/bridge_hla2ros2
+[1.025s] byte-compiling /home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages/bridge_hla2ros2/universal_bridge.py to universal_bridge.cpython-312.pyc
+[1.029s] running install_data
+[1.029s] running install_egg_info
+[1.047s] removing '/home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages/bridge_hla2ros2-0.0.0-py3.12.egg-info' (and everything under it)
+[1.048s] Copying ../../build/bridge_hla2ros2/bridge_hla2ros2.egg-info to /home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages/bridge_hla2ros2-0.0.0-py3.12.egg-info
+[1.048s] running install_scripts
+[1.156s] Installing universal_bridge script to /home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/bridge_hla2ros2
+[1.157s] writing list of installed files to '/home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/install.log'
+[1.176s] Invoked command in '/home/vicen/ISDEFE/GZ_HLA_ws/src/Bridge_HLA2ROS2' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/GZ_HLA_ws/install/bridge_hla2ros2/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bridge_hla2ros2 build --build-base /home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/build install --record /home/vicen/ISDEFE/GZ_HLA_ws/build/bridge_hla2ros2/install.log --single-version-externally-managed install_data

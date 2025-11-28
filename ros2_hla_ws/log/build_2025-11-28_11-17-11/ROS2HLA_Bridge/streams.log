@@ -1,0 +1,17 @@
+[1.895s] Invoking command in '/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build --no-deps symlink_data
+[2.581s] running develop
+[3.016s] running egg_info
+[3.055s] writing ROS2HLA_Bridge.egg-info/PKG-INFO
+[3.056s] writing dependency_links to ROS2HLA_Bridge.egg-info/dependency_links.txt
+[3.056s] writing entry points to ROS2HLA_Bridge.egg-info/entry_points.txt
+[3.056s] writing requirements to ROS2HLA_Bridge.egg-info/requires.txt
+[3.056s] writing top-level names to ROS2HLA_Bridge.egg-info/top_level.txt
+[3.137s] reading manifest file 'ROS2HLA_Bridge.egg-info/SOURCES.txt'
+[3.139s] writing manifest file 'ROS2HLA_Bridge.egg-info/SOURCES.txt'
+[3.185s] running build_ext
+[3.185s] Creating /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages/ROS2HLA-Bridge.egg-link (link to .)
+[3.186s] Installing bridge_node script to /home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/ROS2HLA_Bridge
+[3.187s] 
+[3.187s] Installed /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge
+[3.187s] running symlink_data
+[3.245s] Invoked command in '/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/ros2_hla_ws/install/ROS2HLA_Bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/vicen/ISDEFE/ros2_hla_ws/build/ROS2HLA_Bridge/build --no-deps symlink_data

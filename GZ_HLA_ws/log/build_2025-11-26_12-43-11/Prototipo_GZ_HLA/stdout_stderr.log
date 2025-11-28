@@ -1,0 +1,30 @@
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+WARNING: Package name "Prototipo_GZ_HLA" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/vicen/ISDEFE/GZ_HLA_ws/build/Prototipo_GZ_HLA
+-- Install configuration: ""
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/launch
+-- Installing: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/launch/server.launch.py
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/launch/client.launch.py
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/config
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/config/server_config.yaml
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/config/client.rviz
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/config/client_config.yaml
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/worlds
+-- Installing: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/lib/Prototipo_GZ_HLA/spawn_robot.py
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/ament_index/resource_index/package_run_dependencies/Prototipo_GZ_HLA
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/ament_index/resource_index/parent_prefix_path/Prototipo_GZ_HLA
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/environment/ament_prefix_path.sh
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/environment/path.sh
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/environment/path.dsv
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/local_setup.bash
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/local_setup.sh
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/local_setup.zsh
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/local_setup.dsv
+-- Installing: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/package.dsv
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/ament_index/resource_index/packages/Prototipo_GZ_HLA
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/cmake/Prototipo_GZ_HLAConfig.cmake
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/cmake/Prototipo_GZ_HLAConfig-version.cmake
+-- Up-to-date: /home/vicen/ISDEFE/GZ_HLA_ws/install/Prototipo_GZ_HLA/share/Prototipo_GZ_HLA/package.xml

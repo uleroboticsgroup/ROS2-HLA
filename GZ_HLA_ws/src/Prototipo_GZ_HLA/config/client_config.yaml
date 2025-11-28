@@ -1,0 +1,22 @@
+federation_name: "GazeboHlaFed"
+federate_name: "ClientBridge"
+fom_name: "UniversalRosFom"
+time:
+  mode: "hla_slave" # Client follows HLA time
+  step: 0.01
+  lookahead: 0.01
+nodes:
+  # Client controls the robot
+  # It subscribes to pose from HLA (for Viz)
+  # It publishes cmd_vel to HLA (for Control)
+  robot_1:
+    object_class: "Robot"
+    attributes:
+      pose:
+        ros_topic: "/robot_1/pose" # Visualization topic
+        ros_type: "geometry_msgs.msg.Pose"
+        direction: "hla_to_ros2"
+      cmd_vel:
+        ros_topic: "/robot_1/cmd_vel" # Control topic
+        ros_type: "geometry_msgs.msg.Twist"
+        direction: "ros2_to_hla"
