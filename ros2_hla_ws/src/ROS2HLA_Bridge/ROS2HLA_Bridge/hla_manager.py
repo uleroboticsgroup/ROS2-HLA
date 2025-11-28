@@ -498,6 +498,11 @@ class HLAManager:
         except Exception as e:
             self.logger.error(f"Error enabling time management: {e}")
 
+        # Initialize Real-Time Pacer
+        self.realtime_start_time = time.time()
+        self.initial_logical_time = self.logical_time
+        self.logger.info(f"Real-Time Pacer initialized. Start Time: {self.realtime_start_time}, Initial Logical Time: {self.initial_logical_time}")
+
     def advance_time(self, step=None):
         if not (self.is_regulating or self.is_constrained):
             return
@@ -506,6 +511,19 @@ class HLAManager:
             step = self.time_step
 
         target_time = self.logical_time + step
+        
+        # Real-Time Pacer Logic
+        # Only pace if we are regulating (driving the time). 
+        # If we are only constrained (Client), we should catch up to the leader as fast as possible.
+        if hasattr(self, 'realtime_start_time') and self.is_regulating:
+            expected_wall_time = target_time - self.initial_logical_time
+            current_wall_time = time.time() - self.realtime_start_time
+            
+            if current_wall_time < expected_wall_time:
+                sleep_duration = expected_wall_time - current_wall_time
+                # self.logger.info(f"Pacing: Sleeping for {sleep_duration:.4f}s")
+                time.sleep(sleep_duration)
+
         self.time_advance_granted = False
         
         try:
