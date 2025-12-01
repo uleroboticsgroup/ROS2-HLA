@@ -1,7 +1,7 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument, TimerAction
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, TextSubstitution
 import os
 from ament_index_python.packages import get_package_share_directory
 
@@ -18,7 +18,7 @@ def generate_launch_description():
     pose_listener_node = Node(
         package='ROS2HLA_Bridge',
         executable='pose_listener.py',
-        name='pose_listener',
+        name='client_pose_listener',
         output='screen',
         parameters=[{'topic_prefix': '/Turtle'}]
     )
@@ -38,8 +38,27 @@ def generate_launch_description():
         ]
     )
 
+    turtlesim_node = Node(
+        package='turtlesim',
+        executable='turtlesim_node',
+        name='client_turtlesim',
+        namespace=['/client/', LaunchConfiguration('robot_name')]
+    )
+
+    visualizer_node = Node(
+        package='ROS2HLA_Bridge',
+        executable='visualizer.py',
+        name='client_visualizer',
+        parameters=[{
+            'pose_topic': ['/', LaunchConfiguration('robot_name'), '/pose'],
+            'turtle_name': ['client/', LaunchConfiguration('robot_name'), '/turtle1']
+        }]
+    )
+
     return LaunchDescription([
         robot_name_arg,
+        turtlesim_node,
+        visualizer_node,
         bridge_node,
         delayed_pose_listener
     ])

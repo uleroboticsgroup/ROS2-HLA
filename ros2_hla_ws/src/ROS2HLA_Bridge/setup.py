@@ -15,7 +15,7 @@ setup(
         (os.path.join('share', package_name, 'launch'), glob('examples/turtlesim/launch/*.launch.py')),
         (os.path.join('share', package_name, 'examples/turtlesim/config'), glob('examples/turtlesim/config/*.yaml')),
         (os.path.join('share', package_name, 'examples/turtlesim/fom'), glob('examples/turtlesim/fom/*.xml')),
-        ('lib/' + package_name, ['examples/turtlesim/pose_listener.py']),
+        ('lib/' + package_name, ['examples/turtlesim/pose_listener.py', 'examples/turtlesim/visualizer.py']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
