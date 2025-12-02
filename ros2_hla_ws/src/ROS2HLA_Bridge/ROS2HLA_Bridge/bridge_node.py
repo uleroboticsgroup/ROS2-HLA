@@ -3,6 +3,7 @@ from rclpy.node import Node
 import yaml
 import importlib
 import os
+import jpype
 from ROS2HLA_Bridge.hla_manager import HLAManager
 from ROS2HLA_Bridge.fom_generator import FOMGenerator
 import tempfile
@@ -53,10 +54,8 @@ class ROS2HLABridge(Node):
         # Generate FOM
         fom_gen = FOMGenerator()
         # Create a temp file for FOM
-        # We use a fixed name in /tmp to avoid clutter or unique per run?
         # Unique per run is safer for concurrent tests, but HLA needs consistent FOM.
         # Actually, if we generate it, it should be consistent if config is consistent.
-        # Let's use a temp file.
         fd, fom_path = tempfile.mkstemp(suffix='.xml', prefix='generated_fom_')
         os.close(fd)
         fom_gen.generate(self.config, fom_path)
@@ -166,6 +165,9 @@ class ROS2HLABridge(Node):
         self.get_logger().info("DEBUG: Finished setup_hla_to_ros")
 
     def ros_to_hla_callback(self, msg, config_item):
+        if not jpype.isThreadAttachedToJVM():
+            jpype.attachThreadToJVM()
+
         # Extract data from ROS msg based on mapping
         data_map = {}
         for ros_field, hla_attr in config_item['mapping'].items():
@@ -271,6 +273,9 @@ class ROS2HLABridge(Node):
                     self.pubs[item['ros_topic']].publish(msg)
 
     def hla_loop(self):
+        if not jpype.isThreadAttachedToJVM():
+            jpype.attachThreadToJVM()
+
         if self.hla_manager.is_regulating or self.hla_manager.is_constrained:
             self.hla_manager.advance_time()
         else:
@@ -284,7 +289,6 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
-        # Resign?
         pass
     rclpy.shutdown()
 
