@@ -18,7 +18,7 @@ While the core bridge is agnostic and configurable for any ROS2 system, this pac
 ## Prerequisites
 - ROS2 Jazzy
 - Pitch RTI (prti1516e.jar) at `{{pitch_rti_path}}`
-- `turtlesim` package (for the example).
+- `turtlesim` package (for the Turtlesim example).
 
 ## Configuration Guide
 
@@ -76,7 +76,7 @@ hla_to_ros:
 You can use `{{variable_name}}` in the YAML file. These variables are replaced at runtime by launch arguments.
 Example: `ros_topic: "/{{robot_name}}/pose"` allows launching the same bridge for "Turtle1", "Turtle2", etc.
 
-## Example: Turtlesim Collaborative Simulation
+## Example 1: Turtlesim Collaborative Simulation
 This example demonstrates a Server (Regulating) running the physics simulation and multiple Clients (Constrained) visualizing and controlling the robots.
 
 ### 1. Start the Server (Regulating Federate)
@@ -92,7 +92,7 @@ ros2 launch ROS2HLA_Bridge client_turtlesim.launch.py robot_name:=Turtle1
 ```
 
 ### 3. Control the Robot
-The client exposes topics under the `/client/<robot_name>/` namespace (remapped to `/TurtleX` in the example for convenience).
+The client exposes topics under the `/client/<robot_name>/` namespace.
 
 To move `Turtle1`:
 ```bash
