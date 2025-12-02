@@ -109,3 +109,28 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r cmd_vel:=/Tur
 - **Bridge Node**: Subscribes HLA Object `Robot` -> `/TurtleX/pose`. Publishes `/TurtleX/cmd_vel` -> HLA Interaction `Control`.
 - **Turtlesim Node (Visualizer)**: A "ghost" simulation that only displays the turtle.
 - **Visualizer Node**: Subscribes to `/TurtleX/pose` and calls `/TurtleX/teleport_absolute` to update the visualizer.
+
+## Example 2: TurtleBot4 Gazebo Simulation
+This example demonstrates controlling a TurtleBot4 in a Gazebo simulation via HLA.
+
+### 1. Start the Server (Regulating Federate)
+Launches the Gazebo simulation (Warehouse world) and the bridge.
+```bash
+ros2 launch ROS2HLA_Bridge server_turtlebot4.launch.py
+```
+
+### 2. Start the Client (Constrained Federate)
+Launches the client bridge and an interactive teleop controller in the same terminal.
+```bash
+ros2 run ROS2HLA_Bridge client_interactive
+```
+
+### 3. Control the Robot
+Use the keyboard keys (u, i, o, j, k, l, m, ,, .) in the client terminal to move the robot.
+- **i**: Forward
+- **k**: Stop
+- **j**: Left
+- **l**: Right
+- **space**: Force Stop
+
+The client terminal will also display the robot's odometry received from the simulation.

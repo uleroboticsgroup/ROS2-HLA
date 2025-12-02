@@ -1,0 +1,43 @@
+hla:
+  federation_name: "RoboticsFed"
+  federate_name: "ROS2Bridge_Gazebo"
+  fom_file_path: "/home/vicen/ISDEFE/ros2_hla_ws/src/ROS2HLA_Bridge/examples/turtlebot4_gazebo/fom/robotics.xml"
+  pitch_jar_path: "/home/vicen/prti1516e/lib/prti1516e.jar"
+
+time_management:
+  is_regulating: true
+  is_constrained: false
+  time_step: 0.1
+  lookahead: 0.1
+
+sync_points:
+  - "InitialSetup"
+  - "ReadyToRun"
+
+# ROS2 -> HLA (We subscribe to ROS2 topic and Update Attribute Values in HLA)
+ros_to_hla:
+  - ros_topic: "/odom"
+    ros_type: "nav_msgs.msg.Odometry"
+    hla_object_class: "Robot"
+    hla_instance_name: "TurtleBot4"
+    mapping:
+      pose.pose.position.x: "positionX"
+      pose.pose.position.y: "positionY"
+      # Orientation in Odom is quaternion, but our simple FOM might expect theta (float) or we map a component.
+      # For simplicity in this demo, let's just map position. 
+      # If we need theta, we'd need a converter or update the FOM/Bridge to handle quaternions or conversion.
+      # The turtlesim example mapped 'theta' directly.
+      # Let's assume for now we just map X and Y.
+      # If we really need theta, we might need a custom bridge extension or a helper node to convert Odom -> Pose (with theta).
+      # Let's stick to X and Y for now.
+
+# HLA -> ROS2 (We receive Interaction/Attribute Update from HLA and Publish to ROS2 topic)
+hla_to_ros:
+  - ros_topic: "/cmd_vel"
+    ros_type: "geometry_msgs.msg.TwistStamped"
+    hla_interaction_class: "Control"
+    filter_parameter: "robotName"
+    filter_value: "TurtleBot4"
+    mapping:
+      twist.linear.x: "linearVel"
+      twist.angular.z: "angularVel"

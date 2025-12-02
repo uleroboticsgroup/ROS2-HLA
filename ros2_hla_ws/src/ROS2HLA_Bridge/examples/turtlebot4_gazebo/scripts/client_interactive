@@ -1,0 +1,15 @@
+#!/bin/bash
+# Trap interrupts to kill background processes
+trap 'kill $(jobs -p)' SIGINT SIGTERM EXIT
+
+echo "Starting Bridge and Monitor in background..."
+ros2 launch ROS2HLA_Bridge client_background.launch.py &
+
+# Wait for bridge to initialize
+sleep 3
+
+echo "Starting Control Node..."
+ros2 run ROS2HLA_Bridge control_node.py
+
+# Wait for background jobs
+wait
