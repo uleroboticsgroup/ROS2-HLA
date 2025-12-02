@@ -58,7 +58,6 @@ class HLAManager:
             jpype.startJVM(classpath=classpath)
         
         # Import HLA classes after JVM start
-        # Import HLA classes after JVM start
         global RtiFactoryFactory, NullFederateAmbassador, CallbackModel, ResignAction, LogicalTimeFactoryFactory
         from hla.rti1516e import RtiFactoryFactory, NullFederateAmbassador, CallbackModel, ResignAction, LogicalTimeFactoryFactory
 
@@ -77,48 +76,82 @@ class HLAManager:
 
             @jpype.JOverride
             def receiveInteraction(self, interactionClass, parameterValues, userSuppliedTag, sentOrder, transport, supplementalReceiveInfo=None):
-                self.manager._handle_interaction(interactionClass, parameterValues)
+                try:
+                    self.manager._handle_interaction(interactionClass, parameterValues)
+                except Exception as e:
+                    print(f"Error in receiveInteraction: {e}")
 
             @jpype.JOverride
             def reflectAttributeValues(self, objectInstance, attributeValues, userSuppliedTag, sentOrder, transport, reflectInfo=None):
-                self.manager._handle_reflection(objectInstance, attributeValues)
+                try:
+                    self.manager._handle_reflection(objectInstance, attributeValues)
+                except Exception as e:
+                    print(f"Error in reflectAttributeValues: {e}")
 
             @jpype.JOverride
             def discoverObjectInstance(self, objectInstance, objectClass, objectName):
-                self.manager._handle_discovery(objectInstance, objectName)
+                try:
+                    self.manager._handle_discovery(objectInstance, objectName)
+                except Exception as e:
+                    print(f"Error in discoverObjectInstance: {e}")
 
             @jpype.JOverride
             def objectInstanceNameReservationSucceeded(self, objectName):
-                self.manager._handle_reservation_success(objectName)
+                try:
+                    self.manager._handle_reservation_success(objectName)
+                except Exception as e:
+                    print(f"Error in objectInstanceNameReservationSucceeded: {e}")
 
             @jpype.JOverride
             def objectInstanceNameReservationFailed(self, objectName):
-                self.manager._handle_reservation_failure(objectName)
+                try:
+                    self.manager._handle_reservation_failure(objectName)
+                except Exception as e:
+                    print(f"Error in objectInstanceNameReservationFailed: {e}")
 
             # --- Implement all other required methods from FederateAmbassador ---
             @jpype.JOverride
             def announceSynchronizationPoint(self, label, tag, *args):
-                self.manager._handle_announce_sync_point(label)
+                try:
+                    self.manager._handle_announce_sync_point(label)
+                except Exception as e:
+                    print(f"Error in announceSynchronizationPoint: {e}")
 
             @jpype.JOverride
             def federationSynchronized(self, label, *args):
-                self.manager._handle_federation_synchronized(label)
+                try:
+                    self.manager._handle_federation_synchronized(label)
+                except Exception as e:
+                    print(f"Error in federationSynchronized: {e}")
 
             @jpype.JOverride
             def timeConstrainedEnabled(self, time, *args):
-                self.manager._handle_time_constrained_enabled(time)
+                try:
+                    self.manager._handle_time_constrained_enabled(time)
+                except Exception as e:
+                    print(f"Error in timeConstrainedEnabled: {e}")
 
             @jpype.JOverride
             def timeRegulationEnabled(self, time, *args):
-                self.manager._handle_time_regulation_enabled(time)
+                try:
+                    self.manager._handle_time_regulation_enabled(time)
+                except Exception as e:
+                    print(f"Error in timeRegulationEnabled: {e}")
 
             @jpype.JOverride
             def timeAdvanceGrant(self, time, *args):
-                self.manager._handle_time_advance_grant(time)
+                try:
+                    self.manager._handle_time_advance_grant(time)
+                except Exception as e:
+                    print(f"Error in timeAdvanceGrant: {e}")
 
             @jpype.JOverride
             def synchronizationPointRegistrationSucceeded(self, label, *args):
-                self.manager._handle_sync_point_registration_succeeded(label)
+                try:
+                    self.manager._handle_sync_point_registration_succeeded(label)
+                except Exception as e:
+                    print(f"Error in synchronizationPointRegistrationSucceeded: {e}")
+
             @jpype.JOverride
             def synchronizationPointRegistrationFailed(self, label, reason, *args): pass
             @jpype.JOverride
