@@ -34,6 +34,17 @@ ros_actions:
     fixed_parameters:
       robotName: "TurtleBot4"
 
+  - ros_action: "/client/dock"
+    ros_type: "irobot_create_msgs.action.Dock"
+    hla_goal_interaction: "DockGoal"
+    hla_result_interaction: "DockResult"
+    mapping:
+      goal: {}
+      result:
+        is_docked: "isDocked"
+    fixed_parameters:
+      robotName: "TurtleBot4"
+
 # HLA -> ROS2 (Client receives pose/odom from HLA)
 # The bridge receives updates for 'Robot' object and publishes to /turtlebot4_control/odom_monitor
 hla_to_ros:

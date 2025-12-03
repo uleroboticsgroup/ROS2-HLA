@@ -275,6 +275,7 @@ class ROS2HLABridge(Node):
         actions_config = self.config.get('ros_actions', [])
         
         self.action_map = {} # goal_interaction -> config_item
+        self.action_clients = {} # action_name -> ActionClient
         self.pending_action_goals = {} # goal_id -> Event
         
         # Callback group for actions to allow reentrancy
@@ -340,7 +341,8 @@ class ROS2HLABridge(Node):
             elif self.hla_manager.is_regulating:
                 # Provider: Call real ROS Action (Server Bridge)
                 from rclpy.action import ActionClient
-                self.action_client = ActionClient(self, action_type, action_name, callback_group=self.action_cb_group)
+                client = ActionClient(self, action_type, action_name, callback_group=self.action_cb_group)
+                self.action_clients[action_name] = client
                 self.get_logger().info(f"Prepared Action Client (Provider): {action_name}")
                 
                 # Publish Result Interaction
@@ -356,9 +358,19 @@ class ROS2HLABridge(Node):
         for ros_field, hla_param in item['mapping'].get('goal', {}).items():
             val = get_nested_attr(goal_handle.request, ros_field)
             data_map[hla_param] = val
+
+        # Add fixed parameters if any
+        if 'fixed_parameters' in item:
+            for param, value in item['fixed_parameters'].items():
+                data_map[param] = value
             
         # 2. Send Goal Interaction
         goal_int = item['hla_goal_interaction']
+        self.get_logger().info(f"Sending HLA Interaction {goal_int} with data {data_map}")
+        
+        if not jpype.isThreadAttachedToJVM():
+            jpype.attachThreadToJVM()
+            
         with self.hla_lock:
             self.hla_manager.send_interaction(goal_int, data_map)
         
@@ -388,7 +400,7 @@ class ROS2HLABridge(Node):
             if hla_param in hla_res_data:
                 val = hla_res_data[hla_param]
                 # Type conversion: HLA float -> bool?
-                if isinstance(val, float) and ros_field == 'is_docked':
+                if isinstance(val, float) and (ros_field == 'is_docked' or ros_field == 'sees_dock'):
                      val = bool(val)
                 set_nested_attr(result, ros_field, val)
         
@@ -469,11 +481,18 @@ class ROS2HLABridge(Node):
                 val = self.hla_manager.decode_value(val_bytes, 'float')
                 set_nested_attr(goal_msg, ros_field, val)
 
-        if not self.action_client.wait_for_server(timeout_sec=5.0):
-            self.get_logger().warn("Action server not available")
+        action_name = item['ros_action']
+        if action_name not in self.action_clients:
+             self.get_logger().error(f"No action client for {action_name}")
+             return
+             
+        client = self.action_clients[action_name]
+
+        if not client.wait_for_server(timeout_sec=5.0):
+            self.get_logger().warn(f"Action server {action_name} not available")
             return
 
-        future = self.action_client.send_goal_async(goal_msg)
+        future = client.send_goal_async(goal_msg)
         future.add_done_callback(lambda f, it=item: self.on_action_goal_accepted(f, it))
 
     def on_action_goal_accepted(self, future, item):
@@ -481,30 +500,18 @@ class ROS2HLABridge(Node):
         if not goal_handle.accepted:
             self.get_logger().info('Goal rejected')
             # Send rejection result to HLA
+            action_name = item['ros_action']
             if action_name in self.action_map:
                 config = self.action_map[action_name]
                 result_interaction = config['hla_result_interaction']
-                # We need to construct a result that indicates failure/rejection.
-                # Since we don't have the actual result object, we have to fake it based on the mapping.
-                # For Undock, we map 'is_docked' to 'isDocked'.
-                # If rejected, we assume it failed, so we might want to say is_docked=True (still docked)
-                # or whatever makes sense.
-                # However, we can't easily access the mapping logic here without duplicating it.
-                # Let's try to send a generic failure if possible, or just use a default.
-                # For now, I will hardcode for Undock as a quick fix, or try to be generic.
-                
-                # Generic approach: create a dummy result with default values?
-                # Or better: The mapping in config defines how to map result fields.
-                # We can create a dict of {hla_param: value}.
                 
                 hla_data = {}
-                # For Undock, is_docked -> isDocked.
-                # If rejected, let's say isDocked = True (failed to undock).
-                # This is specific to Undock.
                 if 'Undock' in action_name:
                      hla_data['isDocked'] = True 
                 
                 # Send it
+                if not jpype.isThreadAttachedToJVM():
+                    jpype.attachThreadToJVM()
                 self.hla_manager.send_interaction(result_interaction, hla_data)
             return
 
@@ -524,6 +531,9 @@ class ROS2HLABridge(Node):
                 val = 1.0 if val else 0.0
             data_map[hla_param] = val
             
+        if not jpype.isThreadAttachedToJVM():
+            jpype.attachThreadToJVM()
+
         with self.hla_lock:
             self.hla_manager.send_interaction(item['hla_result_interaction'], data_map)
 

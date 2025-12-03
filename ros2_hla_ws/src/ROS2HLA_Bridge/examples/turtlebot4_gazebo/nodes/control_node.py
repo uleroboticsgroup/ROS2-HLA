@@ -2,7 +2,7 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
-from irobot_create_msgs.action import Undock
+from irobot_create_msgs.action import Undock, Dock
 from geometry_msgs.msg import TwistStamped
 import sys
 import select
@@ -21,6 +21,7 @@ q/z : increase/decrease max speeds by 10%
 w/x : increase/decrease only linear speed by 10%
 e/c : increase/decrease only angular speed by 10%
 d   : undock
+f   : dock
 space key, k : force stop
 anything else : stop smoothly
 
@@ -62,6 +63,7 @@ class TeleopNode(Node):
         super().__init__('control_node')
         self.publisher_ = self.create_publisher(TwistStamped, '/turtlebot4_control/cmd_vel', 10)
         self.undock_client = ActionClient(self, Undock, '/client/undock')
+        self.dock_client = ActionClient(self, Dock, '/client/dock')
         self.speed = 0.5
         self.turn = 1.0
         self.x = 0.0
@@ -95,6 +97,18 @@ class TeleopNode(Node):
             else:
                 self.get_logger().info("Sending Undock goal...")
                 self.future = self.undock_client.send_goal_async(goal_msg)
+                self.future.add_done_callback(self.goal_response_callback)
+
+        elif key == 'f':
+            # Dock
+            self.get_logger().info("Docking...")
+            goal_msg = Dock.Goal()
+            
+            if not self.dock_client.wait_for_server(timeout_sec=1.0):
+                self.get_logger().warn("Dock action server not ready")
+            else:
+                self.get_logger().info("Sending Dock goal...")
+                self.future = self.dock_client.send_goal_async(goal_msg)
                 self.future.add_done_callback(self.goal_response_callback)
 
         elif key == ' ' or key == 'k':

@@ -44,3 +44,12 @@ ros_actions:
       goal: {}
       result: 
         is_docked: "isDocked"
+
+  - ros_action: "/dock"
+    ros_type: "irobot_create_msgs.action.Dock"
+    hla_goal_interaction: "DockGoal"
+    hla_result_interaction: "DockResult"
+    mapping:
+      goal: {}
+      result: 
+        is_docked: "isDocked"
