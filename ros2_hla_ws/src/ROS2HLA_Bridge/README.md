@@ -132,5 +132,5 @@ Use the keyboard keys (u, i, o, j, k, l, m, ,, .) in the client terminal to move
 - **j**: Left
 - **l**: Right
 - **space**: Force Stop
-
-The client terminal will also display the robot's odometry received from the simulation.
+- **d**: Undock
+- **f**: Dock
