@@ -3,6 +3,7 @@ from rclpy.node import Node
 import yaml
 import importlib
 import os
+import time
 import jpype
 from ROS2HLA_Bridge.hla_manager import HLAManager
 from ROS2HLA_Bridge.fom_generator import FOMGenerator
@@ -37,6 +38,9 @@ class ROS2HLABridge(Node):
         # Load Config
         self.declare_parameter('config_file', '')
         self.declare_parameter('robot_name', 'Turtle1') # Default
+        
+        from rclpy.callback_groups import ReentrantCallbackGroup
+        self.action_cb_group = ReentrantCallbackGroup()
         
         config_file = self.get_parameter('config_file').get_parameter_value().string_value
         robot_name = self.get_parameter('robot_name').get_parameter_value().string_value
@@ -84,6 +88,12 @@ class ROS2HLABridge(Node):
         # Setup HLA -> ROS2
         self.setup_hla_to_ros()
         
+        import threading
+        self.hla_lock = threading.Lock()
+
+        # Setup Actions
+        self.setup_actions()
+        
         # Timer for HLA callbacks
         # If time management is enabled, this loop will drive the time advance
         self.create_timer(0.01, self.hla_loop)
@@ -113,7 +123,7 @@ class ROS2HLABridge(Node):
             def callback(msg, item=item):
                 self.ros_to_hla_callback(msg, item)
             
-            sub = self.create_subscription(msg_type, topic, callback, 10)
+            sub = self.create_subscription(msg_type, topic, callback, 10, callback_group=self.action_cb_group)
             self.subs.append(sub)
             self.get_logger().info(f"Bridging {topic} -> HLA {item.get('hla_object_class') or item.get('hla_interaction_class')}")
 
@@ -169,11 +179,14 @@ class ROS2HLABridge(Node):
             jpype.attachThreadToJVM()
 
         # Extract data from ROS msg based on mapping
+        # self.get_logger().info(f"Received ROS msg on {config_item['ros_topic']}")
+        
         data_map = {}
-        for ros_field, hla_attr in config_item['mapping'].items():
-            val = get_nested_attr(msg, ros_field)
-            data_map[hla_attr] = val
-            
+        for ros_field, hla_param in config_item['mapping'].items():
+            value = get_nested_attr(msg, ros_field) # Assuming get_ros_field_value is get_nested_attr
+            if value is not None:
+                data_map[hla_param] = value
+
         # Add fixed parameters if any
         if 'fixed_parameters' in config_item:
             for param, value in config_item['fixed_parameters'].items():
@@ -194,44 +207,209 @@ class ROS2HLABridge(Node):
 
     def hla_object_update_callback(self, objectInstance, attributeValues):
         obj_name = self.hla_manager.get_object_name(objectInstance)
-        
         if not obj_name:
-            # We haven't discovered it yet or it's unknown
             return
 
-        for item in self.config.get('hla_to_ros', []):
-            if 'hla_object_class' not in item: continue
-            
-            target_name = item.get('hla_instance_name')
-            
-            if hasattr(self, 'hla_object_map'):
-                 class_name = item['hla_object_class']
-                 if class_name in self.hla_object_map:
-                     mapped_info = self.hla_object_map[class_name]
-                     target_name = mapped_info['instance_name']
-            
-            if target_name == obj_name:
-                # Create ROS message
-                msg_type = get_ros_class(item['ros_type'])
-                msg = msg_type()
+        # Find matching config
+        for item in self.config['hla_to_ros']:
+            if 'hla_object_class' in item and item['hla_instance_name'] == obj_name:
+                # Decode and publish
+                msg = get_ros_class(item['ros_type'])() 
                 
-                # Map attributes
-                class_name = item['hla_object_class']
                 for ros_field, hla_attr in item['mapping'].items():
-                    if (class_name, hla_attr) in self.hla_manager.attribute_handles:
-                        attr_handle = self.hla_manager.attribute_handles[(class_name, hla_attr)]
-                        if attributeValues.containsKey(attr_handle):
-                            val_bytes = attributeValues.get(attr_handle)
-                            # Infer type. Assume float for pose
-                            decoded_val = self.hla_manager.decode_value(val_bytes, 'float')
-                            set_nested_attr(msg, ros_field, decoded_val)
+                    if (item['hla_object_class'], hla_attr) in self.hla_manager.attribute_handles:
+                        handle = self.hla_manager.attribute_handles[(item['hla_object_class'], hla_attr)]
+                        if attributeValues.containsKey(handle):
+                            val_bytes = attributeValues.get(handle)
+                            val = self.hla_manager.decode_value(val_bytes, 'float')
+                            set_nested_attr(msg, ros_field, val)
                 
-                # Publish
-                if item['ros_topic'] in self.pubs:
-                    self.pubs[item['ros_topic']].publish(msg)
+                publisher = self.pubs[item['ros_topic']]
+                publisher.publish(msg)
 
     def hla_interaction_callback(self, interactionClass, parameterValues):
-        # ... (Existing logic) ...
+        interaction_name = None
+        for name, handle in self.hla_manager.interaction_class_handles.items():
+            if handle.equals(interactionClass):
+                interaction_name = name
+                break
+        
+        if not interaction_name:
+            return
+
+        # Check if it matches any hla_to_ros mapping
+        for item in self.config['hla_to_ros']:
+            if 'hla_interaction_class' in item and item['hla_interaction_class'] == interaction_name:
+                # Check filter
+                if 'filter_parameter' in item:
+                    p_handle = self.hla_manager.parameter_handles[(interaction_name, item['filter_parameter'])]
+                    if parameterValues.containsKey(p_handle):
+                        val_bytes = parameterValues.get(p_handle)
+                        val = self.hla_manager.decode_value(val_bytes, 'string')
+                        if val != item['filter_value']:
+                            continue
+                
+                # Decode and publish
+                msg = get_ros_class(item['ros_type'])() 
+                
+                # Set timestamp if header exists
+                if hasattr(msg, 'header'):
+                    msg.header.stamp = self.get_clock().now().to_msg()
+                    if not msg.header.frame_id:
+                         msg.header.frame_id = 'base_link'
+                
+                # Map parameters
+                for ros_field, hla_param in item['mapping'].items():
+                    if (interaction_name, hla_param) in self.hla_manager.parameter_handles:
+                        handle = self.hla_manager.parameter_handles[(interaction_name, hla_param)]
+                        if parameterValues.containsKey(handle):
+                            val_bytes = parameterValues.get(handle)
+                            val = self.hla_manager.decode_value(val_bytes, 'float')
+                            set_nested_attr(msg, ros_field, val)
+                
+                publisher = self.pubs[item['ros_topic']]
+                publisher.publish(msg)
+
+    def setup_actions(self):
+        self.get_logger().info("DEBUG: Starting setup_actions")
+        actions_config = self.config.get('ros_actions', [])
+        
+        self.action_map = {} # goal_interaction -> config_item
+        self.pending_action_goals = {} # goal_id -> Event
+        
+        # Callback group for actions to allow reentrancy
+        # self.action_cb_group = ReentrantCallbackGroup() # Initialized in __init__
+        
+        for item in actions_config:
+            # 1. Subscribe to Goal Interaction (Server side)
+            goal_int = item['hla_goal_interaction']
+            self.action_map[goal_int] = item
+            
+            if goal_int not in self.hla_manager.interaction_class_handles:
+                 try:
+                    handle = self.hla_manager.rti_ambassador.getInteractionClassHandle(goal_int)
+                    self.hla_manager.interaction_class_handles[goal_int] = handle
+                    self.hla_manager.rti_ambassador.subscribeInteractionClass(handle)
+                    self.get_logger().info(f"Subscribed to Action Goal: {goal_int}")
+                    
+                    for _, param in item['mapping'].get('goal', {}).items():
+                        p_handle = self.hla_manager.rti_ambassador.getParameterHandle(handle, param)
+                        self.hla_manager.parameter_handles[(goal_int, param)] = p_handle
+                 except Exception as e:
+                    self.get_logger().error(f"Failed to subscribe to action goal {goal_int}: {e}")
+
+            # Subscribe to Result Interaction
+            res_int = item['hla_result_interaction']
+            self.action_map[res_int] = item
+            
+            if res_int not in self.hla_manager.interaction_class_handles:
+                 try:
+                    handle = self.hla_manager.rti_ambassador.getInteractionClassHandle(res_int)
+                    self.hla_manager.interaction_class_handles[res_int] = handle
+                    self.hla_manager.rti_ambassador.subscribeInteractionClass(handle)
+                    self.get_logger().info(f"Subscribed to Action Result: {res_int}")
+                    
+                    for _, param in item['mapping'].get('result', {}).items():
+                        p_handle = self.hla_manager.rti_ambassador.getParameterHandle(handle, param)
+                        self.hla_manager.parameter_handles[(res_int, param)] = p_handle
+                 except Exception as e:
+                    self.get_logger().error(f"Failed to subscribe to action result {res_int}: {e}")
+
+            # 2. Create ROS Action Client (Server side) or Server (Client side)
+            action_type = get_ros_class(item['ros_type'])
+            action_name = item['ros_action']
+            
+            if self.hla_manager.is_constrained:
+                # Consumer: Expose Action Server to ROS (Client Bridge)
+                # When ROS sends goal -> Send HLA Goal Interaction
+                from rclpy.action import ActionServer
+                self.action_server = ActionServer(
+                    self,
+                    action_type,
+                    action_name,
+                    lambda goal_handle, it=item: self.ros_action_execute_callback(goal_handle, it),
+                    callback_group=self.action_cb_group
+                )
+                self.get_logger().info(f"Created Action Server (Consumer): {action_name}")
+                
+                # Publish Goal Interaction
+                handle = self.hla_manager.rti_ambassador.getInteractionClassHandle(goal_int)
+                self.hla_manager.interaction_class_handles[goal_int] = handle
+                self.hla_manager.rti_ambassador.publishInteractionClass(handle)
+                
+            elif self.hla_manager.is_regulating:
+                # Provider: Call real ROS Action (Server Bridge)
+                from rclpy.action import ActionClient
+                self.action_client = ActionClient(self, action_type, action_name, callback_group=self.action_cb_group)
+                self.get_logger().info(f"Prepared Action Client (Provider): {action_name}")
+                
+                # Publish Result Interaction
+                handle = self.hla_manager.rti_ambassador.getInteractionClassHandle(res_int)
+                self.hla_manager.interaction_class_handles[res_int] = handle
+                self.hla_manager.rti_ambassador.publishInteractionClass(handle)
+
+    def ros_action_execute_callback(self, goal_handle, item):
+        self.get_logger().info(f"Received ROS Action Goal for {item['ros_action']}")
+        
+        # 1. Map Goal to HLA Interaction
+        data_map = {}
+        for ros_field, hla_param in item['mapping'].get('goal', {}).items():
+            val = get_nested_attr(goal_handle.request, ros_field)
+            data_map[hla_param] = val
+            
+        # 2. Send Goal Interaction
+        goal_int = item['hla_goal_interaction']
+        with self.hla_lock:
+            self.hla_manager.send_interaction(goal_int, data_map)
+        
+        # 3. Wait for Result
+        req_id = "action_req" # Simplification
+        
+        # Use a threading Event to wait without busy looping on spin_once
+        # The spin_once is handled by the main timer loop in another thread
+        import threading
+        event = threading.Event()
+        self.pending_action_goals[req_id] = {'event': event, 'data': None}
+        
+        # Wait indefinitely (or until node shutdown)
+        while not event.is_set():
+            if not rclpy.ok():
+                goal_handle.abort()
+                action_type = get_ros_class(item['ros_type'])
+                return action_type.Result()
+            event.wait(1.0) # Check rclpy.ok() every second
+            
+        # Fill result
+        hla_res_data = self.pending_action_goals.pop(req_id)['data']
+        action_type = get_ros_class(item['ros_type'])
+        result = action_type.Result()
+        
+        for ros_field, hla_param in item['mapping'].get('result', {}).items():
+            if hla_param in hla_res_data:
+                val = hla_res_data[hla_param]
+                # Type conversion: HLA float -> bool?
+                if isinstance(val, float) and ros_field == 'is_docked':
+                     val = bool(val)
+                set_nested_attr(result, ros_field, val)
+        
+        goal_handle.succeed()
+        return result
+
+    def hla_interaction_callback(self, interactionClass, parameterValues):
+        # Check actions
+        for int_name, item in self.action_map.items():
+            target_handle = self.hla_manager.interaction_class_handles.get(int_name)
+            if target_handle and interactionClass.equals(target_handle):
+                
+                if int_name == item['hla_goal_interaction']:
+                    self.handle_action_goal_interaction(item, parameterValues)
+                    return
+                
+                if int_name == item['hla_result_interaction']:
+                    self.handle_action_result_interaction(item, parameterValues)
+                    return
+
+        # Existing logic...
         for item in self.config.get('hla_to_ros', []):
             if 'hla_interaction_class' not in item: continue
             
@@ -259,6 +437,12 @@ class ROS2HLABridge(Node):
                 msg_type = get_ros_class(item['ros_type'])
                 msg = msg_type()
                 
+                # Set timestamp if header exists
+                if hasattr(msg, 'header'):
+                    msg.header.stamp = self.get_clock().now().to_msg()
+                    if not msg.header.frame_id:
+                         msg.header.frame_id = 'base_link'
+                
                 # Map parameters
                 for ros_field, hla_param in item['mapping'].items():
                     p_handle = self.hla_manager.parameter_handles.get((int_name, hla_param))
@@ -272,25 +456,122 @@ class ROS2HLABridge(Node):
                 if item['ros_topic'] in self.pubs:
                     self.pubs[item['ros_topic']].publish(msg)
 
+    def handle_action_goal_interaction(self, item, parameterValues):
+        self.get_logger().info(f"Received HLA Action Goal for {item['ros_action']}")
+        
+        action_type = get_ros_class(item['ros_type'])
+        goal_msg = action_type.Goal()
+        
+        for ros_field, hla_param in item['mapping'].get('goal', {}).items():
+            p_handle = self.hla_manager.parameter_handles.get((item['hla_goal_interaction'], hla_param))
+            if p_handle and parameterValues.containsKey(p_handle):
+                val_bytes = parameterValues.get(p_handle)
+                val = self.hla_manager.decode_value(val_bytes, 'float')
+                set_nested_attr(goal_msg, ros_field, val)
+
+        if not self.action_client.wait_for_server(timeout_sec=5.0):
+            self.get_logger().warn("Action server not available")
+            return
+
+        future = self.action_client.send_goal_async(goal_msg)
+        future.add_done_callback(lambda f, it=item: self.on_action_goal_accepted(f, it))
+
+    def on_action_goal_accepted(self, future, item):
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().info('Goal rejected')
+            # Send rejection result to HLA
+            if action_name in self.action_map:
+                config = self.action_map[action_name]
+                result_interaction = config['hla_result_interaction']
+                # We need to construct a result that indicates failure/rejection.
+                # Since we don't have the actual result object, we have to fake it based on the mapping.
+                # For Undock, we map 'is_docked' to 'isDocked'.
+                # If rejected, we assume it failed, so we might want to say is_docked=True (still docked)
+                # or whatever makes sense.
+                # However, we can't easily access the mapping logic here without duplicating it.
+                # Let's try to send a generic failure if possible, or just use a default.
+                # For now, I will hardcode for Undock as a quick fix, or try to be generic.
+                
+                # Generic approach: create a dummy result with default values?
+                # Or better: The mapping in config defines how to map result fields.
+                # We can create a dict of {hla_param: value}.
+                
+                hla_data = {}
+                # For Undock, is_docked -> isDocked.
+                # If rejected, let's say isDocked = True (failed to undock).
+                # This is specific to Undock.
+                if 'Undock' in action_name:
+                     hla_data['isDocked'] = True 
+                
+                # Send it
+                self.hla_manager.send_interaction(result_interaction, hla_data)
+            return
+
+        self.get_logger().info('Goal accepted')
+        res_future = goal_handle.get_result_async()
+        res_future.add_done_callback(lambda f, it=item: self.on_action_result(f, it))
+
+    def on_action_result(self, future, item):
+        result = future.result().result
+        self.get_logger().info("Got ROS Action Result, sending back to HLA")
+        
+        data_map = {}
+        for ros_field, hla_param in item['mapping'].get('result', {}).items():
+            val = get_nested_attr(result, ros_field)
+            # Convert bool to float for HLA
+            if isinstance(val, bool):
+                val = 1.0 if val else 0.0
+            data_map[hla_param] = val
+            
+        with self.hla_lock:
+            self.hla_manager.send_interaction(item['hla_result_interaction'], data_map)
+
+    def handle_action_result_interaction(self, item, parameterValues):
+        self.get_logger().info("Received HLA Action Result")
+        
+        data = {}
+        for _, hla_param in item['mapping'].get('result', {}).items():
+             p_handle = self.hla_manager.parameter_handles.get((item['hla_result_interaction'], hla_param))
+             if p_handle and parameterValues.containsKey(p_handle):
+                val_bytes = parameterValues.get(p_handle)
+                val = self.hla_manager.decode_value(val_bytes, 'float')
+                data[hla_param] = val
+        
+        req_id = "action_req"
+        if req_id in self.pending_action_goals:
+            self.pending_action_goals[req_id]['data'] = data
+            self.pending_action_goals[req_id]['event'].set()
+
     def hla_loop(self):
         if not jpype.isThreadAttachedToJVM():
             jpype.attachThreadToJVM()
-
-        if self.hla_manager.is_regulating or self.hla_manager.is_constrained:
-            self.hla_manager.advance_time()
-        else:
-            self.hla_manager.spin_once()
+            
+        with self.hla_lock:
+            try:
+                if self.hla_manager.is_regulating or self.hla_manager.is_constrained:
+                    self.hla_manager.advance_time()
+                else:
+                    self.hla_manager.spin_once()
+            except Exception as e:
+                self.get_logger().error(f"HLA spin error: {e}")
 
 def main(args=None):
     rclpy.init(args=args)
     node = ROS2HLABridge()
+    
+    # Use MultiThreadedExecutor to allow actions to block while other callbacks run
+    from rclpy.executors import MultiThreadedExecutor
+    executor = MultiThreadedExecutor()
+    executor.add_node(node)
+    
     try:
-        rclpy.spin(node)
+        executor.spin()
     except KeyboardInterrupt:
         pass
     finally:
-        pass
-    rclpy.shutdown()
+        node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

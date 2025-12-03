@@ -1,0 +1,2235 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x000071af664a9afd, pid=57569, tid=57643
+#
+# JRE version: OpenJDK Runtime Environment (21.0.9+10) (build 21.0.9+10-Ubuntu-124.04)
+# Java VM: OpenJDK 64-Bit Server VM (21.0.9+10-Ubuntu-124.04, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libc.so.6+0xa9afd]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -F%F -- %E" (or dumping to /home/vicen/ISDEFE/ros2_hla_ws/core.57569)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-21
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: 
+
+Host: 13th Gen Intel(R) Core(TM) i9-13900H, 20 cores, 31G, Ubuntu 24.04.3 LTS
+Time: Wed Dec  3 09:35:07 2025 CET elapsed time: 13.151880 seconds (0d 0h 0m 13s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001d8f9310):  VMThread "VM Thread"          [id=57643, stack(0x000071aecddff000,0x000071aecdeff000) (1024K)]
+
+Stack: [0x000071aecddff000,0x000071aecdeff000],  sp=0x000071aecdefd340,  free space=1016k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libc.so.6+0xa9afd]
+C  [libc.so.6+0xa9d2b]
+C  [libc.so.6+0xaada5]
+C  [libc.so.6+0xab43a]
+C  [libc.so.6+0xaddae]  __libc_free+0x7e
+C  [libfastrtps.so.2.14+0x2e1c8e]  eprosima::fastrtps::rtps::CacheChangePool::~CacheChangePool()+0x3e
+C  [libfastrtps.so.2.14+0x294eea]
+C  [libfastrtps.so.2.14+0x2fb0ea]  eprosima::fastrtps::rtps::RTPSReader::~RTPSReader()+0x26a
+C  [libfastrtps.so.2.14+0x2f3f85]  eprosima::fastrtps::rtps::StatefulReader::~StatefulReader()+0x15
+C  [libfastrtps.so.2.14+0x32bfc9]  eprosima::fastrtps::rtps::RTPSParticipantImpl::deleteUserEndpoint(eprosima::fastrtps::rtps::GUID_t const&)+0x209
+C  [libfastrtps.so.2.14+0x3395ed]  eprosima::fastrtps::rtps::RTPSDomainImpl::removeRTPSReader(eprosima::fastrtps::rtps::RTPSReader*)+0xbd
+C  [libfastrtps.so.2.14+0x37845e]  eprosima::fastdds::dds::DataReaderImpl::stop()+0x11e
+C  [libfastrtps.so.2.14+0x37858f]  eprosima::fastdds::dds::DataReaderImpl::~DataReaderImpl()+0x2f
+C  [libfastrtps.so.2.14+0x593493]
+C  [libfastrtps.so.2.14+0x36e24e]  eprosima::fastdds::dds::SubscriberImpl::~SubscriberImpl()+0x7e
+C  [libfastrtps.so.2.14+0x593323]
+C  [libfastrtps.so.2.14+0x39438f]  eprosima::fastdds::dds::DomainParticipantImpl::~DomainParticipantImpl()+0x12f
+C  [libfastrtps.so.2.14+0x386f62]
+C  [libfastrtps.so.2.14+0x38c01b]  eprosima::fastdds::dds::DomainParticipantFactory::~DomainParticipantFactory()+0xdb
+C  [libfastrtps.so.2.14+0x3900a1]
+C  [libfastrtps.so.2.14+0x386a51]
+C  [libc.so.6+0x47a76]
+C  [libc.so.6+0x47bbe]
+V  [libjvm.so+0xd0efed]
+V  [libjvm.so+0x910f10]  vm_exit(int)+0x0
+V  [libjvm.so+0x10208ac]  VM_Operation::evaluate()+0xfc
+V  [libjvm.so+0x1023ca4]  VMThread::evaluate_operation(VM_Operation*)+0x144
+V  [libjvm.so+0x10249cb]  VMThread::inner_execute(VM_Operation*)+0x33b
+V  [libjvm.so+0x1024cc7]  VMThread::run()+0xb7
+V  [libjvm.so+0xf8ee77]  Thread::call_run()+0xa7
+V  [libjvm.so+0xd054f5]  thread_native_entry(Thread*)+0xd5
+C  [libc.so.6+0x9caa4]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000007ff7
+
+Registers:
+RAX=0x000000001e325b00, RBX=0x000000001d6fcce0, RCX=0x00000000000000b1, RDX=0x0000000000007fe7
+RSP=0x000071aecdefd340, RBP=0x000071aecdefd340, RSI=0x000000001d79a3f0, RDI=0x000000001d6fcd20
+R8 =0x000000001d78975c, R9 =0x000000001d7941a0, R10=0x00000000000000b1, R11=0x00000000000000b0
+R12=0x00000000000000f0, R13=0x000071af66603ad0, R14=0x000071af66603ac0, R15=0x000000001d6fcdd0
+RIP=0x000071af664a9afd, EFLAGS=0x0000000000010246, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+XMM[0]=0x0000000000007fe7 0x000000001e325b00
+XMM[1]=0x0000000000000000 0x0000000000000000
+XMM[2]=0x0000000000000000 0x80000000ffffffff
+XMM[3]=0x0010000000340315 0xe71569ec692ff63b
+XMM[4]=0x000071aecdefcec6 0x000071aecdefcec7
+XMM[5]=0x000000ff00000000 0x000000001d22bc10
+XMM[6]=0x0000000000000000 0x0000000000000000
+XMM[7]=0x0000000000000000 0x00001cfa00000001
+XMM[8]=0x000000ff00000000 0x000000001d22c710
+XMM[9]=0x0000000000000000 0x0000000000000000
+XMM[10]=0x3f3f3f3f3f3f3f3f 0x3f3f3f3f3f3f3f3f
+XMM[11]=0x9999999999999999 0x9999999999999999
+XMM[12]=0x2020202020202020 0x2020202020202020
+XMM[13]=0x0000000000000000 0x3ff0000000000000
+XMM[14]=0x0000000000000000 0x3ff0000000000000
+XMM[15]=0x0000000000000000 0x0000000000000000
+  MXCSR=0x00001fa2
+
+
+Register to memory mapping:
+
+RAX=0x000000001e325b00 points into unknown readable memory: 0x060016f014050936 | 36 09 05 14 f0 16 00 06
+RBX=0x000000001d6fcce0 points into unknown readable memory: 0x000000001d70e240 | 40 e2 70 1d 00 00 00 00
+RCX=0x00000000000000b1 is an unknown value
+RDX=0x0000000000007fe7 is an unknown value
+RSP=0x000071aecdefd340 points into unknown readable memory: 0x000071aecdefd3b0 | b0 d3 ef cd ae 71 00 00
+RBP=0x000071aecdefd340 points into unknown readable memory: 0x000071aecdefd3b0 | b0 d3 ef cd ae 71 00 00
+RSI=0x000000001d79a3f0 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+RDI=0x000000001d6fcd20 points into unknown readable memory: 0x0000000064697567 | 67 75 69 64 00 00 00 00
+R8 =0x000000001d78975c points into unknown readable memory: 00 00 00 00
+R9 =0x000000001d7941a0 points into unknown readable memory: 0x0000000000000020 | 20 00 00 00 00 00 00 00
+R10=0x00000000000000b1 is an unknown value
+R11=0x00000000000000b0 is an unknown value
+R12=0x00000000000000f0 is an unknown value
+R13=0x000071af66603ad0: <offset 0x0000000000203ad0> in /lib/x86_64-linux-gnu/libc.so.6 at 0x000071af66400000
+R14=0x000071af66603ac0: <offset 0x0000000000203ac0> in /lib/x86_64-linux-gnu/libc.so.6 at 0x000071af66400000
+R15=0x000000001d6fcdd0 points into unknown readable memory: 0x00000000000000b0 | b0 00 00 00 00 00 00 00
+
+Top of Stack: (sp=0x000071aecdefd340)
+0x000071aecdefd340:   000071aecdefd3b0 000071af664a9d2b
+0x000071aecdefd350:   00000000000000b0 000000001d7941a0
+0x000071aecdefd360:   000000001d7941a0 000000001d78975c
+0x000071aecdefd370:   000000000001d6fc 000071af66603b20
+0x000071aecdefd380:   0000000000000000 000071af66603ac0
+0x000071aecdefd390:   0000000000000000 000000001e30f4a0
+0x000071aecdefd3a0:   000071af66603ac0 000000001cff70e8
+0x000071aecdefd3b0:   000071aecdefd420 000071af664aada5
+0x000071aecdefd3c0:   000000001d22bc10 000071aecdefd3f0
+0x000071aecdefd3d0:   000000001d1497a8 000000001d22be10
+0x000071aecdefd3e0:   000071aecdefd420 7f13eafbd7896900
+0x000071aecdefd3f0:   000071aecdefd490 000071af66603ac0
+0x000071aecdefd400:   0000000000000000 000000001e30f4a0
+0x000071aecdefd410:   000000001e3e6a48 000000001cff70e8
+0x000071aecdefd420:   000071aecdefd470 000071af664ab43a
+0x000071aecdefd430:   000000001cff2430 7f13eafbd7896900
+0x000071aecdefd440:   0000000000000000 000071af66603ac0
+0x000071aecdefd450:   0000000000000000 ffffffffffffff78
+0x000071aecdefd460:   0000000000000021 000000001e30f4a0
+0x000071aecdefd470:   000071aecdefd4b0 000071af664addae
+0x000071aecdefd480:   000000001d1ecd90 000000001d01d6ea
+0x000071aecdefd490:   000071aecdefd520 000000001e22b988
+0x000071aecdefd4a0:   000000001e22bca8 000000001e3afd80
+0x000071aecdefd4b0:   000071aecdefd4e0 000071af630e1c8e
+0x000071aecdefd4c0:   000071aecdefd500 000000001e2968a0
+0x000071aecdefd4d0:   0000000000000000 000000001e3e69d8
+0x000071aecdefd4e0:   000071aecdefd500 000071af63094eea
+0x000071aecdefd4f0:   0000000000000000 000000001e3afd70
+0x000071aecdefd500:   000071aecdefd530 000071af630fb0ea
+0x000071aecdefd510:   000000001e2968a0 000000001cff1d60
+0x000071aecdefd520:   000000001cff70e8 000000001e2968a0
+0x000071aecdefd530:   000071aecdefd550 000071af630f3f85 
+
+Instructions: (pc=0x000071af664a9afd)
+0x000071af664a99fd:   00 00 48 8d 1d ba a0 15 00 48 89 85 98 ee ff ff
+0x000071af664a9a0d:   48 39 d8 0f 85 d7 fe ff ff 8b 05 a0 97 15 00 48
+0x000071af664a9a1d:   83 ec 08 ff b5 70 ee ff ff 48 8d 15 23 7d 12 00
+0x000071af664a9a2d:   ff b5 38 ee ff ff be 02 00 00 00 4c 89 ff 4c 8b
+0x000071af664a9a3d:   8d 58 ee ff ff ff b5 40 ee ff ff 4c 8b 85 60 ee
+0x000071af664a9a4d:   ff ff ff b5 48 ee ff ff 48 8b 8d 68 ee ff ff ff
+0x000071af664a9a5d:   35 6e 97 15 00 50 31 c0 ff b5 50 ee ff ff e8 e0
+0x000071af664a9a6d:   d1 08 00 48 8b 45 c8 64 48 2b 04 25 28 00 00 00
+0x000071af664a9a7d:   75 3e 48 8d 65 d8 31 c0 5b 41 5c 41 5d 41 5e 41
+0x000071af664a9a8d:   5f 5d c3 48 8b bd 98 ee ff ff 4c 89 95 28 ee ff
+0x000071af664a9a9d:   ff 4c 89 9d 30 ee ff ff e8 f6 f4 fe ff 4c 8b 95
+0x000071af664a9aad:   28 ee ff ff 4c 8b 9d 30 ee ff ff e9 c4 fc ff ff
+0x000071af664a9abd:   e8 fe e3 08 00 66 66 2e 0f 1f 84 00 00 00 00 00
+0x000071af664a9acd:   0f 1f 00 55 48 8b 4f 08 48 89 c8 48 83 e0 f8 48
+0x000071af664a9add:   89 e5 48 3b 04 07 0f 85 a1 00 00 00 f3 0f 6f 47
+0x000071af664a9aed:   10 48 8b 57 18 66 48 0f 7e c0 48 3b 78 18 75 73
+0x000071af664a9afd:   48 3b 7a 10 75 6d 48 8b 77 10 48 89 50 18 66 0f
+0x000071af664a9b0d:   d6 42 10 48 81 f9 ff 03 00 00 76 28 48 8b 57 20
+0x000071af664a9b1d:   48 85 d2 74 1f 48 3b 7a 28 75 6e 48 8b 4f 28 48
+0x000071af664a9b2d:   3b 79 20 75 64 48 83 78 20 00 74 0f 48 89 4a 28
+0x000071af664a9b3d:   48 89 51 20 5d c3 0f 1f 44 00 00 48 39 d7 74 33
+0x000071af664a9b4d:   66 48 0f 6e c2 66 48 0f 6e c9 66 0f 6c c1 0f 11
+0x000071af664a9b5d:   40 20 48 89 42 28 48 8b 57 28 48 89 42 20 5d c3
+0x000071af664a9b6d:   0f 1f 00 48 8d 3d 8e 2a 12 00 e8 64 f4 ff ff 0f
+0x000071af664a9b7d:   1f 40 00 66 0f 6c c0 0f 11 46 20 5d c3 48 8d 3d
+0x000071af664a9b8d:   57 2a 12 00 e8 4a f4 ff ff 48 8d 3d d3 7c 12 00
+0x000071af664a9b9d:   e8 3e f4 ff ff 66 66 2e 0f 1f 84 00 00 00 00 00
+0x000071af664a9bad:   0f 1f 00 55 48 8d 47 60 48 89 e5 41 57 41 56 49
+0x000071af664a9bbd:   89 fe 41 55 4c 8d 6f 10 41 54 53 48 83 ec 38 c7
+0x000071af664a9bcd:   47 08 00 00 00 00 48 89 45 c8 31 db 49 87 5d 00
+0x000071af664a9bdd:   48 85 db 75 72 49 83 c5 08 4c 39 6d c8 75 eb 48
+0x000071af664a9bed:   83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 0f 1f 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x000071aecdefd3b0 points into unknown readable memory: 0x000071aecdefd420 | 20 d4 ef cd ae 71 00 00
+stack at sp + 1 slots: 0x000071af664a9d2b: <offset 0x00000000000a9d2b> in /lib/x86_64-linux-gnu/libc.so.6 at 0x000071af66400000
+stack at sp + 2 slots: 0x00000000000000b0 is an unknown value
+stack at sp + 3 slots: 0x000000001d7941a0 points into unknown readable memory: 0x0000000000000020 | 20 00 00 00 00 00 00 00
+stack at sp + 4 slots: 0x000000001d7941a0 points into unknown readable memory: 0x0000000000000020 | 20 00 00 00 00 00 00 00
+stack at sp + 5 slots: 0x000000001d78975c points into unknown readable memory: 00 00 00 00
+stack at sp + 6 slots: 0x000000000001d6fc is an unknown value
+stack at sp + 7 slots: 0x000071af66603b20: <offset 0x0000000000203b20> in /lib/x86_64-linux-gnu/libc.so.6 at 0x000071af66400000
+
+VM_Operation (0x000071aecd4fc6d0): Exit, mode: safepoint, requested by thread 0x000071ae64001120
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000071ae542d0090, length=32, elements={
+0x000000001d83b510, 0x000000001d9011d0, 0x000000001d9027e0, 0x000000001d9056f0,
+0x000000001d906d30, 0x000000001d908990, 0x000000001d90a0f0, 0x000000001d915e20,
+0x000000001d919850, 0x000000001df53280, 0x000000001df82ad0, 0x000071ae181471c0,
+0x000071ade0000c60, 0x000071ae486a3ad0, 0x000071ae3c87e920, 0x000071ae304e8e50,
+0x000071ae20001c60, 0x000071ae141b5db0, 0x000071add4000c30, 0x000071adcc000c60,
+0x000071adc8000e70, 0x000071adc0000c30, 0x000071adc4000c30, 0x000071adb8000c60,
+0x000071adbc000c60, 0x000071adb0000c30, 0x000071adb4000c30, 0x000071ae501580d0,
+0x000071ae44090950, 0x000071ae340a4780, 0x000071ada8000c60, 0x000071ae64001120
+}
+
+Java Threads: ( => current thread )
+  0x000000001d83b510 JavaThread "main"                              [_thread_in_native, id=57569, stack(0x00007ffdf873b000,0x00007ffdf883b000) (1024K)]
+  0x000000001d9011d0 JavaThread "Reference Handler"          daemon [_thread_blocked, id=57644, stack(0x000071aecdcfe000,0x000071aecddfe000) (1024K)]
+  0x000000001d9027e0 JavaThread "Finalizer"                  daemon [_thread_blocked, id=57645, stack(0x000071aecdbfe000,0x000071aecdcfe000) (1024K)]
+  0x000000001d9056f0 JavaThread "Service Thread"             daemon [_thread_blocked, id=57647, stack(0x000071aecd9fe000,0x000071aecdafe000) (1024K)]
+  0x000000001d906d30 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=57648, stack(0x000071aecd8fe000,0x000071aecd9fe000) (1024K)]
+  0x000000001d908990 JavaThread "C2 CompilerThread0"         daemon [_thread_blocked, id=57649, stack(0x000071aecd7fe000,0x000071aecd8fe000) (1024K)]
+  0x000000001d90a0f0 JavaThread "C1 CompilerThread0"         daemon [_thread_blocked, id=57650, stack(0x000071aecd6fe000,0x000071aecd7fe000) (1024K)]
+  0x000000001d915e20 JavaThread "Notification Thread"        daemon [_thread_blocked, id=57651, stack(0x000071aecd5fe000,0x000071aecd6fe000) (1024K)]
+  0x000000001d919850 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=57652, stack(0x000071aecd4fe000,0x000071aecd5fe000) (1024K)]
+  0x000000001df53280 JavaThread "Tuning Timer"               daemon [_thread_blocked, id=57687, stack(0x000071ae7ad00000,0x000071ae7ae00000) (1024K)]
+  0x000000001df82ad0 JavaThread "prti1516e: Reference cleaner thread" daemon [_thread_blocked, id=57688, stack(0x000071ae7ac00000,0x000071ae7ad00000) (1024K)]
+  0x000071ae181471c0 JavaThread "Thread-2"                          [_thread_in_native, id=57694, stack(0x000071ae79a92000,0x000071ae7a292000) (8192K)]
+  0x000071ade0000c60 JavaThread "Thread-3"                          [_thread_in_native, id=57695, stack(0x000071ae79291000,0x000071ae79a91000) (8192K)]
+  0x000071ae486a3ad0 JavaThread "Thread-4"                          [_thread_in_native, id=57714, stack(0x000071addb779000,0x000071addbf79000) (8192K)]
+  0x000071ae3c87e920 JavaThread "Thread-5"                          [_thread_in_native, id=57746, stack(0x000071addaf78000,0x000071addb778000) (8192K)]
+  0x000071ae304e8e50 JavaThread "Thread-6"                          [_thread_in_native, id=57747, stack(0x000071adda777000,0x000071addaf77000) (8192K)]
+  0x000071ae20001c60 JavaThread "Thread-7"                          [_thread_in_native, id=57748, stack(0x000071add9f76000,0x000071adda776000) (8192K)]
+  0x000071ae141b5db0 JavaThread "Thread-8"                          [_thread_in_native, id=57761, stack(0x000071add9775000,0x000071add9f75000) (8192K)]
+  0x000071add4000c30 JavaThread "Thread-9"                          [_thread_in_native, id=57772, stack(0x000071add8f74000,0x000071add9774000) (8192K)]
+  0x000071adcc000c60 JavaThread "Thread-10"                         [_thread_in_native, id=57777, stack(0x000071add8773000,0x000071add8f73000) (8192K)]
+  0x000071adc8000e70 JavaThread "Thread-11"                         [_thread_in_native, id=57778, stack(0x000071add3800000,0x000071add4000000) (8192K)]
+  0x000071adc0000c30 JavaThread "Thread-12"                         [_thread_in_native, id=57790, stack(0x000071add2fff000,0x000071add37ff000) (8192K)]
+  0x000071adc4000c30 JavaThread "Thread-13"                         [_thread_in_native, id=57806, stack(0x000071add27fe000,0x000071add2ffe000) (8192K)]
+  0x000071adb8000c60 JavaThread "Thread-14"                         [_thread_in_native, id=57807, stack(0x000071add1ffd000,0x000071add27fd000) (8192K)]
+  0x000071adbc000c60 JavaThread "Thread-15"                         [_thread_in_native, id=57808, stack(0x000071add17fc000,0x000071add1ffc000) (8192K)]
+  0x000071adb0000c30 JavaThread "Thread-16"                         [_thread_in_native, id=57809, stack(0x000071add0ffb000,0x000071add17fb000) (8192K)]
+  0x000071adb4000c30 JavaThread "Thread-17"                         [_thread_in_native, id=57810, stack(0x000071add07fa000,0x000071add0ffa000) (8192K)]
+  0x000071ae501580d0 JavaThread "Thread-18"                         [_thread_in_native, id=57834, stack(0x000071adaf800000,0x000071adb0000000) (8192K)]
+  0x000071ae44090950 JavaThread "Thread-19"                         [_thread_in_native, id=57835, stack(0x000071adaefff000,0x000071adaf7ff000) (8192K)]
+  0x000071ae340a4780 JavaThread "Thread-20"                         [_thread_in_native, id=57837, stack(0x000071adae7fe000,0x000071adaeffe000) (8192K)]
+  0x000071ada8000c60 JavaThread "Thread-21"                         [_thread_in_native, id=57838, stack(0x000071ae78a8c000,0x000071ae7928c000) (8192K)]
+  0x000071ae64001120 JavaThread "SIGINT handler"             daemon [_thread_blocked, id=59191, stack(0x000071aecd3fe000,0x000071aecd4fe000) (1024K)]
+Total: 32
+
+Other Threads:
+=>0x000000001d8f9310 VMThread "VM Thread"                           [id=57643, stack(0x000071aecddff000,0x000071aecdeff000) (1024K)]
+  0x000000001d7ca1c0 WorkerThread "GC Thread#0"                     [id=57637, stack(0x000071af087f4000,0x000071af088f4000) (1024K)]
+  0x000071ae74001000 WorkerThread "GC Thread#1"                     [id=57659, stack(0x000071aeccdfe000,0x000071aeccefe000) (1024K)]
+  0x000071ae74001bd0 WorkerThread "GC Thread#2"                     [id=57660, stack(0x000071aecccfd000,0x000071aeccdfd000) (1024K)]
+  0x000071ae74013110 WorkerThread "GC Thread#3"                     [id=57662, stack(0x000071aeccafc000,0x000071aeccbfc000) (1024K)]
+  0x000071ae74011ed0 WorkerThread "GC Thread#4"                     [id=57663, stack(0x000071aecc9fb000,0x000071aeccafb000) (1024K)]
+  0x000071ae740128e0 WorkerThread "GC Thread#5"                     [id=57664, stack(0x000071aecc8fa000,0x000071aecc9fa000) (1024K)]
+  0x000071ae7400db70 WorkerThread "GC Thread#6"                     [id=57690, stack(0x000071ae7ab00000,0x000071ae7ac00000) (1024K)]
+  0x000071ae7400d290 WorkerThread "GC Thread#7"                     [id=57691, stack(0x000071ae7a9ff000,0x000071ae7aaff000) (1024K)]
+  0x000071ae7400a0e0 WorkerThread "GC Thread#8"                     [id=57692, stack(0x000071ae7a8fe000,0x000071ae7a9fe000) (1024K)]
+  0x000000001d7c7f40 ConcurrentGCThread "G1 Main Marker"            terminated
+  0x000000001d68ecd0 WorkerThread "G1 Conc#0"                       [id=57639, stack(0x000071af085f2000,0x000071af086f2000) (1024K)]
+  0x000000001d8cdb40 ConcurrentGCThread "G1 Refine#0"               terminated
+  0x000000001d8ce820 ConcurrentGCThread "G1 Service"                terminated
+Total: 14
+
+Threads with active compile tasks:
+C2 CompilerThread0  13176 2658       4       java.io.ObjectOutputStream$BlockDataOutputStream::writeBytes (144 bytes)
+C1 CompilerThread0  13176 2659       3       org.jpype.manager.TypeManager$Destroyer::add (101 bytes)
+Total: 2
+
+VM state: at safepoint (shutting down)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000071af0bd27e98] Threads_lock - owner thread: 0x000000001d8f9310
+[0x000071af0bd27d98] Heap_lock - owner thread: 0x000071ae64001120
+
+Heap address: 0x000000060f400000, size: 7948 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x000071ae7f000000-0x000071ae7fca0000-0x000071ae7fca0000), size 13238272, SharedBaseAddress: 0x000071ae7f000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x000071ae80000000-0x000071aec0000000, reserved size: 1073741824
+Narrow klass base: 0x000071ae7f000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 32 size 80 Howl #buckets 8 coarsen threshold 7372 Howl Bitmap #cards 1024 size 144 coarsen threshold 921 Card regions per heap region 1 cards per card region 8192
+ CPUs: 20 total, 20 available
+ Memory: 31781M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 4M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 500M
+ Heap Max Capacity: 7948M
+ Pre-touch: Disabled
+ Parallel Workers: 15
+ Concurrent Workers: 4
+ Concurrent Refinement Workers: 15
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 57344K, used 23156K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 3 young (12288K), 0 survivors (0K)
+ Metaspace       used 12506K, committed 12672K, reserved 1114112K
+  class space    used 1409K, committed 1472K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x000000060f400000, 0x000000060f7dda98, 0x000000060f800000| 96%| O|  |TAMS 0x000000060f400000| PB 0x000000060f400000| Untracked 
+|   1|0x000000060f800000, 0x000000060fc00000, 0x000000060fc00000|100%| O|  |TAMS 0x000000060f800000| PB 0x000000060f800000| Untracked 
+|   2|0x000000060fc00000, 0x000000060fff4628, 0x0000000610000000| 98%| O|  |TAMS 0x000000060fc00000| PB 0x000000060fc00000| Untracked 
+|   3|0x0000000610000000, 0x00000006102cb1e0, 0x0000000610400000| 69%| O|  |TAMS 0x0000000610000000| PB 0x0000000610000000| Untracked 
+|   4|0x0000000610400000, 0x0000000610400000, 0x0000000610800000|  0%| F|  |TAMS 0x0000000610400000| PB 0x0000000610400000| Untracked 
+|   5|0x0000000610800000, 0x0000000610800000, 0x0000000610c00000|  0%| F|  |TAMS 0x0000000610800000| PB 0x0000000610800000| Untracked 
+|   6|0x0000000610c00000, 0x0000000610c00000, 0x0000000611000000|  0%| F|  |TAMS 0x0000000610c00000| PB 0x0000000610c00000| Untracked 
+|   7|0x0000000611000000, 0x0000000611000000, 0x0000000611400000|  0%| F|  |TAMS 0x0000000611000000| PB 0x0000000611000000| Untracked 
+|   8|0x0000000611400000, 0x0000000611400000, 0x0000000611800000|  0%| F|  |TAMS 0x0000000611400000| PB 0x0000000611400000| Untracked 
+|   9|0x0000000611800000, 0x0000000611800000, 0x0000000611c00000|  0%| F|  |TAMS 0x0000000611800000| PB 0x0000000611800000| Untracked 
+|  10|0x0000000611c00000, 0x0000000611c00000, 0x0000000612000000|  0%| F|  |TAMS 0x0000000611c00000| PB 0x0000000611c00000| Untracked 
+|  11|0x0000000612000000, 0x0000000612400000, 0x0000000612400000|100%| E|  |TAMS 0x0000000612000000| PB 0x0000000612000000| Complete 
+|  12|0x0000000612400000, 0x0000000612800000, 0x0000000612800000|100%| E|CS|TAMS 0x0000000612400000| PB 0x0000000612400000| Complete 
+|  13|0x0000000612800000, 0x0000000612c00000, 0x0000000612c00000|100%| E|CS|TAMS 0x0000000612800000| PB 0x0000000612800000| Complete 
+
+Card table byte_map: [0x000071af088f4000,0x000071af0987a000] _byte_map_base: 0x000071af0587a000
+
+Marking Bits: (CMBitMap*) 0x000000001d840200
+ Bits: [0x000071aedcbd0000, 0x000071aee4800000)
+
+Polling page: 0x000071af65280000
+
+Metaspace:
+
+Usage:
+  Non-class:     10.84 MB used.
+      Class:      1.38 MB used.
+       Both:     12.21 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      10.94 MB ( 17%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,       1.44 MB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      12.38 MB (  1%) committed. 
+
+Chunk freelists:
+   Non-Class:  4.27 MB
+       Class:  14.38 MB
+        Both:  18.65 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 21.00 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 138.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 198.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 438.
+num_chunk_merges: 0.
+num_chunk_splits: 294.
+num_chunks_enlarged: 218.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=119168Kb used=1164Kb max_used=1164Kb free=118003Kb
+ bounds [0x000071aeec3a0000, 0x000071aeec610000, 0x000071aef3800000]
+CodeHeap 'profiled nmethods': size=119164Kb used=4493Kb max_used=4493Kb free=114670Kb
+ bounds [0x000071aee4800000, 0x000071aee4c70000, 0x000071aeebc5f000]
+CodeHeap 'non-nmethods': size=7428Kb used=1459Kb max_used=3247Kb free=5968Kb
+ bounds [0x000071aeebc5f000, 0x000071aeebf9f000, 0x000071aeec3a0000]
+CodeCache: size=245760Kb, used=7116Kb, max_used=8904Kb, free=238641Kb
+ total_blobs=3087, nmethods=2530, adapters=462, full_count=0
+Compilation: enabled, stopped_count=0, restarted_count=0
+
+Compilation events (20 events):
+Event: 11.747 Thread 0x000000001d90a0f0 nmethod 2648 0x000071aee4c5ed10 code [0x000071aee4c5eee0, 0x000071aee4c5f250]
+Event: 11.880 Thread 0x000000001d90a0f0 2649   !   3       java.util.concurrent.locks.AbstractQueuedSynchronizer::acquire (424 bytes)
+Event: 11.882 Thread 0x000000001d90a0f0 nmethod 2649 0x000071aee4c5f410 code [0x000071aee4c5f7c0, 0x000071aee4c61080]
+Event: 11.974 Thread 0x000000001d908990 2650   !   4       se.pitch.prti1516e.util.concurrent.g::a (19 bytes)
+Event: 11.974 Thread 0x000000001d908990 nmethod 2650 0x000071aeec4c2290 code [0x000071aeec4c2420, 0x000071aeec4c2620]
+Event: 12.043 Thread 0x000000001d90a0f0 2651       3       java.io.ObjectOutputStream$BlockDataOutputStream::writeLong (48 bytes)
+Event: 12.043 Thread 0x000000001d90a0f0 nmethod 2651 0x000071aee4c61890 code [0x000071aee4c61a80, 0x000071aee4c61e90]
+Event: 12.054 Thread 0x000000001d908990 2652       4       jdk.internal.misc.Blocker::end (71 bytes)
+Event: 12.054 Thread 0x000000001d908990 nmethod 2652 0x000071aeec4c2710 code [0x000071aeec4c2880, 0x000071aeec4c2918]
+Event: 12.054 Thread 0x000000001d908990 2653   !   4       jdk.internal.misc.Blocker::begin (97 bytes)
+Event: 12.055 Thread 0x000000001d908990 nmethod 2653 0x000071aeec4c2a10 code [0x000071aeec4c2ba0, 0x000071aeec4c2c68]
+Event: 12.125 Thread 0x000000001d90a0f0 2654       3       java.util.ArrayDeque::isEmpty (17 bytes)
+Event: 12.125 Thread 0x000000001d90a0f0 nmethod 2654 0x000071aee4c62010 code [0x000071aee4c621a0, 0x000071aee4c62300]
+Event: 12.255 Thread 0x000000001d90a0f0 2655   !   3       java.lang.Object::wait (50 bytes)
+Event: 12.256 Thread 0x000000001d90a0f0 nmethod 2655 0x000071aee4c62390 code [0x000071aee4c625a0, 0x000071aee4c62b00]
+Event: 12.707 Thread 0x000000001d90a0f0 2656       1       java.util.logging.LogManager$LoggerContext::getOwner (5 bytes)
+Event: 12.707 Thread 0x000000001d90a0f0 nmethod 2656 0x000071aeec4c2d90 code [0x000071aeec4c2f20, 0x000071aeec4c2fe8]
+Event: 12.708 Thread 0x000000001d908990 2658       4       java.io.ObjectOutputStream$BlockDataOutputStream::writeBytes (144 bytes)
+Event: 12.714 Thread 0x000000001d90a0f0 2659       3       org.jpype.manager.TypeManager$Destroyer::add (101 bytes)
+Event: 12.714 Thread 0x000000001d90a0f0 nmethod 2659 0x000071aee4c62d90 code [0x000071aee4c62f80, 0x000071aee4c633f0]
+
+GC Heap History (20 events):
+Event: 0.123 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 516096K, used 5170K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 0 survivors (0K)
+ Metaspace       used 1551K, committed 1664K, reserved 1114112K
+  class space    used 129K, committed 192K, reserved 1048576K
+}
+Event: 0.127 GC heap after
+{Heap after GC invocations=1 (full 1):
+ garbage-first heap   total 40960K, used 3576K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 1551K, committed 1664K, reserved 1114112K
+  class space    used 129K, committed 192K, reserved 1048576K
+}
+Event: 0.137 GC heap before
+{Heap before GC invocations=1 (full 1):
+ garbage-first heap   total 40960K, used 3576K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 0 survivors (0K)
+ Metaspace       used 1551K, committed 1664K, reserved 1114112K
+  class space    used 129K, committed 192K, reserved 1048576K
+}
+Event: 0.144 GC heap after
+{Heap after GC invocations=2 (full 2):
+ garbage-first heap   total 16384K, used 3576K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 1551K, committed 1664K, reserved 1114112K
+  class space    used 129K, committed 192K, reserved 1048576K
+}
+Event: 0.193 GC heap before
+{Heap before GC invocations=2 (full 2):
+ garbage-first heap   total 16384K, used 7672K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 0 survivors (0K)
+ Metaspace       used 2148K, committed 2304K, reserved 1114112K
+  class space    used 184K, committed 256K, reserved 1048576K
+}
+Event: 0.194 GC heap after
+{Heap after GC invocations=3 (full 2):
+ garbage-first heap   total 16384K, used 4296K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 2148K, committed 2304K, reserved 1114112K
+  class space    used 184K, committed 256K, reserved 1048576K
+}
+Event: 0.199 GC heap before
+{Heap before GC invocations=3 (full 2):
+ garbage-first heap   total 16384K, used 8392K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 1 survivors (4096K)
+ Metaspace       used 2153K, committed 2304K, reserved 1114112K
+  class space    used 184K, committed 256K, reserved 1048576K
+}
+Event: 0.199 GC heap after
+{Heap after GC invocations=4 (full 2):
+ garbage-first heap   total 16384K, used 4436K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 2153K, committed 2304K, reserved 1114112K
+  class space    used 184K, committed 256K, reserved 1048576K
+}
+Event: 0.202 GC heap before
+{Heap before GC invocations=4 (full 2):
+ garbage-first heap   total 16384K, used 8532K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 1 survivors (4096K)
+ Metaspace       used 2156K, committed 2304K, reserved 1114112K
+  class space    used 184K, committed 256K, reserved 1048576K
+}
+Event: 0.203 GC heap after
+{Heap after GC invocations=5 (full 2):
+ garbage-first heap   total 16384K, used 4808K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 2156K, committed 2304K, reserved 1114112K
+  class space    used 184K, committed 256K, reserved 1048576K
+}
+Event: 0.206 GC heap before
+{Heap before GC invocations=5 (full 2):
+ garbage-first heap   total 16384K, used 8904K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 1 survivors (4096K)
+ Metaspace       used 2160K, committed 2304K, reserved 1114112K
+  class space    used 184K, committed 256K, reserved 1048576K
+}
+Event: 0.208 GC heap after
+{Heap after GC invocations=6 (full 2):
+ garbage-first heap   total 266240K, used 5353K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 2160K, committed 2304K, reserved 1114112K
+  class space    used 184K, committed 256K, reserved 1048576K
+}
+Event: 0.258 GC heap before
+{Heap before GC invocations=6 (full 2):
+ garbage-first heap   total 266240K, used 29929K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 8 young (32768K), 1 survivors (4096K)
+ Metaspace       used 2837K, committed 3072K, reserved 1114112K
+  class space    used 253K, committed 384K, reserved 1048576K
+}
+Event: 0.265 GC heap after
+{Heap after GC invocations=7 (full 3):
+ garbage-first heap   total 81920K, used 8057K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 2837K, committed 3072K, reserved 1114112K
+  class space    used 253K, committed 384K, reserved 1048576K
+}
+Event: 0.296 GC heap before
+{Heap before GC invocations=7 (full 3):
+ garbage-first heap   total 81920K, used 12153K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 0 survivors (0K)
+ Metaspace       used 2922K, committed 3136K, reserved 1114112K
+  class space    used 264K, committed 384K, reserved 1048576K
+}
+Event: 0.305 GC heap after
+{Heap after GC invocations=8 (full 4):
+ garbage-first heap   total 57344K, used 11832K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 2922K, committed 3136K, reserved 1114112K
+  class space    used 264K, committed 384K, reserved 1048576K
+}
+Event: 0.583 GC heap before
+{Heap before GC invocations=8 (full 4):
+ garbage-first heap   total 57344K, used 36408K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 6 young (24576K), 0 survivors (0K)
+ Metaspace       used 10655K, committed 10880K, reserved 1114112K
+  class space    used 1226K, committed 1344K, reserved 1048576K
+}
+Event: 0.587 GC heap after
+{Heap after GC invocations=9 (full 4):
+ garbage-first heap   total 57344K, used 15447K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 1 young (4096K), 1 survivors (4096K)
+ Metaspace       used 10655K, committed 10880K, reserved 1114112K
+  class space    used 1226K, committed 1344K, reserved 1048576K
+}
+Event: 0.595 GC heap before
+{Heap before GC invocations=9 (full 4):
+ garbage-first heap   total 57344K, used 15447K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 2 young (8192K), 1 survivors (4096K)
+ Metaspace       used 10727K, committed 10944K, reserved 1114112K
+  class space    used 1229K, committed 1344K, reserved 1048576K
+}
+Event: 0.617 GC heap after
+{Heap after GC invocations=10 (full 5):
+ garbage-first heap   total 57344K, used 14964K [0x000000060f400000, 0x0000000800000000)
+  region size 4096K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 10727K, committed 10944K, reserved 1114112K
+  class space    used 1229K, committed 1344K, reserved 1048576K
+}
+
+Dll operation events (10 events):
+Event: 0.003 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libjava.so
+Event: 0.030 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libjsvml.so
+Event: 0.031 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libnio.so
+Event: 0.033 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libzip.so
+Event: 0.055 Loaded shared library /home/vicen/.local/lib/python3.12/site-packages/_jpype.cpython-312-x86_64-linux-gnu.so
+Event: 0.068 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libjimage.so
+Event: 0.238 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libnet.so
+Event: 0.479 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libextnet.so
+Event: 0.628 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement.so
+Event: 0.629 Loaded shared library /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement_ext.so
+
+Deoptimization events (20 events):
+Event: 8.916 Thread 0x000071adb8000c60 Uncommon trap: trap_request=0xfffffff4 fr.pc=0x000071aeec4a6f20 relative=0x0000000000000520
+Event: 8.916 Thread 0x000071adb8000c60 Uncommon trap: reason=null_check action=make_not_entrant pc=0x000071aeec4a6f20 method=java.lang.Class.isSynthetic()Z @ 1 c2
+Event: 8.916 Thread 0x000071adb8000c60 DEOPT PACKING pc=0x000071aeec4a6f20 sp=0x000071add27fa520
+Event: 8.916 Thread 0x000071adb8000c60 DEOPT UNPACKING pc=0x000071aeebcb2f99 sp=0x000071add27fa468 mode 2
+Event: 9.634 Thread 0x000000001df501b0 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x000071aeec4a4dac relative=0x0000000000000a0c
+Event: 9.634 Thread 0x000000001df501b0 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x000071aeec4a4dac method=java.io.DataOutputStream.write([BII)V @ 7 c2
+Event: 9.634 Thread 0x000000001df501b0 DEOPT PACKING pc=0x000071aeec4a4dac sp=0x000071ae7aefe0a0
+Event: 9.634 Thread 0x000000001df501b0 DEOPT UNPACKING pc=0x000071aeebcb2f99 sp=0x000071ae7aefe088 mode 2
+Event: 9.634 Thread 0x000000001df501b0 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x000071aeec4a4dac relative=0x0000000000000a0c
+Event: 9.634 Thread 0x000000001df501b0 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x000071aeec4a4dac method=java.io.DataOutputStream.write([BII)V @ 7 c2
+Event: 9.634 Thread 0x000000001df501b0 DEOPT PACKING pc=0x000071aeec4a4dac sp=0x000071ae7aefe0a0
+Event: 9.634 Thread 0x000000001df501b0 DEOPT UNPACKING pc=0x000071aeebcb2f99 sp=0x000071ae7aefe088 mode 2
+Event: 9.634 Thread 0x000000001df501b0 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x000071aeec4a4dac relative=0x0000000000000a0c
+Event: 9.634 Thread 0x000000001df501b0 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x000071aeec4a4dac method=java.io.DataOutputStream.write([BII)V @ 7 c2
+Event: 9.634 Thread 0x000000001df501b0 DEOPT PACKING pc=0x000071aeec4a4dac sp=0x000071ae7aefe0a0
+Event: 9.634 Thread 0x000000001df501b0 DEOPT UNPACKING pc=0x000071aeebcb2f99 sp=0x000071ae7aefe088 mode 2
+Event: 9.634 Thread 0x000000001df501b0 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x000071aeec4a4dac relative=0x0000000000000a0c
+Event: 9.634 Thread 0x000000001df501b0 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x000071aeec4a4dac method=java.io.DataOutputStream.write([BII)V @ 7 c2
+Event: 9.634 Thread 0x000000001df501b0 DEOPT PACKING pc=0x000071aeec4a4dac sp=0x000071ae7aefe0a0
+Event: 9.634 Thread 0x000000001df501b0 DEOPT UNPACKING pc=0x000071aeebcb2f99 sp=0x000071ae7aefe088 mode 2
+
+Classes loaded (20 events):
+Event: 3.398 Loading class java/lang/invoke/SerializedLambda
+Event: 3.398 Loading class java/lang/invoke/SerializedLambda done
+Event: 9.542 Loading class java/lang/invoke/MethodHandle$1
+Event: 9.542 Loading class java/lang/invoke/MethodHandle$1 done
+Event: 9.633 Loading class java/util/zip/ZipOutputStream$XEntry
+Event: 9.633 Loading class java/util/zip/ZipOutputStream$XEntry done
+Event: 12.706 Loading class jdk/internal/misc/Signal$1
+Event: 12.706 Loading class jdk/internal/misc/Signal$1 done
+Event: 12.707 Loading class jdk/internal/event/ThreadSleepEvent
+Event: 12.707 Loading class jdk/internal/event/ThreadSleepEvent done
+Event: 12.708 Loading class java/util/concurrent/locks/AbstractQueuedSynchronizer$SharedNode
+Event: 12.708 Loading class java/util/concurrent/locks/AbstractQueuedSynchronizer$SharedNode done
+Event: 12.710 Loading class java/net/SocketTimeoutException
+Event: 12.710 Loading class java/io/InterruptedIOException
+Event: 12.710 Loading class java/io/InterruptedIOException done
+Event: 12.710 Loading class java/net/SocketTimeoutException done
+Event: 12.714 Loading class java/util/WeakHashMap$KeyIterator
+Event: 12.714 Loading class java/util/WeakHashMap$HashIterator
+Event: 12.714 Loading class java/util/WeakHashMap$HashIterator done
+Event: 12.714 Loading class java/util/WeakHashMap$KeyIterator done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 0.486 Thread 0x000000001d83b510 Exception <a 'java/net/BindException'{0x0000000611e7eed0}> (0x0000000611e7eed0) 
+thrown [./src/hotspot/share/prims/jni.cpp, line 520]
+Event: 0.500 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000611f09840}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000611f09840) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.501 Thread 0x000000001d83b510 Exception <a 'java/net/BindException'{0x0000000611f12598}> (0x0000000611f12598) 
+thrown [./src/hotspot/share/prims/jni.cpp, line 520]
+Event: 0.522 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000611a109f8}: static Lhla/rti1516_202X/auth/HLAnoCredentials;.<clinit>()V> (0x0000000611a109f8) 
+thrown [./src/hotspot/share/prims/jni.cpp, line 1111]
+Event: 0.523 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000611a12118}: static Lhla/rti1516_202X/auth/Credentials;.<clinit>()V> (0x0000000611a12118) 
+thrown [./src/hotspot/share/prims/jni.cpp, line 1111]
+Event: 0.523 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000611a13648}: static [B.<clinit>()V> (0x0000000611a13648) 
+thrown [./src/hotspot/share/prims/jni.cpp, line 1111]
+Event: 0.523 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000611a151e8}: 'long java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object)'> (0x0000000611a151e8) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.523 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000611a18620}: 'long java.lang.invoke.Invokers$Holder.invokeExact_MT(java.lang.Object, java.lang.Object)'> (0x0000000611a18620) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.562 Thread 0x000000001d83b510 Implicit null exception at 0x000071aeec430646 to 0x000071aeec430739
+Event: 0.583 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x00000006117f7fa0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000006117f7fa0) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.583 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x00000006117fec80}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000006117fec80) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.634 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x00000006129fbcf8}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000006129fbcf8) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.639 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000612aa6480}: 'java.lang.Object java.lang.invoke.Invokers$Holder.invokeExact_MT(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000612aa6480) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.641 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000612acc2a0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000612acc2a0) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.646 Thread 0x000000001d83b510 Exception <a 'java/lang/NoSuchMethodError'{0x0000000612b73fc0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000612b73fc0) 
+thrown [./src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 1.039 Thread 0x000000001df07c60 Exception <a 'java/lang/NoSuchMethodError'{0x0000000612ba21d8}: static Ljava/lang/Object;.<clinit>()V> (0x0000000612ba21d8) 
+thrown [./src/hotspot/share/prims/jni.cpp, line 1111]
+Event: 1.040 Thread 0x000000001df07c60 Exception <a 'java/lang/NoSuchMethodError'{0x0000000612bad2a0}: static Ljava/lang/Object;.<clinit>()V> (0x0000000612bad2a0) 
+thrown [./src/hotspot/share/prims/jni.cpp, line 1111]
+Event: 8.916 Thread 0x000071adb8000c60 Implicit null exception at 0x000071aeec4a6ac8 to 0x000071aeec4a6f08
+Event: 10.542 Thread 0x000000001df07c60 Exception <a 'java/net/ConnectException'{0x000000061224a868}> (0x000000061224a868) 
+thrown [./src/hotspot/share/prims/jni.cpp, line 520]
+Event: 12.713 Thread 0x000071ae20001c60 Exception <a 'java/lang/InterruptedException'{0x00000006122a1358}> (0x00000006122a1358) 
+thrown [./src/hotspot/share/runtime/objectMonitor.cpp, line 1626]
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (20 events):
+Event: 3.632 Executing VM operation: Cleanup done
+Event: 4.632 Executing VM operation: Cleanup
+Event: 4.632 Executing VM operation: Cleanup done
+Event: 5.632 Executing VM operation: Cleanup
+Event: 5.632 Executing VM operation: Cleanup done
+Event: 6.632 Executing VM operation: Cleanup
+Event: 6.632 Executing VM operation: Cleanup done
+Event: 8.632 Executing VM operation: Cleanup
+Event: 8.632 Executing VM operation: Cleanup done
+Event: 9.633 Executing VM operation: Cleanup
+Event: 9.633 Executing VM operation: Cleanup done
+Event: 10.633 Executing VM operation: Cleanup
+Event: 10.633 Executing VM operation: Cleanup done
+Event: 12.709 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 12.709 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 12.709 Executing VM operation: Cleanup
+Event: 12.709 Executing VM operation: Cleanup done
+Event: 12.713 Executing VM operation: ThreadDump
+Event: 12.713 Executing VM operation: ThreadDump done
+Event: 12.714 Executing VM operation: Exit
+
+Memory protections (20 events):
+Event: 3.525 Protecting memory [0x000071add8f74000,0x000071add8f78000] with protection modes 0
+Event: 3.585 Protecting memory [0x000071add8773000,0x000071add8777000] with protection modes 0
+Event: 5.035 Protecting memory [0x000071add3800000,0x000071add3804000] with protection modes 0
+Event: 5.055 Protecting memory [0x000071add2fff000,0x000071add3003000] with protection modes 0
+Event: 5.415 Protecting memory [0x000071add27fe000,0x000071add2802000] with protection modes 0
+Event: 5.605 Protecting memory [0x000071add1ffd000,0x000071add2001000] with protection modes 0
+Event: 5.625 Protecting memory [0x000071add17fc000,0x000071add1800000] with protection modes 0
+Event: 5.945 Protecting memory [0x000071add0ffb000,0x000071add0fff000] with protection modes 0
+Event: 6.525 Protecting memory [0x000071add07fa000,0x000071add07fe000] with protection modes 0
+Event: 6.565 Protecting memory [0x000071adaf800000,0x000071adaf804000] with protection modes 0
+Event: 6.625 Protecting memory [0x000071adaefff000,0x000071adaf003000] with protection modes 0
+Event: 6.815 Protecting memory [0x000071adae7fe000,0x000071adae802000] with protection modes 0
+Event: 6.985 Protecting memory [0x000071ae78a8c000,0x000071ae78a90000] with protection modes 0
+Event: 9.739 Protecting memory [0x000071aecd2fe000,0x000071aecd302000] with protection modes 0
+Event: 9.739 Protecting memory [0x000071aecd3fe000,0x000071aecd402000] with protection modes 0
+Event: 12.707 Protecting memory [0x000071aecd3fe000,0x000071aecd402000] with protection modes 0
+Event: 12.707 Protecting memory [0x000071aecd2fe000,0x000071aecd302000] with protection modes 0
+Event: 12.707 Protecting memory [0x000071aeccefe000,0x000071aeccf02000] with protection modes 0
+Event: 12.707 Protecting memory [0x000071aecd1fe000,0x000071aecd202000] with protection modes 0
+Event: 12.708 Protecting memory [0x000071aecd2fe000,0x000071aecd302000] with protection modes 0
+
+Nmethod flushes (20 events):
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4974790
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4975e10
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4976510
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4976c90
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4977610
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4977b10
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4977e90
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4978210
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4978790
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4978d10
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4979290
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4979810
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee497b090
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee497bf90
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee497c490
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee497c990
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee497e790
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee497ff10
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4981410
+Event: 0.606 Thread 0x000000001d8f9310 flushing  nmethod 0x000071aee4981a90
+
+Events (20 events):
+Event: 10.042 Thread 0x000071ae60b6afc0 Thread exited: 0x000071ae60b6afc0
+Event: 10.042 Thread 0x000071ae600a4b50 Thread exited: 0x000071ae600a4b50
+Event: 12.707 Thread 0x000000001d904010 Thread added: 0x000071ae64001120
+Event: 12.707 Thread 0x000071ae64001120 Thread added: 0x000071ada4001ae0
+Event: 12.707 Thread 0x000071ae64001120 Thread added: 0x000071ada4002750
+Event: 12.707 Thread 0x000071ae64001120 Thread added: 0x000071ada40037b0
+Event: 12.707 Thread 0x000071ada4001ae0 Thread exited: 0x000071ada4001ae0
+Event: 12.708 Thread 0x000071ada4002750 Thread added: 0x000071ad980021a0
+Event: 12.708 Thread 0x000000001df07c60 Thread exited: 0x000000001df07c60
+Event: 12.710 Thread 0x000000001df293f0 Thread exited: 0x000000001df293f0
+Event: 12.710 Thread 0x000000001df283f0 Thread exited: 0x000000001df283f0
+Event: 12.710 Thread 0x000000001df501b0 Thread exited: 0x000000001df501b0
+Event: 12.710 Thread 0x000000001df19520 Thread exited: 0x000000001df19520
+Event: 12.710 Thread 0x000000001df4f360 Thread exited: 0x000000001df4f360
+Event: 12.711 Thread 0x000071ada4002750 Thread exited: 0x000071ada4002750
+Event: 12.711 Thread 0x000071ad980021a0 Thread exited: 0x000071ad980021a0
+Event: 12.713 Thread 0x000000001d997290 Thread exited: 0x000000001d997290
+Event: 12.714 Thread 0x000071ae64001120 Before exit entered
+Event: 12.714 Thread 0x000071ada40037b0 Thread exited: 0x000071ada40037b0
+Event: 12.714 Thread 0x000000001d904010 Thread exited: 0x000000001d904010
+
+
+Dynamic libraries:
+00400000-00420000 r--p 00000000 103:06 393436                            /usr/bin/python3.12
+00420000-00703000 r-xp 00020000 103:06 393436                            /usr/bin/python3.12
+00703000-00a27000 r--p 00303000 103:06 393436                            /usr/bin/python3.12
+00a27000-00a28000 r--p 00626000 103:06 393436                            /usr/bin/python3.12
+00a28000-00ba6000 rw-p 00627000 103:06 393436                            /usr/bin/python3.12
+00ba6000-00baa000 rw-p 00000000 00:00 0 
+1cc29000-1e5d1000 rw-p 00000000 00:00 0                                  [heap]
+60f400000-612c00000 rw-p 00000000 00:00 0 
+612c00000-800000000 ---p 00000000 00:00 0 
+71ad98000000-71ad98021000 rw-p 00000000 00:00 0 
+71ad98021000-71ad9c000000 ---p 00000000 00:00 0 
+71ad9c000000-71ad9c028000 rw-p 00000000 00:00 0 
+71ad9c028000-71ada0000000 ---p 00000000 00:00 0 
+71ada0000000-71ada0166000 rw-p 00000000 00:00 0 
+71ada0166000-71ada4000000 ---p 00000000 00:00 0 
+71ada4000000-71ada42e7000 rw-p 00000000 00:00 0 
+71ada42e7000-71ada8000000 ---p 00000000 00:00 0 
+71ada8000000-71ada8021000 rw-p 00000000 00:00 0 
+71ada8021000-71adac000000 ---p 00000000 00:00 0 
+71adae7fd000-71adae7fe000 ---p 00000000 00:00 0 
+71adae7fe000-71adae802000 ---p 00000000 00:00 0 
+71adae802000-71adaeffe000 rw-p 00000000 00:00 0 
+71adaeffe000-71adaefff000 ---p 00000000 00:00 0 
+71adaefff000-71adaf003000 ---p 00000000 00:00 0 
+71adaf003000-71adaf7ff000 rw-p 00000000 00:00 0 
+71adaf7ff000-71adaf800000 ---p 00000000 00:00 0 
+71adaf800000-71adaf804000 ---p 00000000 00:00 0 
+71adaf804000-71adb0000000 rw-p 00000000 00:00 0 
+71adb0000000-71adb0021000 rw-p 00000000 00:00 0 
+71adb0021000-71adb4000000 ---p 00000000 00:00 0 
+71adb4000000-71adb4021000 rw-p 00000000 00:00 0 
+71adb4021000-71adb8000000 ---p 00000000 00:00 0 
+71adb8000000-71adb8021000 rw-p 00000000 00:00 0 
+71adb8021000-71adbc000000 ---p 00000000 00:00 0 
+71adbc000000-71adbc021000 rw-p 00000000 00:00 0 
+71adbc021000-71adc0000000 ---p 00000000 00:00 0 
+71adc0000000-71adc0021000 rw-p 00000000 00:00 0 
+71adc0021000-71adc4000000 ---p 00000000 00:00 0 
+71adc4000000-71adc4021000 rw-p 00000000 00:00 0 
+71adc4021000-71adc8000000 ---p 00000000 00:00 0 
+71adc8000000-71adc8021000 rw-p 00000000 00:00 0 
+71adc8021000-71adcc000000 ---p 00000000 00:00 0 
+71adcc000000-71adcc021000 rw-p 00000000 00:00 0 
+71adcc021000-71add0000000 ---p 00000000 00:00 0 
+71add010e000-71add011b000 rw-s 00000000 00:1c 8986                       /dev/shm/fastrtps_port7024
+71add011b000-71add0128000 rw-s 00000000 00:1c 13536                      /dev/shm/fastrtps_port7499
+71add0128000-71add0135000 rw-s 00000000 00:1c 36386                      /dev/shm/fastrtps_port7045
+71add0135000-71add0142000 rw-s 00000000 00:1c 112446                     /dev/shm/fastrtps_port7503
+71add0142000-71add01c9000 rw-s 00000000 00:1c 261310                     /dev/shm/fastrtps_a0a1b51094fa5cc3
+71add01c9000-71add01d6000 rw-s 00000000 00:1c 24567                      /dev/shm/fastrtps_port7009
+71add01d6000-71add01e3000 rw-s 00000000 00:1c 5765                       /dev/shm/fastrtps_port7419
+71add01e3000-71add01f0000 rw-s 00000000 00:1c 5917                       /dev/shm/fastrtps_port7004
+71add01f0000-71add01fd000 rw-s 00000000 00:1c 235755                     /dev/shm/fastrtps_port7010
+71add01fd000-71add020a000 rw-s 00000000 00:1c 234794                     /dev/shm/fastrtps_port7003
+71add020a000-71add0217000 rw-s 00000000 00:1c 5805                       /dev/shm/fastrtps_port7431
+71add0217000-71add0224000 rw-s 00000000 00:1c 258780                     /dev/shm/fastrtps_port7046
+71add0224000-71add0231000 rw-s 00000000 00:1c 6112                       /dev/shm/fastrtps_port7451
+71add0231000-71add023e000 rw-s 00000000 00:1c 5761                       /dev/shm/fastrtps_port7413
+71add023e000-71add024b000 rw-s 00000000 00:1c 5837                       /dev/shm/fastrtps_port7002
+71add024b000-71add0258000 rw-s 00000000 00:1c 240489                     /dev/shm/fastrtps_port7036
+71add0258000-71add0265000 rw-s 00000000 00:1c 234907                     /dev/shm/fastrtps_port7437
+71add0265000-71add0272000 rw-s 00000000 00:1c 8381                       /dev/shm/fastrtps_port7022
+71add0272000-71add027f000 rw-s 00000000 00:1c 14281                      /dev/shm/fastrtps_port7044
+71add027f000-71add028c000 rw-s 00000000 00:1c 31177                      /dev/shm/fastrtps_port7042
+71add028c000-71add0313000 rw-s 00000000 00:1c 250204                     /dev/shm/fastrtps_5e212c264498598f
+71add0313000-71add0320000 rw-s 00000000 00:1c 6148                       /dev/shm/fastrtps_port7459
+71add0320000-71add03a7000 rw-s 00000000 00:1c 250286                     /dev/shm/fastrtps_641c38d197172811
+71add03a7000-71add042e000 rw-s 00000000 00:1c 250535                     /dev/shm/fastrtps_18c82700d964c1d3
+71add042e000-71add04b5000 rw-s 00000000 00:1c 250472                     /dev/shm/fastrtps_51c8a3bc05263172
+71add04b5000-71add053c000 rw-s 00000000 00:1c 250131                     /dev/shm/fastrtps_73dd300fc841e3aa
+71add053c000-71add05c3000 rw-s 00000000 00:1c 250139                     /dev/shm/fastrtps_81233ba4564f0ee0
+71add05c3000-71add064a000 rw-s 00000000 00:1c 250168                     /dev/shm/fastrtps_caccf0f92c3beb50 (deleted)
+71add064a000-71add06d1000 rw-s 00000000 00:1c 250540                     /dev/shm/fastrtps_e0686540fcc22fb3
+71add06d1000-71add0758000 rw-s 00000000 00:1c 257122                     /dev/shm/fastrtps_ca6d5d05ff757fcc
+71add0758000-71add0765000 rw-s 00000000 00:1c 36289                      /dev/shm/fastrtps_port7501
+71add0765000-71add0772000 rw-s 00000000 00:1c 35593                      /dev/shm/fastrtps_port7043
+71add0772000-71add07f9000 rw-s 00000000 00:1c 255818                     /dev/shm/fastrtps_2a084298ccb9e670
+71add07f9000-71add07fa000 ---p 00000000 00:00 0 
+71add07fa000-71add07fe000 ---p 00000000 00:00 0 
+71add07fe000-71add0ffa000 rw-p 00000000 00:00 0 
+71add0ffa000-71add0ffb000 ---p 00000000 00:00 0 
+71add0ffb000-71add0fff000 ---p 00000000 00:00 0 
+71add0fff000-71add17fb000 rw-p 00000000 00:00 0 
+71add17fb000-71add17fc000 ---p 00000000 00:00 0 
+71add17fc000-71add1800000 ---p 00000000 00:00 0 
+71add1800000-71add1ffc000 rw-p 00000000 00:00 0 
+71add1ffc000-71add1ffd000 ---p 00000000 00:00 0 
+71add1ffd000-71add2001000 ---p 00000000 00:00 0 
+71add2001000-71add27fd000 rw-p 00000000 00:00 0 
+71add27fd000-71add27fe000 ---p 00000000 00:00 0 
+71add27fe000-71add2802000 ---p 00000000 00:00 0 
+71add2802000-71add2ffe000 rw-p 00000000 00:00 0 
+71add2ffe000-71add2fff000 ---p 00000000 00:00 0 
+71add2fff000-71add3003000 ---p 00000000 00:00 0 
+71add3003000-71add37ff000 rw-p 00000000 00:00 0 
+71add37ff000-71add3800000 ---p 00000000 00:00 0 
+71add3800000-71add3804000 ---p 00000000 00:00 0 
+71add3804000-71add4000000 rw-p 00000000 00:00 0 
+71add4000000-71add4021000 rw-p 00000000 00:00 0 
+71add4021000-71add8000000 ---p 00000000 00:00 0 
+71add8008000-71add8015000 rw-s 00000000 00:1c 6174                       /dev/shm/fastrtps_port7453
+71add8015000-71add8022000 rw-s 00000000 00:1c 235354                     /dev/shm/fastrtps_port7491
+71add8022000-71add802f000 rw-s 00000000 00:1c 241731                     /dev/shm/fastrtps_port7041
+71add802f000-71add803c000 rw-s 00000000 00:1c 6067                       /dev/shm/fastrtps_port7445
+71add803c000-71add8049000 rw-s 00000000 00:1c 6254                       /dev/shm/fastrtps_port7473
+71add8049000-71add80d0000 rw-s 00000000 00:1c 250510                     /dev/shm/fastrtps_2196fdf41fa4318f
+71add80d0000-71add8157000 rw-s 00000000 00:1c 250652                     /dev/shm/fastrtps_528e5c3b9f48a26c
+71add8157000-71add81de000 rw-s 00000000 00:1c 250675                     /dev/shm/fastrtps_65938550f7e7db8f
+71add81de000-71add8265000 rw-s 00000000 00:1c 250210                     /dev/shm/fastrtps_4936e5f208321b08
+71add8265000-71add82ec000 rw-s 00000000 00:1c 255755                     /dev/shm/fastrtps_ddbc321c80217a64
+71add82ec000-71add8373000 rw-s 00000000 00:1c 250658                     /dev/shm/fastrtps_022c019ebcaab16d
+71add8373000-71add8380000 rw-s 00000000 00:1c 6192                       /dev/shm/fastrtps_port7469
+71add8380000-71add838d000 rw-s 00000000 00:1c 239466                     /dev/shm/fastrtps_port7032
+71add838d000-71add839a000 rw-s 00000000 00:1c 12441                      /dev/shm/fastrtps_port7040
+71add839a000-71add8421000 rw-s 00000000 00:1c 250648                     /dev/shm/fastrtps_15c18d4fecedefb0
+71add8421000-71add84a8000 rw-s 00000000 00:1c 250926                     /dev/shm/fastrtps_015a3c4ca1ac4807
+71add84a8000-71add84b5000 rw-s 00000000 00:1c 28877                      /dev/shm/fastrtps_port7495
+71add84b5000-71add84c2000 rw-s 00000000 00:1c 235177                     /dev/shm/fastrtps_port7487
+71add84c2000-71add84cf000 rw-s 00000000 00:1c 238040                     /dev/shm/fastrtps_port7027
+71add84cf000-71add8556000 rw-s 00000000 00:1c 251074                     /dev/shm/fastrtps_2b77687aa91cb817
+71add8556000-71add85dd000 rw-s 00000000 00:1c 250726                     /dev/shm/fastrtps_a273d0620981c1dd
+71add85dd000-71add8664000 rw-s 00000000 00:1c 250822                     /dev/shm/fastrtps_52e0aa7dacfb136c
+71add8664000-71add86eb000 rw-s 00000000 00:1c 250662                     /dev/shm/fastrtps_155cebc8b2ab7b55
+71add86eb000-71add8772000 rw-s 00000000 00:1c 250732                     /dev/shm/fastrtps_5fa053064d8776ea
+71add8772000-71add8773000 ---p 00000000 00:00 0 
+71add8773000-71add8777000 ---p 00000000 00:00 0 
+71add8777000-71add8f73000 rw-p 00000000 00:00 0 
+71add8f73000-71add8f74000 ---p 00000000 00:00 0 
+71add8f74000-71add8f78000 ---p 00000000 00:00 0 
+71add8f78000-71add9774000 rw-p 00000000 00:00 0 
+71add9774000-71add9775000 ---p 00000000 00:00 0 
+71add9775000-71add9779000 ---p 00000000 00:00 0 
+71add9779000-71add9f75000 rw-p 00000000 00:00 0 
+71add9f75000-71add9f76000 ---p 00000000 00:00 0 
+71add9f76000-71add9f7a000 ---p 00000000 00:00 0 
+71add9f7a000-71adda776000 rw-p 00000000 00:00 0 
+71adda776000-71adda777000 ---p 00000000 00:00 0 
+71adda777000-71adda77b000 ---p 00000000 00:00 0 
+71adda77b000-71addaf77000 rw-p 00000000 00:00 0 
+71addaf77000-71addaf78000 ---p 00000000 00:00 0 
+71addaf78000-71addaf7c000 ---p 00000000 00:00 0 
+71addaf7c000-71addb778000 rw-p 00000000 00:00 0 
+71addb778000-71addb779000 ---p 00000000 00:00 0 
+71addb779000-71addb77d000 ---p 00000000 00:00 0 
+71addb77d000-71addbf79000 rw-p 00000000 00:00 0 
+71addbf79000-71addc000000 rw-s 00000000 00:1c 250717                     /dev/shm/fastrtps_17fcd4a0b670c46a
+71addc000000-71addc021000 rw-p 00000000 00:00 0 
+71addc021000-71ade0000000 ---p 00000000 00:00 0 
+71ade0000000-71ade0021000 rw-p 00000000 00:00 0 
+71ade0021000-71ade4000000 ---p 00000000 00:00 0 
+71ade4000000-71ade4021000 rw-p 00000000 00:00 0 
+71ade4021000-71ade8000000 ---p 00000000 00:00 0 
+71ade8000000-71ade8021000 rw-p 00000000 00:00 0 
+71ade8021000-71adec000000 ---p 00000000 00:00 0 
+71adec000000-71adec021000 rw-p 00000000 00:00 0 
+71adec021000-71adf0000000 ---p 00000000 00:00 0 
+71adf0000000-71adf0021000 rw-p 00000000 00:00 0 
+71adf0021000-71adf4000000 ---p 00000000 00:00 0 
+71adf4000000-71adf4052000 rw-p 00000000 00:00 0 
+71adf4052000-71adf8000000 ---p 00000000 00:00 0 
+71adf8000000-71adf8021000 rw-p 00000000 00:00 0 
+71adf8021000-71adfc000000 ---p 00000000 00:00 0 
+71adfc000000-71adfc021000 rw-p 00000000 00:00 0 
+71adfc021000-71ae00000000 ---p 00000000 00:00 0 
+71ae00000000-71ae00021000 rw-p 00000000 00:00 0 
+71ae00021000-71ae04000000 ---p 00000000 00:00 0 
+71ae04000000-71ae04021000 rw-p 00000000 00:00 0 
+71ae04021000-71ae08000000 ---p 00000000 00:00 0 
+71ae08000000-71ae08037000 rw-p 00000000 00:00 0 
+71ae08037000-71ae0c000000 ---p 00000000 00:00 0 
+71ae0c000000-71ae0c021000 rw-p 00000000 00:00 0 
+71ae0c021000-71ae10000000 ---p 00000000 00:00 0 
+71ae10000000-71ae10021000 rw-p 00000000 00:00 0 
+71ae10021000-71ae14000000 ---p 00000000 00:00 0 
+71ae14000000-71ae14320000 rw-p 00000000 00:00 0 
+71ae14320000-71ae18000000 ---p 00000000 00:00 0 
+71ae18000000-71ae18194000 rw-p 00000000 00:00 0 
+71ae18194000-71ae1c000000 ---p 00000000 00:00 0 
+71ae1c000000-71ae1c021000 rw-p 00000000 00:00 0 
+71ae1c021000-71ae20000000 ---p 00000000 00:00 0 
+71ae20000000-71ae20843000 rw-p 00000000 00:00 0 
+71ae20843000-71ae24000000 ---p 00000000 00:00 0 
+71ae24000000-71ae24021000 rw-p 00000000 00:00 0 
+71ae24021000-71ae28000000 ---p 00000000 00:00 0 
+71ae28000000-71ae28021000 rw-p 00000000 00:00 0 
+71ae28021000-71ae2c000000 ---p 00000000 00:00 0 
+71ae2c000000-71ae2c021000 rw-p 00000000 00:00 0 
+71ae2c021000-71ae30000000 ---p 00000000 00:00 0 
+71ae30000000-71ae30ad6000 rw-p 00000000 00:00 0 
+71ae30ad6000-71ae34000000 ---p 00000000 00:00 0 
+71ae34000000-71ae342bc000 rw-p 00000000 00:00 0 
+71ae342bc000-71ae38000000 ---p 00000000 00:00 0 
+71ae38000000-71ae38021000 rw-p 00000000 00:00 0 
+71ae38021000-71ae3c000000 ---p 00000000 00:00 0 
+71ae3c000000-71ae3cee7000 rw-p 00000000 00:00 0 
+71ae3cee7000-71ae40000000 ---p 00000000 00:00 0 
+71ae40000000-71ae40021000 rw-p 00000000 00:00 0 
+71ae40021000-71ae44000000 ---p 00000000 00:00 0 
+71ae44000000-71ae4439e000 rw-p 00000000 00:00 0 
+71ae4439e000-71ae48000000 ---p 00000000 00:00 0 
+71ae48000000-71ae4a6ed000 rw-p 00000000 00:00 0 
+71ae4a6ed000-71ae4c000000 ---p 00000000 00:00 0 
+71ae4c000000-71ae4c021000 rw-p 00000000 00:00 0 
+71ae4c021000-71ae50000000 ---p 00000000 00:00 0 
+71ae50000000-71ae504d1000 rw-p 00000000 00:00 0 
+71ae504d1000-71ae54000000 ---p 00000000 00:00 0 
+71ae54000000-71ae5447c000 rw-p 00000000 00:00 0 
+71ae5447c000-71ae58000000 ---p 00000000 00:00 0 
+71ae58000000-71ae58021000 rw-p 00000000 00:00 0 
+71ae58021000-71ae5c000000 ---p 00000000 00:00 0 
+71ae5c000000-71ae5c021000 rw-p 00000000 00:00 0 
+71ae5c021000-71ae60000000 ---p 00000000 00:00 0 
+71ae60000000-71ae60ff9000 rw-p 00000000 00:00 0 
+71ae60ff9000-71ae64000000 ---p 00000000 00:00 0 
+71ae64000000-71ae64021000 rw-p 00000000 00:00 0 
+71ae64021000-71ae68000000 ---p 00000000 00:00 0 
+71ae68000000-71ae68021000 rw-p 00000000 00:00 0 
+71ae68021000-71ae6c000000 ---p 00000000 00:00 0 
+71ae6c000000-71ae6c021000 rw-p 00000000 00:00 0 
+71ae6c021000-71ae70000000 ---p 00000000 00:00 0 
+71ae70000000-71ae70021000 rw-p 00000000 00:00 0 
+71ae70021000-71ae74000000 ---p 00000000 00:00 0 
+71ae74000000-71ae75237000 rw-p 00000000 00:00 0 
+71ae75237000-71ae78000000 ---p 00000000 00:00 0 
+71ae7800a000-71ae78017000 rw-s 00000000 00:1c 11976                      /dev/shm/fastrtps_port7038
+71ae78017000-71ae78024000 rw-s 00000000 00:1c 7321                       /dev/shm/fastrtps_port7016
+71ae78024000-71ae78031000 rw-s 00000000 00:1c 235087                     /dev/shm/fastrtps_port7479
+71ae78031000-71ae7803e000 rw-s 00000000 00:1c 236726                     /dev/shm/fastrtps_port7018
+71ae7803e000-71ae7804b000 rw-s 00000000 00:1c 10675                      /dev/shm/fastrtps_port7034
+71ae7804b000-71ae78058000 rw-s 00000000 00:1c 6533                       /dev/shm/fastrtps_port7483
+71ae78058000-71ae7805c000 rw-p 00000000 00:00 0 
+71ae78064000-71ae78071000 rw-s 00000000 00:1c 250688                     /dev/shm/fastrtps_port7477
+71ae78071000-71ae7807e000 rw-s 00000000 00:1c 241270                     /dev/shm/fastrtps_port7039
+71ae7807e000-71ae7808b000 rw-s 00000000 00:1c 35502                      /dev/shm/fastrtps_port7497
+71ae7808b000-71ae78098000 rw-s 00000000 00:1c 11885                      /dev/shm/fastrtps_port7037
+71ae78098000-71ae7811f000 rw-s 00000000 00:1c 250660                     /dev/shm/fastrtps_9e7429c1f60108d9
+71ae7811f000-71ae7812c000 rw-s 00000000 00:1c 6664                       /dev/shm/fastrtps_port7485
+71ae7812c000-71ae78139000 rw-s 00000000 00:1c 6929                       /dev/shm/fastrtps_port7493
+71ae78139000-71ae78146000 rw-s 00000000 00:1c 6713                       /dev/shm/fastrtps_port7489
+71ae78146000-71ae78153000 rw-s 00000000 00:1c 6219                       /dev/shm/fastrtps_port7471
+71ae78153000-71ae78160000 rw-s 00000000 00:1c 6473                       /dev/shm/fastrtps_port7481
+71ae78163000-71ae781ea000 rw-s 00000000 00:1c 250501                     /dev/shm/fastrtps_0e71f4af281366b4
+71ae781ea000-71ae781f7000 rw-s 00000000 00:1c 6328                       /dev/shm/fastrtps_port7475
+71ae781f7000-71ae7827e000 rw-s 00000000 00:1c 250840                     /dev/shm/fastrtps_c807b6e90a316aba
+71ae78280000-71ae78307000 rw-s 00000000 00:1c 250832                     /dev/shm/fastrtps_36c65d656a9f27ab
+71ae78307000-71ae7838e000 rw-s 00000000 00:1c 250931                     /dev/shm/fastrtps_bf22440b5996b420
+71ae7838e000-71ae7839b000 rw-s 00000000 00:1c 11157                      /dev/shm/fastrtps_port7035
+71ae7839b000-71ae783a8000 rw-s 00000000 00:1c 9513                       /dev/shm/fastrtps_port7029
+71ae783a8000-71ae783b5000 rw-s 00000000 00:1c 10662                      /dev/shm/fastrtps_port7033
+71ae783b5000-71ae783c2000 rw-s 00000000 00:1c 238160                     /dev/shm/fastrtps_port7028
+71ae783c2000-71ae783cf000 rw-s 00000000 00:1c 6134                       /dev/shm/fastrtps_port7457
+71ae783cf000-71ae783dc000 rw-s 00000000 00:1c 6125                       /dev/shm/fastrtps_port7455
+71ae783dc000-71ae783e9000 rw-s 00000000 00:1c 106301                     /dev/shm/fastrtps_port7463
+71ae783e9000-71ae783f6000 rw-s 00000000 00:1c 6300                       /dev/shm/fastrtps_port7465
+71ae783f6000-71ae78403000 rw-s 00000000 00:1c 9572                       /dev/shm/fastrtps_port7030
+71ae78403000-71ae78410000 rw-s 00000000 00:1c 9607                       /dev/shm/fastrtps_port7031
+71ae78410000-71ae7841d000 rw-s 00000000 00:1c 108649                     /dev/shm/fastrtps_port7025
+71ae7841d000-71ae7842a000 rw-s 00000000 00:1c 108798                     /dev/shm/fastrtps_port7026
+71ae7842a000-71ae78437000 rw-s 00000000 00:1c 8649                       /dev/shm/fastrtps_port7023
+71ae78437000-71ae784be000 rw-s 00000000 00:1c 250178                     /dev/shm/fastrtps_68734829f92272a8 (deleted)
+71ae784be000-71ae78545000 rw-s 00000000 00:1c 250196                     /dev/shm/fastrtps_48cb08c43f36ecc8
+71ae78545000-71ae785cc000 rw-s 00000000 00:1c 250506                     /dev/shm/fastrtps_a5ca50fbc2ae4e42
+71ae785cc000-71ae78653000 rw-s 00000000 00:1c 250251                     /dev/shm/fastrtps_35543f68c8fd24e3
+71ae78653000-71ae786da000 rw-s 00000000 00:1c 250374                     /dev/shm/fastrtps_48c324a1f45ab226
+71ae786da000-71ae78761000 rw-s 00000000 00:1c 250121                     /dev/shm/fastrtps_ab3307ce438ae3e6
+71ae78761000-71ae787e8000 rw-s 00000000 00:1c 250437                     /dev/shm/fastrtps_e6e423743e1acf54
+71ae787e8000-71ae7886f000 rw-s 00000000 00:1c 250370                     /dev/shm/fastrtps_78b9af456d78fd42
+71ae7886f000-71ae788f6000 rw-s 00000000 00:1c 250376                     /dev/shm/fastrtps_a96cd1028970988f
+71ae788f6000-71ae7897d000 rw-s 00000000 00:1c 250194                     /dev/shm/fastrtps_38105c8ed4f040be
+71ae7897d000-71ae78a04000 rw-s 00000000 00:1c 250590                     /dev/shm/fastrtps_5ea856157d6ac2a1
+71ae78a04000-71ae78a8b000 rw-s 00000000 00:1c 250547                     /dev/shm/fastrtps_6fea63abd65405db
+71ae78a8b000-71ae78a8c000 ---p 00000000 00:00 0 
+71ae78a8c000-71ae78a90000 ---p 00000000 00:00 0 
+71ae78a90000-71ae7928c000 rw-p 00000000 00:00 0 
+71ae7928c000-71ae79290000 rw-p 00000000 00:00 0 
+71ae79290000-71ae79291000 ---p 00000000 00:00 0 
+71ae79291000-71ae79295000 ---p 00000000 00:00 0 
+71ae79295000-71ae79a91000 rw-p 00000000 00:00 0 
+71ae79a91000-71ae79a92000 ---p 00000000 00:00 0 
+71ae79a92000-71ae79a96000 ---p 00000000 00:00 0 
+71ae79a96000-71ae7a292000 rw-p 00000000 00:00 0 
+71ae7a292000-71ae7a296000 r--p 00000000 103:06 524580                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
+71ae7a296000-71ae7a297000 r-xp 00004000 103:06 524580                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
+71ae7a297000-71ae7a298000 r--p 00005000 103:06 524580                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
+71ae7a298000-71ae7a299000 r--p 00005000 103:06 524580                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
+71ae7a299000-71ae7a29a000 rw-p 00006000 103:06 524580                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
+71ae7a29a000-71ae7a2d5000 r--p 00000000 103:06 595575                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_introspection_c.so
+71ae7a2d5000-71ae7a2e0000 r-xp 0003b000 103:06 595575                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_introspection_c.so
+71ae7a2e0000-71ae7a2e7000 r--p 00046000 103:06 595575                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_introspection_c.so
+71ae7a2e7000-71ae7a2e9000 r--p 0004d000 103:06 595575                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_introspection_c.so
+71ae7a2e9000-71ae7a2f4000 rw-p 0004f000 103:06 595575                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_introspection_c.so
+71ae7a2f4000-71ae7a2f8000 r--p 00000000 103:06 524545                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_fastrtps_c.so
+71ae7a2f8000-71ae7a2fb000 r-xp 00004000 103:06 524545                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_fastrtps_c.so
+71ae7a2fb000-71ae7a2fc000 r--p 00007000 103:06 524545                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_fastrtps_c.so
+71ae7a2fc000-71ae7a2fd000 r--p 00008000 103:06 524545                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_fastrtps_c.so
+71ae7a2fd000-71ae7a2fe000 rw-p 00009000 103:06 524545                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_fastrtps_c.so
+71ae7a2fe000-71ae7a346000 r--p 00000000 103:06 595569                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_c.so
+71ae7a346000-71ae7a3a8000 r-xp 00048000 103:06 595569                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_c.so
+71ae7a3a8000-71ae7a3c7000 r--p 000aa000 103:06 595569                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_c.so
+71ae7a3c7000-71ae7a3d0000 r--p 000c9000 103:06 595569                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_c.so
+71ae7a3d0000-71ae7a3ee000 rw-p 000d2000 103:06 595569                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_c.so
+71ae7a3ee000-71ae7a7fd000 rw-p 00000000 00:00 0 
+71ae7a7fd000-71ae7a801000 ---p 00000000 00:00 0 
+71ae7a801000-71ae7a8fd000 rw-p 00000000 00:00 0 
+71ae7a8fd000-71ae7a8fe000 ---p 00000000 00:00 0 
+71ae7a8fe000-71ae7a9fe000 rw-p 00000000 00:00 0 
+71ae7a9fe000-71ae7a9ff000 ---p 00000000 00:00 0 
+71ae7a9ff000-71ae7aaff000 rw-p 00000000 00:00 0 
+71ae7aaff000-71ae7ab00000 ---p 00000000 00:00 0 
+71ae7ab00000-71ae7ac00000 rw-p 00000000 00:00 0 
+71ae7ac00000-71ae7ac04000 ---p 00000000 00:00 0 
+71ae7ac04000-71ae7ad00000 rw-p 00000000 00:00 0 
+71ae7ad00000-71ae7ad04000 ---p 00000000 00:00 0 
+71ae7ad04000-71ae7ae00000 rw-p 00000000 00:00 0 
+71ae7ae00000-71ae7ae04000 ---p 00000000 00:00 0 
+71ae7ae04000-71ae7af00000 rw-p 00000000 00:00 0 
+71ae7af00000-71ae7af04000 ---p 00000000 00:00 0 
+71ae7af04000-71ae7b000000 rw-p 00000000 00:00 0 
+71ae7b000000-71ae7b400000 rw-p 00000000 00:00 0 
+71ae7b400000-71ae7b700000 rw-p 00000000 00:00 0 
+71ae7b700000-71ae7b800000 rw-p 00000000 00:00 0 
+71ae7b800000-71ae7ba00000 rw-p 00000000 00:00 0 
+71ae7ba00000-71ae7bac0000 rw-p 00000000 00:00 0 
+71ae7bac0000-71ae7bb00000 ---p 00000000 00:00 0 
+71ae7bb00000-71ae7bb30000 rw-p 00000000 00:00 0 
+71ae7bb30000-71ae7f000000 ---p 00000000 00:00 0 
+71ae7f000000-71ae7fca0000 rw-p 00001000 103:06 798415                    /usr/lib/jvm/java-21-openjdk-amd64/lib/server/classes.jsa
+71ae7fca0000-71ae80000000 ---p 00000000 00:00 0 
+71ae80000000-71ae80040000 rw-p 00000000 00:00 0 
+71ae80040000-71ae800c0000 rw-p 00000000 00:00 0 
+71ae800c0000-71ae80140000 rw-p 00000000 00:00 0 
+71ae80140000-71ae80150000 rw-p 00000000 00:00 0 
+71ae80150000-71ae80180000 ---p 00000000 00:00 0 
+71ae80180000-71ae801a0000 rw-p 00000000 00:00 0 
+71ae801a0000-71aec0000000 ---p 00000000 00:00 0 
+71aec0000000-71aec0021000 rw-p 00000000 00:00 0 
+71aec0021000-71aec4000000 ---p 00000000 00:00 0 
+71aec4000000-71aec4021000 rw-p 00000000 00:00 0 
+71aec4021000-71aec8000000 ---p 00000000 00:00 0 
+71aec8000000-71aec8021000 rw-p 00000000 00:00 0 
+71aec8021000-71aecc000000 ---p 00000000 00:00 0 
+71aecc002000-71aecc003000 r--p 00000000 103:06 523966                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
+71aecc003000-71aecc004000 r-xp 00001000 103:06 523966                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
+71aecc004000-71aecc005000 r--p 00002000 103:06 523966                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
+71aecc005000-71aecc006000 r--p 00002000 103:06 523966                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
+71aecc006000-71aecc007000 rw-p 00003000 103:06 523966                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
+71aecc007000-71aecc008000 r--p 00000000 103:06 523959                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc008000-71aecc009000 r-xp 00001000 103:06 523959                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc009000-71aecc00a000 r--p 00002000 103:06 523959                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc00a000-71aecc00b000 r--p 00002000 103:06 523959                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc00b000-71aecc00c000 rw-p 00003000 103:06 523959                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc00c000-71aecc044000 r--p 00000000 103:06 595573                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc044000-71aecc072000 r-xp 00038000 103:06 595573                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc072000-71aecc082000 r--p 00066000 103:06 595573                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc082000-71aecc083000 r--p 00076000 103:06 595573                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc083000-71aecc08a000 rw-p 00077000 103:06 595573                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_fastrtps_c.so
+71aecc08a000-71aecc08b000 r--p 00000000 103:06 523900                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
+71aecc08b000-71aecc08c000 r-xp 00001000 103:06 523900                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
+71aecc08c000-71aecc08d000 r--p 00002000 103:06 523900                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
+71aecc08d000-71aecc08e000 r--p 00002000 103:06 523900                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
+71aecc08e000-71aecc08f000 rw-p 00003000 103:06 523900                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
+71aecc08f000-71aecc091000 r--p 00000000 103:06 524083                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_py.so
+71aecc091000-71aecc094000 r-xp 00002000 103:06 524083                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_py.so
+71aecc094000-71aecc096000 r--p 00005000 103:06 524083                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_py.so
+71aecc096000-71aecc097000 r--p 00006000 103:06 524083                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_py.so
+71aecc097000-71aecc098000 rw-p 00007000 103:06 524083                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_py.so
+71aecc098000-71aecc198000 rw-p 00000000 00:00 0 
+71aecc198000-71aecc19a000 r--p 00000000 103:06 927966                    /opt/ros/jazzy/lib/python3.12/site-packages/action_msgs/action_msgs_s__rosidl_typesupport_c.so
+71aecc19a000-71aecc19b000 r-xp 00002000 103:06 927966                    /opt/ros/jazzy/lib/python3.12/site-packages/action_msgs/action_msgs_s__rosidl_typesupport_c.so
+71aecc19b000-71aecc19c000 r--p 00003000 103:06 927966                    /opt/ros/jazzy/lib/python3.12/site-packages/action_msgs/action_msgs_s__rosidl_typesupport_c.so
+71aecc19c000-71aecc19d000 r--p 00003000 103:06 927966                    /opt/ros/jazzy/lib/python3.12/site-packages/action_msgs/action_msgs_s__rosidl_typesupport_c.so
+71aecc19d000-71aecc19e000 rw-p 00004000 103:06 927966                    /opt/ros/jazzy/lib/python3.12/site-packages/action_msgs/action_msgs_s__rosidl_typesupport_c.so
+71aecc19e000-71aecc1a2000 r--p 00000000 103:06 524082                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_c.so
+71aecc1a2000-71aecc1a8000 r-xp 00004000 103:06 524082                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_c.so
+71aecc1a8000-71aecc1aa000 r--p 0000a000 103:06 524082                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_c.so
+71aecc1aa000-71aecc1ab000 r--p 0000c000 103:06 524082                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_c.so
+71aecc1ab000-71aecc1ad000 rw-p 0000d000 103:06 524082                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_c.so
+71aecc1ad000-71aecc1ae000 rw-p 00000000 00:00 0 
+71aecc1ae000-71aecc1b8000 r--p 00000000 103:06 595570                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_py.so
+71aecc1b8000-71aecc1e5000 r-xp 0000a000 103:06 595570                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_py.so
+71aecc1e5000-71aecc1f7000 r--p 00037000 103:06 595570                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_py.so
+71aecc1f7000-71aecc1f8000 r--p 00048000 103:06 595570                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_py.so
+71aecc1f8000-71aecc1f9000 rw-p 00049000 103:06 595570                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_generator_py.so
+71aecc1f9000-71aecc1fd000 ---p 00000000 00:00 0 
+71aecc1fd000-71aecc2f9000 rw-p 00000000 00:00 0 
+71aecc2f9000-71aecc2fd000 ---p 00000000 00:00 0 
+71aecc2fd000-71aecc3f9000 rw-p 00000000 00:00 0 
+71aecc3f9000-71aecc3fd000 ---p 00000000 00:00 0 
+71aecc3fd000-71aecc4f9000 rw-p 00000000 00:00 0 
+71aecc4f9000-71aecc4fd000 ---p 00000000 00:00 0 
+71aecc4fd000-71aecc5f9000 rw-p 00000000 00:00 0 
+71aecc5f9000-71aecc5fd000 ---p 00000000 00:00 0 
+71aecc5fd000-71aecc6f9000 rw-p 00000000 00:00 0 
+71aecc6f9000-71aecc6fd000 ---p 00000000 00:00 0 
+71aecc6fd000-71aecc7f9000 rw-p 00000000 00:00 0 
+71aecc7f9000-71aecc7fd000 ---p 00000000 00:00 0 
+71aecc7fd000-71aecc8f9000 rw-p 00000000 00:00 0 
+71aecc8f9000-71aecc8fa000 ---p 00000000 00:00 0 
+71aecc8fa000-71aecc9fa000 rw-p 00000000 00:00 0 
+71aecc9fa000-71aecc9fb000 ---p 00000000 00:00 0 
+71aecc9fb000-71aeccafb000 rw-p 00000000 00:00 0 
+71aeccafb000-71aeccafc000 ---p 00000000 00:00 0 
+71aeccafc000-71aeccbfc000 rw-p 00000000 00:00 0 
+71aeccbfc000-71aeccc00000 ---p 00000000 00:00 0 
+71aeccc00000-71aecccfc000 rw-p 00000000 00:00 0 
+71aecccfc000-71aecccfd000 ---p 00000000 00:00 0 
+71aecccfd000-71aeccdfd000 rw-p 00000000 00:00 0 
+71aeccdfd000-71aeccdfe000 ---p 00000000 00:00 0 
+71aeccdfe000-71aeccefe000 rw-p 00000000 00:00 0 
+71aeccefe000-71aeccf02000 ---p 00000000 00:00 0 
+71aeccf02000-71aeccffe000 rw-p 00000000 00:00 0 
+71aeccffe000-71aecd002000 ---p 00000000 00:00 0 
+71aecd002000-71aecd0fe000 rw-p 00000000 00:00 0 
+71aecd0fe000-71aecd102000 ---p 00000000 00:00 0 
+71aecd102000-71aecd1fe000 rw-p 00000000 00:00 0 
+71aecd1fe000-71aecd202000 ---p 00000000 00:00 0 
+71aecd202000-71aecd2fe000 rw-p 00000000 00:00 0 
+71aecd2fe000-71aecd302000 ---p 00000000 00:00 0 
+71aecd302000-71aecd3fe000 rw-p 00000000 00:00 0 
+71aecd3fe000-71aecd402000 ---p 00000000 00:00 0 
+71aecd402000-71aecd4fe000 rw-p 00000000 00:00 0 
+71aecd4fe000-71aecd502000 ---p 00000000 00:00 0 
+71aecd502000-71aecd5fe000 rw-p 00000000 00:00 0 
+71aecd5fe000-71aecd602000 ---p 00000000 00:00 0 
+71aecd602000-71aecd6fe000 rw-p 00000000 00:00 0 
+71aecd6fe000-71aecd702000 ---p 00000000 00:00 0 
+71aecd702000-71aecd7fe000 rw-p 00000000 00:00 0 
+71aecd7fe000-71aecd802000 ---p 00000000 00:00 0 
+71aecd802000-71aecd8fe000 rw-p 00000000 00:00 0 
+71aecd8fe000-71aecd902000 ---p 00000000 00:00 0 
+71aecd902000-71aecd9fe000 rw-p 00000000 00:00 0 
+71aecd9fe000-71aecda02000 ---p 00000000 00:00 0 
+71aecda02000-71aecdafe000 rw-p 00000000 00:00 0 
+71aecdafe000-71aecdb02000 ---p 00000000 00:00 0 
+71aecdb02000-71aecdbfe000 rw-p 00000000 00:00 0 
+71aecdbfe000-71aecdc02000 ---p 00000000 00:00 0 
+71aecdc02000-71aecdcfe000 rw-p 00000000 00:00 0 
+71aecdcfe000-71aecdd02000 ---p 00000000 00:00 0 
+71aecdd02000-71aecddfe000 rw-p 00000000 00:00 0 
+71aecddfe000-71aecddff000 ---p 00000000 00:00 0 
+71aecddff000-71aecdeff000 rw-p 00000000 00:00 0 
+71aecdeff000-71aecdf00000 ---p 00000000 00:00 0 
+71aecdf00000-71aece000000 rw-p 00000000 00:00 0 
+71aece000000-71aed0021000 rw-p 00000000 00:00 0 
+71aed0021000-71aed4000000 ---p 00000000 00:00 0 
+71aed4000000-71aed4021000 rw-p 00000000 00:00 0 
+71aed4021000-71aed8000000 ---p 00000000 00:00 0 
+71aed8000000-71aed8021000 rw-p 00000000 00:00 0 
+71aed8021000-71aedc000000 ---p 00000000 00:00 0 
+71aedc000000-71aedc001000 r--p 00000000 103:06 927821                    /opt/ros/jazzy/lib/python3.12/site-packages/unique_identifier_msgs/unique_identifier_msgs_s__rosidl_typesupport_c.so
+71aedc001000-71aedc002000 r-xp 00001000 103:06 927821                    /opt/ros/jazzy/lib/python3.12/site-packages/unique_identifier_msgs/unique_identifier_msgs_s__rosidl_typesupport_c.so
+71aedc002000-71aedc003000 r--p 00002000 103:06 927821                    /opt/ros/jazzy/lib/python3.12/site-packages/unique_identifier_msgs/unique_identifier_msgs_s__rosidl_typesupport_c.so
+71aedc003000-71aedc004000 r--p 00002000 103:06 927821                    /opt/ros/jazzy/lib/python3.12/site-packages/unique_identifier_msgs/unique_identifier_msgs_s__rosidl_typesupport_c.so
+71aedc004000-71aedc005000 rw-p 00003000 103:06 927821                    /opt/ros/jazzy/lib/python3.12/site-packages/unique_identifier_msgs/unique_identifier_msgs_s__rosidl_typesupport_c.so
+71aedc005000-71aedc01c000 r--p 00000000 103:06 1113893                   /opt/ros/jazzy/lib/python3.12/site-packages/irobot_create_msgs/irobot_create_msgs_s__rosidl_typesupport_c.so
+71aedc01c000-71aedc02e000 r-xp 00017000 103:06 1113893                   /opt/ros/jazzy/lib/python3.12/site-packages/irobot_create_msgs/irobot_create_msgs_s__rosidl_typesupport_c.so
+71aedc02e000-71aedc03b000 r--p 00029000 103:06 1113893                   /opt/ros/jazzy/lib/python3.12/site-packages/irobot_create_msgs/irobot_create_msgs_s__rosidl_typesupport_c.so
+71aedc03b000-71aedc03c000 r--p 00035000 103:06 1113893                   /opt/ros/jazzy/lib/python3.12/site-packages/irobot_create_msgs/irobot_create_msgs_s__rosidl_typesupport_c.so
+71aedc03c000-71aedc03e000 rw-p 00036000 103:06 1113893                   /opt/ros/jazzy/lib/python3.12/site-packages/irobot_create_msgs/irobot_create_msgs_s__rosidl_typesupport_c.so
+71aedc03e000-71aedc0c5000 rw-s 00000000 00:1c 250175                     /dev/shm/fastrtps_f256ec699144de83
+71aedc0c5000-71aedc0c6000 ---p 00000000 00:00 0 
+71aedc0c6000-71aedc1c6000 rw-p 00000000 00:00 0 
+71aedc1c6000-71aedc1c7000 ---p 00000000 00:00 0 
+71aedc1c7000-71aedc2c7000 rw-p 00000000 00:00 0 
+71aedc2c7000-71aedccb0000 rw-p 00000000 00:00 0 
+71aedccb0000-71aee4800000 ---p 00000000 00:00 0 
+71aee4800000-71aee4c70000 rwxp 00000000 00:00 0 
+71aee4c70000-71aeebc5f000 ---p 00000000 00:00 0 
+71aeebc5f000-71aeebf9f000 rwxp 00000000 00:00 0 
+71aeebf9f000-71aeec3a0000 ---p 00000000 00:00 0 
+71aeec3a0000-71aeec610000 rwxp 00000000 00:00 0 
+71aeec610000-71aef3800000 ---p 00000000 00:00 0 
+71aef3800000-71aefbe34000 r--s 00000000 103:06 798414                    /usr/lib/jvm/java-21-openjdk-amd64/lib/modules
+71aefbe35000-71aefbe52000 r--p 00000000 103:06 595571                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_c.so
+71aefbe52000-71aefbe54000 r-xp 0001d000 103:06 595571                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_c.so
+71aefbe54000-71aefbe5e000 r--p 0001f000 103:06 595571                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_c.so
+71aefbe5e000-71aefbe62000 r--p 00028000 103:06 595571                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_c.so
+71aefbe62000-71aefbe65000 rw-p 0002c000 103:06 595571                    /opt/ros/jazzy/lib/libirobot_create_msgs__rosidl_typesupport_c.so
+71aefbe65000-71aefbe66000 rw-p 00000000 00:00 0 
+71aefbe66000-71aefbe70000 r--p 00000000 103:06 573421                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_introspection_c.so
+71aefbe70000-71aefbe73000 r-xp 0000a000 103:06 573421                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_introspection_c.so
+71aefbe73000-71aefbe75000 r--p 0000d000 103:06 573421                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_introspection_c.so
+71aefbe75000-71aefbe76000 r--p 0000e000 103:06 573421                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_introspection_c.so
+71aefbe76000-71aefbe78000 rw-p 0000f000 103:06 573421                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_introspection_c.so
+71aefbe78000-71aefbeff000 rw-s 00000000 00:1c 250462                     /dev/shm/fastrtps_69d700b97906ee39
+71aefbeff000-71aefc021000 rw-p 00000000 00:00 0 
+71aefc021000-71af00000000 ---p 00000000 00:00 0 
+71af00000000-71af00079000 rw-p 00000000 00:00 0 
+71af00079000-71af04000000 ---p 00000000 00:00 0 
+71af04000000-71af04021000 rw-p 00000000 00:00 0 
+71af04021000-71af08000000 ---p 00000000 00:00 0 
+71af08001000-71af0800d000 r--p 00000000 103:06 573415                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_c.so
+71af0800d000-71af08021000 r-xp 0000c000 103:06 573415                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_c.so
+71af08021000-71af08028000 r--p 00020000 103:06 573415                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_c.so
+71af08028000-71af0802a000 r--p 00026000 103:06 573415                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_c.so
+71af0802a000-71af08030000 rw-p 00028000 103:06 573415                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_c.so
+71af08030000-71af08034000 rw-p 00000000 00:00 0 
+71af08034000-71af08042000 r--p 00000000 103:06 524892                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so
+71af08042000-71af08054000 r-xp 0000e000 103:06 524892                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so
+71af08054000-71af0805c000 r--p 00020000 103:06 524892                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so
+71af0805c000-71af0805e000 r--p 00028000 103:06 524892                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so
+71af0805e000-71af08064000 rw-p 0002a000 103:06 524892                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so
+71af08064000-71af08065000 rw-p 00000000 00:00 0 
+71af08065000-71af080ec000 rw-s 00000000 00:1c 250393                     /dev/shm/fastrtps_010da7b5245836ae
+71af080ec000-71af085f1000 rw-p 00000000 00:00 0 
+71af085f1000-71af085f2000 ---p 00000000 00:00 0 
+71af085f2000-71af086f2000 rw-p 00000000 00:00 0 
+71af086f2000-71af086f3000 ---p 00000000 00:00 0 
+71af086f3000-71af087f3000 rw-p 00000000 00:00 0 
+71af087f3000-71af087f4000 ---p 00000000 00:00 0 
+71af087f4000-71af088f4000 rw-p 00000000 00:00 0 
+71af088f4000-71af08910000 rw-p 00000000 00:00 0 
+71af08910000-71af0987a000 ---p 00000000 00:00 0 
+71af0987a000-71af09896000 rw-p 00000000 00:00 0 
+71af09896000-71af0a800000 ---p 00000000 00:00 0 
+71af0a800000-71af0aaa2000 r--p 00000000 103:06 798418                    /usr/lib/jvm/java-21-openjdk-amd64/lib/server/libjvm.so
+71af0aaa2000-71af0b918000 r-xp 002a2000 103:06 798418                    /usr/lib/jvm/java-21-openjdk-amd64/lib/server/libjvm.so
+71af0b918000-71af0bbf2000 r--p 01118000 103:06 798418                    /usr/lib/jvm/java-21-openjdk-amd64/lib/server/libjvm.so
+71af0bbf2000-71af0bcc6000 r--p 013f2000 103:06 798418                    /usr/lib/jvm/java-21-openjdk-amd64/lib/server/libjvm.so
+71af0bcc6000-71af0bcf6000 rw-p 014c6000 103:06 798418                    /usr/lib/jvm/java-21-openjdk-amd64/lib/server/libjvm.so
+71af0bcf6000-71af0bd5c000 rw-p 00000000 00:00 0 
+71af0bd5f000-71af0bd69000 r--p 00000000 103:06 573419                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_fastrtps_c.so
+71af0bd69000-71af0bd73000 r-xp 0000a000 103:06 573419                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_fastrtps_c.so
+71af0bd73000-71af0bd76000 r--p 00014000 103:06 573419                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_fastrtps_c.so
+71af0bd76000-71af0bd77000 r--p 00016000 103:06 573419                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_fastrtps_c.so
+71af0bd77000-71af0bd79000 rw-p 00017000 103:06 573419                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_fastrtps_c.so
+71af0bd79000-71af0be00000 rw-s 00000000 00:1c 250599                     /dev/shm/fastrtps_da787b358cdaf85d
+71af0be00000-71af0de00000 rw-p 00000000 00:00 0 
+71af0de02000-71af0de04000 r--p 00000000 103:06 524504                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_c.so
+71af0de04000-71af0de05000 r-xp 00002000 103:06 524504                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_c.so
+71af0de05000-71af0de06000 r--p 00003000 103:06 524504                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_c.so
+71af0de06000-71af0de07000 r--p 00003000 103:06 524504                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_c.so
+71af0de07000-71af0de08000 rw-p 00004000 103:06 524504                    /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_c.so
+71af0de08000-71af0de0b000 r--p 00000000 103:06 573416                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_py.so
+71af0de0b000-71af0de14000 r-xp 00003000 103:06 573416                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_py.so
+71af0de14000-71af0de17000 r--p 0000c000 103:06 573416                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_py.so
+71af0de17000-71af0de18000 r--p 0000e000 103:06 573416                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_py.so
+71af0de18000-71af0de19000 rw-p 0000f000 103:06 573416                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_generator_py.so
+71af0de19000-71af0de25000 r--p 00000000 103:06 524978                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
+71af0de25000-71af0de28000 r-xp 0000c000 103:06 524978                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
+71af0de28000-71af0de2a000 r--p 0000f000 103:06 524978                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
+71af0de2a000-71af0de2b000 r--p 00011000 103:06 524978                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
+71af0de2b000-71af0de2e000 rw-p 00012000 103:06 524978                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
+71af0de2e000-71af0de3e000 r--p 00000000 103:06 525232                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_c.so
+71af0de3e000-71af0de55000 r-xp 00010000 103:06 525232                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_c.so
+71af0de55000-71af0de60000 r--p 00027000 103:06 525232                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_c.so
+71af0de60000-71af0de62000 r--p 00032000 103:06 525232                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_c.so
+71af0de62000-71af0de6a000 rw-p 00034000 103:06 525232                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_c.so
+71af0de6a000-71af0de6c000 rw-p 00000000 00:00 0 
+71af0de6c000-71af0def3000 rw-s 00000000 00:1c 246170                     /dev/shm/fastrtps_255691645baccd1a (deleted)
+71af0def3000-71af0dff0000 rw-p 00000000 00:00 0 
+71af0dff0000-71af0dff1000 ---p 00000000 00:00 0 
+71af0dff1000-71af0e7f1000 rw-p 00000000 00:00 0 
+71af0e7f1000-71af0e7f2000 ---p 00000000 00:00 0 
+71af0e7f2000-71af0eff2000 rw-p 00000000 00:00 0 
+71af0eff2000-71af0eff3000 ---p 00000000 00:00 0 
+71af0eff3000-71af0f7f3000 rw-p 00000000 00:00 0 
+71af0f7f3000-71af0f7f4000 ---p 00000000 00:00 0 
+71af0f7f4000-71af0fff4000 rw-p 00000000 00:00 0 
+71af0fff4000-71af0fff5000 ---p 00000000 00:00 0 
+71af0fff5000-71af107f5000 rw-p 00000000 00:00 0 
+71af107f5000-71af107f6000 ---p 00000000 00:00 0 
+71af107f6000-71af10ff6000 rw-p 00000000 00:00 0 
+71af10ff6000-71af10ff7000 ---p 00000000 00:00 0 
+71af10ff7000-71af117f7000 rw-p 00000000 00:00 0 
+71af117f7000-71af117f8000 ---p 00000000 00:00 0 
+71af117f8000-71af11ff8000 rw-p 00000000 00:00 0 
+71af11ff8000-71af11ff9000 ---p 00000000 00:00 0 
+71af11ff9000-71af127f9000 rw-p 00000000 00:00 0 
+71af127f9000-71af127fa000 ---p 00000000 00:00 0 
+71af127fa000-71af12ffa000 rw-p 00000000 00:00 0 
+71af12ffa000-71af12ffb000 ---p 00000000 00:00 0 
+71af12ffb000-71af137fb000 rw-p 00000000 00:00 0 
+71af137fb000-71af137fc000 ---p 00000000 00:00 0 
+71af137fc000-71af13ffc000 rw-p 00000000 00:00 0 
+71af13ffc000-71af13ffd000 ---p 00000000 00:00 0 
+71af13ffd000-71af147fd000 rw-p 00000000 00:00 0 
+71af147fd000-71af147fe000 ---p 00000000 00:00 0 
+71af147fe000-71af14ffe000 rw-p 00000000 00:00 0 
+71af14ffe000-71af14fff000 ---p 00000000 00:00 0 
+71af14fff000-71af157ff000 rw-p 00000000 00:00 0 
+71af157ff000-71af15800000 ---p 00000000 00:00 0 
+71af15800000-71af16000000 rw-p 00000000 00:00 0 
+71af16000000-71af3c000000 rw-p 00000000 00:00 0 
+71af3c000000-71af3c021000 rw-p 00000000 00:00 0 
+71af3c021000-71af40000000 ---p 00000000 00:00 0 
+71af40003000-71af40008000 r--p 00000000 103:06 573417                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_c.so
+71af40008000-71af40009000 r-xp 00005000 103:06 573417                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_c.so
+71af40009000-71af4000b000 r--p 00006000 103:06 573417                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_c.so
+71af4000b000-71af4000c000 r--p 00007000 103:06 573417                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_c.so
+71af4000c000-71af4000d000 rw-p 00008000 103:06 573417                    /opt/ros/jazzy/lib/libnav_msgs__rosidl_typesupport_c.so
+71af4000d000-71af40010000 r--p 00000000 103:06 524895                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_py.so
+71af40010000-71af4001e000 r-xp 00003000 103:06 524895                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_py.so
+71af4001e000-71af40023000 r--p 00011000 103:06 524895                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_py.so
+71af40023000-71af40024000 r--p 00015000 103:06 524895                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_py.so
+71af40024000-71af40025000 rw-p 00016000 103:06 524895                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_py.so
+71af40025000-71af4002a000 r--p 00000000 103:06 798398                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjsvml.so
+71af4002a000-71af4006b000 r-xp 00005000 103:06 798398                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjsvml.so
+71af4006b000-71af400f4000 r--p 00046000 103:06 798398                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjsvml.so
+71af400f4000-71af400f5000 r--p 000ce000 103:06 798398                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjsvml.so
+71af400f5000-71af400f6000 rw-p 000cf000 103:06 798398                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjsvml.so
+71af400f6000-71af407fd000 rw-p 00000000 00:00 0 
+71af407fd000-71af407fe000 ---p 00000000 00:00 0 
+71af407fe000-71af40ffe000 rw-p 00000000 00:00 0 
+71af40ffe000-71af40fff000 ---p 00000000 00:00 0 
+71af40fff000-71af417ff000 rw-p 00000000 00:00 0 
+71af417ff000-71af41800000 ---p 00000000 00:00 0 
+71af41800000-71af42000000 rw-p 00000000 00:00 0 
+71af42000000-71af44000000 rw-p 00000000 00:00 0 
+71af44000000-71af44021000 rw-p 00000000 00:00 0 
+71af44021000-71af48000000 ---p 00000000 00:00 0 
+71af48000000-71af4861c000 rw-p 00000000 00:00 0 
+71af4861c000-71af4c000000 ---p 00000000 00:00 0 
+71af4c003000-71af4c00e000 r--p 00000000 103:06 525542                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
+71af4c00e000-71af4c010000 r-xp 0000b000 103:06 525542                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
+71af4c010000-71af4c012000 r--p 0000d000 103:06 525542                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
+71af4c012000-71af4c013000 r--p 0000e000 103:06 525542                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
+71af4c013000-71af4c016000 rw-p 0000f000 103:06 525542                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
+71af4c016000-71af4c01c000 r--p 00000000 103:06 525313                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_c.so
+71af4c01c000-71af4c01d000 r-xp 00006000 103:06 525313                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_c.so
+71af4c01d000-71af4c01f000 r--p 00007000 103:06 525313                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_c.so
+71af4c01f000-71af4c020000 r--p 00009000 103:06 525313                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_c.so
+71af4c020000-71af4c021000 rw-p 0000a000 103:06 525313                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_c.so
+71af4c021000-71af4c024000 r--p 00000000 103:06 525312                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_py.so
+71af4c024000-71af4c031000 r-xp 00003000 103:06 525312                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_py.so
+71af4c031000-71af4c037000 r--p 00010000 103:06 525312                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_py.so
+71af4c037000-71af4c038000 r--p 00015000 103:06 525312                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_py.so
+71af4c038000-71af4c039000 rw-p 00016000 103:06 525312                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_py.so
+71af4c039000-71af4c03f000 r--p 00000000 103:06 931793                    /opt/ros/jazzy/lib/python3.12/site-packages/geometry_msgs/geometry_msgs_s__rosidl_typesupport_c.so
+71af4c03f000-71af4c044000 r-xp 00006000 103:06 931793                    /opt/ros/jazzy/lib/python3.12/site-packages/geometry_msgs/geometry_msgs_s__rosidl_typesupport_c.so
+71af4c044000-71af4c047000 r--p 0000b000 103:06 931793                    /opt/ros/jazzy/lib/python3.12/site-packages/geometry_msgs/geometry_msgs_s__rosidl_typesupport_c.so
+71af4c047000-71af4c048000 r--p 0000d000 103:06 931793                    /opt/ros/jazzy/lib/python3.12/site-packages/geometry_msgs/geometry_msgs_s__rosidl_typesupport_c.so
+71af4c048000-71af4c049000 rw-p 0000e000 103:06 931793                    /opt/ros/jazzy/lib/python3.12/site-packages/geometry_msgs/geometry_msgs_s__rosidl_typesupport_c.so
+71af4c049000-71af4c04b000 r--p 00000000 103:06 798403                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement_ext.so
+71af4c04b000-71af4c04e000 r-xp 00002000 103:06 798403                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement_ext.so
+71af4c04e000-71af4c04f000 r--p 00005000 103:06 798403                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement_ext.so
+71af4c04f000-71af4c050000 r--p 00006000 103:06 798403                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement_ext.so
+71af4c050000-71af4c051000 rw-p 00007000 103:06 798403                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement_ext.so
+71af4c051000-71af4c05e000 rw-s 00000000 00:1c 7748                       /dev/shm/fastrtps_port7020
+71af4c05e000-71af4c06b000 rw-s 00000000 00:1c 5975                       /dev/shm/fastrtps_port7439
+71af4c06b000-71af4c078000 rw-s 00000000 00:1c 236854                     /dev/shm/fastrtps_port7019
+71af4c078000-71af4c800000 rw-p 00000000 00:00 0 
+71af4c800000-71af4c83b000 r-xp 00000000 103:07 1329828                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0
+71af4c83b000-71af4ca3a000 ---p 0003b000 103:07 1329828                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0
+71af4ca3a000-71af4ca3b000 r--p 0003a000 103:07 1329828                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0
+71af4ca3b000-71af4ca3e000 rw-p 0003b000 103:07 1329828                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0
+71af4ca3e000-71af4ca3f000 r--p 00000000 103:06 523860                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_c.so
+71af4ca3f000-71af4ca40000 r-xp 00001000 103:06 523860                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_c.so
+71af4ca40000-71af4ca41000 r--p 00002000 103:06 523860                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_c.so
+71af4ca41000-71af4ca42000 r--p 00002000 103:06 523860                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_c.so
+71af4ca42000-71af4ca43000 rw-p 00003000 103:06 523860                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_c.so
+71af4ca43000-71af4ca45000 r--p 00000000 103:06 798401                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement.so
+71af4ca45000-71af4ca46000 r-xp 00002000 103:06 798401                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement.so
+71af4ca46000-71af4ca47000 r--p 00003000 103:06 798401                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement.so
+71af4ca47000-71af4ca48000 r--p 00003000 103:06 798401                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement.so
+71af4ca48000-71af4ca49000 rw-p 00004000 103:06 798401                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libmanagement.so
+71af4ca53000-71af4ca60000 rw-s 00000000 00:1c 24536                      /dev/shm/fastrtps_port7443
+71af4ca60000-71af4ca6d000 rw-s 00000000 00:1c 6085                       /dev/shm/fastrtps_port7449
+71af4ca6d000-71af4ca7a000 rw-s 00000000 00:1c 252770                     /dev/shm/fastrtps_port7021
+71af4ca7a000-71af4ca8a000 rw-p 00000000 00:00 0 
+71af4caa4000-71af4cc00000 rw-p 00000000 00:00 0 
+71af4cc00000-71af4ccd0000 r--p 00000000 103:07 1330389                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so
+71af4ccd0000-71af4dfce000 r-xp 000d0000 103:07 1330389                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so
+71af4dfce000-71af4e1b7000 r--p 013ce000 103:07 1330389                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so
+71af4e1b7000-71af4e1bf000 r--p 015b6000 103:07 1330389                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so
+71af4e1bf000-71af4e1ce000 rw-p 015be000 103:07 1330389                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so
+71af4e1ce000-71af4e1d5000 rw-p 00000000 00:00 0 
+71af4e1d5000-71af4e1db000 ---p 015d5000 103:07 1330389                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so
+71af4e1db000-71af4e312000 rw-p 016a9000 103:07 1330389                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so
+71af4e312000-71af4e313000 r--p 00000000 103:06 523891                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_py.so
+71af4e313000-71af4e314000 r-xp 00001000 103:06 523891                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_py.so
+71af4e314000-71af4e315000 r--p 00002000 103:06 523891                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_py.so
+71af4e315000-71af4e316000 r--p 00002000 103:06 523891                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_py.so
+71af4e316000-71af4e317000 rw-p 00003000 103:06 523891                    /opt/ros/jazzy/lib/libunique_identifier_msgs__rosidl_generator_py.so
+71af4e317000-71af4e31c000 rw-p 00000000 00:00 0 
+71af4e31c000-71af4e400000 ---p 00000000 00:00 0 
+71af4e400000-71af4e42b000 r--p 00000000 103:07 1329626                   /home/vicen/.local/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so
+71af4e42b000-71af4ec16000 r-xp 0002b000 103:07 1329626                   /home/vicen/.local/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so
+71af4ec16000-71af4eda5000 r--p 00816000 103:07 1329626                   /home/vicen/.local/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so
+71af4eda5000-71af4eda8000 r--p 009a5000 103:07 1329626                   /home/vicen/.local/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so
+71af4eda8000-71af4edcb000 rw-p 009a8000 103:07 1329626                   /home/vicen/.local/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so
+71af4edcb000-71af4ede2000 rw-p 00000000 00:00 0 
+71af4ede2000-71af4eded000 rw-p 00a44000 103:07 1329626                   /home/vicen/.local/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so
+71af4eded000-71af4edf1000 rw-p 00000000 00:00 0 
+71af4edf1000-71af4edf4000 r--p 00000000 103:06 798405                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnet.so
+71af4edf4000-71af4edfc000 r-xp 00003000 103:06 798405                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnet.so
+71af4edfc000-71af4edfe000 r--p 0000b000 103:06 798405                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnet.so
+71af4edfe000-71af4edff000 r--p 0000c000 103:06 798405                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnet.so
+71af4edff000-71af4ee00000 rw-p 0000d000 103:06 798405                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnet.so
+71af4ee00000-71af4ef17000 r--p 00000000 103:06 421990                    /usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0
+71af4ef17000-71af4f22e000 r-xp 00117000 103:06 421990                    /usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0
+71af4f22e000-71af4f4ad000 r--p 0042e000 103:06 421990                    /usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0
+71af4f4ad000-71af4f526000 r--p 006ac000 103:06 421990                    /usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0
+71af4f526000-71af4f6a4000 rw-p 00725000 103:06 421990                    /usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0
+71af4f6a4000-71af4f6a7000 rw-p 00000000 00:00 0 
+71af4f6a7000-71af4f6a9000 r--p 00000000 103:06 798413                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libzip.so
+71af4f6a9000-71af4f6ae000 r-xp 00002000 103:06 798413                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libzip.so
+71af4f6ae000-71af4f6b0000 r--p 00007000 103:06 798413                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libzip.so
+71af4f6b0000-71af4f6b1000 r--p 00008000 103:06 798413                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libzip.so
+71af4f6b1000-71af4f6b2000 rw-p 00009000 103:06 798413                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libzip.so
+71af4f6b2000-71af4f6b9000 r--p 00000000 103:06 798406                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnio.so
+71af4f6b9000-71af4f6c2000 r-xp 00007000 103:06 798406                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnio.so
+71af4f6c2000-71af4f6c6000 r--p 00010000 103:06 798406                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnio.so
+71af4f6c6000-71af4f6c7000 r--p 00014000 103:06 798406                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnio.so
+71af4f6c7000-71af4f6c8000 rw-p 00015000 103:06 798406                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libnio.so
+71af4f6c8000-71af4f6d5000 rw-s 00000000 00:1c 6197                       /dev/shm/fastrtps_port7467
+71af4f6d5000-71af4f71f000 rw-p 00000000 00:00 0 
+71af4f71f000-71af4f7ff000 ---p 00000000 00:00 0 
+71af4f7ff000-71af4f800000 ---p 00000000 00:00 0 
+71af4f800000-71af50000000 rw-p 00000000 00:00 0 
+71af50000000-71af500c6000 rw-p 00000000 00:00 0 
+71af500c6000-71af54000000 ---p 00000000 00:00 0 
+71af54000000-71af54021000 rw-p 00000000 00:00 0 
+71af54021000-71af58000000 ---p 00000000 00:00 0 
+71af58000000-71af58001000 r--p 00000000 103:06 798384                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libextnet.so
+71af58001000-71af58002000 r-xp 00001000 103:06 798384                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libextnet.so
+71af58002000-71af58003000 r--p 00002000 103:06 798384                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libextnet.so
+71af58003000-71af58004000 r--p 00002000 103:06 798384                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libextnet.so
+71af58004000-71af58005000 rw-p 00003000 103:06 798384                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libextnet.so
+71af5800c000-71af580b1000 rw-p 00000000 00:00 0 
+71af580b1000-71af580b9000 ---p 00000000 00:00 0 
+71af580b9000-71af580c6000 r--p 00000000 103:06 798391                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjava.so
+71af580c6000-71af580d5000 r-xp 0000d000 103:06 798391                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjava.so
+71af580d5000-71af580da000 r--p 0001c000 103:06 798391                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjava.so
+71af580da000-71af580db000 r--p 00021000 103:06 798391                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjava.so
+71af580db000-71af580dc000 rw-p 00022000 103:06 798391                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjava.so
+71af580dc000-71af580dd000 rw-p 00000000 00:00 0 
+71af580dd000-71af580e5000 rw-s 00000000 103:06 263088                    /tmp/hsperfdata_vicen/57569 (deleted)
+71af580e5000-71af580e7000 r--p 00000000 103:06 798394                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjimage.so
+71af580e7000-71af580ea000 r-xp 00002000 103:06 798394                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjimage.so
+71af580ea000-71af580eb000 r--p 00005000 103:06 798394                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjimage.so
+71af580eb000-71af580ec000 r--p 00006000 103:06 798394                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjimage.so
+71af580ec000-71af580ed000 rw-p 00007000 103:06 798394                    /usr/lib/jvm/java-21-openjdk-amd64/lib/libjimage.so
+71af580ed000-71af580ef000 r--p 00000000 103:06 526948                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_py.so
+71af580ef000-71af580f4000 r-xp 00002000 103:06 526948                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_py.so
+71af580f4000-71af580f6000 r--p 00007000 103:06 526948                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_py.so
+71af580f6000-71af580f7000 r--p 00009000 103:06 526948                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_py.so
+71af580f7000-71af580f8000 rw-p 0000a000 103:06 526948                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_py.so
+71af580f8000-71af580fb000 r--p 00000000 103:06 928617                    /opt/ros/jazzy/lib/python3.12/site-packages/type_description_interfaces/type_description_interfaces_s__rosidl_typesupport_c.so
+71af580fb000-71af580fd000 r-xp 00003000 103:06 928617                    /opt/ros/jazzy/lib/python3.12/site-packages/type_description_interfaces/type_description_interfaces_s__rosidl_typesupport_c.so
+71af580fd000-71af580fe000 r--p 00005000 103:06 928617                    /opt/ros/jazzy/lib/python3.12/site-packages/type_description_interfaces/type_description_interfaces_s__rosidl_typesupport_c.so
+71af580fe000-71af580ff000 r--p 00006000 103:06 928617                    /opt/ros/jazzy/lib/python3.12/site-packages/type_description_interfaces/type_description_interfaces_s__rosidl_typesupport_c.so
+71af580ff000-71af58100000 rw-p 00007000 103:06 928617                    /opt/ros/jazzy/lib/python3.12/site-packages/type_description_interfaces/type_description_interfaces_s__rosidl_typesupport_c.so
+71af58100000-71af58200000 rw-p 00000000 00:00 0 
+71af58200000-71af58476000 r-xp 00000000 103:07 1329826                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0
+71af58476000-71af58675000 ---p 00276000 103:07 1329826                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0
+71af58675000-71af58676000 r--p 00275000 103:07 1329826                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0
+71af58676000-71af58678000 rw-p 00276000 103:07 1329826                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0
+71af58678000-71af586b1000 rw-p 0027b000 103:07 1329826                   /home/vicen/.local/lib/python3.12/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0
+71af586b1000-71af586b7000 r--p 00000000 103:06 526961                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_fastrtps_c.so
+71af586b7000-71af586be000 r-xp 00006000 103:06 526961                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_fastrtps_c.so
+71af586be000-71af586c0000 r--p 0000d000 103:06 526961                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_fastrtps_c.so
+71af586c0000-71af586c1000 r--p 0000e000 103:06 526961                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_fastrtps_c.so
+71af586c1000-71af586c2000 rw-p 0000f000 103:06 526961                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_fastrtps_c.so
+71af586c2000-71af586c3000 r--p 00000000 103:06 523850                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_c.so
+71af586c3000-71af586c4000 r-xp 00001000 103:06 523850                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_c.so
+71af586c4000-71af586c5000 r--p 00002000 103:06 523850                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_c.so
+71af586c5000-71af586c6000 r--p 00002000 103:06 523850                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_c.so
+71af586c6000-71af586c7000 rw-p 00003000 103:06 523850                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_c.so
+71af586c7000-71af586cb000 r--p 00000000 103:07 1329379                   /home/vicen/.local/lib/python3.12/site-packages/numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so
+71af586cb000-71af586ef000 r-xp 00004000 103:07 1329379                   /home/vicen/.local/lib/python3.12/site-packages/numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so
+71af586ef000-71af586f4000 r--p 00028000 103:07 1329379                   /home/vicen/.local/lib/python3.12/site-packages/numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so
+71af586f4000-71af586f5000 r--p 0002d000 103:07 1329379                   /home/vicen/.local/lib/python3.12/site-packages/numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so
+71af586f5000-71af586f6000 rw-p 0002e000 103:07 1329379                   /home/vicen/.local/lib/python3.12/site-packages/numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so
+71af586f6000-71af586f9000 rw-p 00036000 103:07 1329379                   /home/vicen/.local/lib/python3.12/site-packages/numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so
+71af586f9000-71af587f9000 rw-p 00000000 00:00 0 
+71af587f9000-71af587fa000 ---p 00000000 00:00 0 
+71af587fa000-71af58ffa000 rw-p 00000000 00:00 0 
+71af58ffa000-71af58ffb000 ---p 00000000 00:00 0 
+71af58ffb000-71af597fb000 rw-p 00000000 00:00 0 
+71af597fb000-71af597fc000 ---p 00000000 00:00 0 
+71af597fc000-71af59ffc000 rw-p 00000000 00:00 0 
+71af59ffc000-71af59ffd000 ---p 00000000 00:00 0 
+71af59ffd000-71af5a7fd000 rw-p 00000000 00:00 0 
+71af5a7fd000-71af5a7fe000 ---p 00000000 00:00 0 
+71af5a7fe000-71af5affe000 rw-p 00000000 00:00 0 
+71af5affe000-71af5afff000 ---p 00000000 00:00 0 
+71af5afff000-71af5b7ff000 rw-p 00000000 00:00 0 
+71af5b7ff000-71af5b800000 ---p 00000000 00:00 0 
+71af5b800000-71af5c000000 rw-p 00000000 00:00 0 
+71af5c000000-71af5c021000 rw-p 00000000 00:00 0 
+71af5c021000-71af60000000 ---p 00000000 00:00 0 
+71af60002000-71af60003000 r--p 00000000 103:06 927729                    /opt/ros/jazzy/lib/python3.12/site-packages/service_msgs/service_msgs_s__rosidl_typesupport_c.so
+71af60003000-71af60004000 r-xp 00001000 103:06 927729                    /opt/ros/jazzy/lib/python3.12/site-packages/service_msgs/service_msgs_s__rosidl_typesupport_c.so
+71af60004000-71af60005000 r--p 00002000 103:06 927729                    /opt/ros/jazzy/lib/python3.12/site-packages/service_msgs/service_msgs_s__rosidl_typesupport_c.so
+71af60005000-71af60006000 r--p 00002000 103:06 927729                    /opt/ros/jazzy/lib/python3.12/site-packages/service_msgs/service_msgs_s__rosidl_typesupport_c.so
+71af60006000-71af60007000 rw-p 00003000 103:06 927729                    /opt/ros/jazzy/lib/python3.12/site-packages/service_msgs/service_msgs_s__rosidl_typesupport_c.so
+71af60007000-71af60009000 r--p 00000000 103:06 392900                    /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+71af60009000-71af60010000 r-xp 00002000 103:06 392900                    /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+71af60010000-71af60011000 r--p 00009000 103:06 392900                    /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+71af60011000-71af60012000 r--p 0000a000 103:06 392900                    /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+71af60012000-71af60013000 rw-p 0000b000 103:06 392900                    /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+71af60013000-71af60019000 r--p 00000000 103:06 797140                    /usr/lib/python3.12/lib-dynload/_ctypes.cpython-312-x86_64-linux-gnu.so
+71af60019000-71af6002b000 r-xp 00006000 103:06 797140                    /usr/lib/python3.12/lib-dynload/_ctypes.cpython-312-x86_64-linux-gnu.so
+71af6002b000-71af60031000 r--p 00018000 103:06 797140                    /usr/lib/python3.12/lib-dynload/_ctypes.cpython-312-x86_64-linux-gnu.so
+71af60031000-71af60032000 r--p 0001d000 103:06 797140                    /usr/lib/python3.12/lib-dynload/_ctypes.cpython-312-x86_64-linux-gnu.so
+71af60032000-71af60036000 rw-p 0001e000 103:06 797140                    /usr/lib/python3.12/lib-dynload/_ctypes.cpython-312-x86_64-linux-gnu.so
+71af60036000-71af60236000 rw-p 00000000 00:00 0 
+71af60236000-71af60237000 r--p 00000000 103:06 797138                    /usr/lib/python3.12/lib-dynload/_contextvars.cpython-312-x86_64-linux-gnu.so
+71af60237000-71af60238000 r-xp 00001000 103:06 797138                    /usr/lib/python3.12/lib-dynload/_contextvars.cpython-312-x86_64-linux-gnu.so
+71af60238000-71af60239000 r--p 00002000 103:06 797138                    /usr/lib/python3.12/lib-dynload/_contextvars.cpython-312-x86_64-linux-gnu.so
+71af60239000-71af6023a000 r--p 00002000 103:06 797138                    /usr/lib/python3.12/lib-dynload/_contextvars.cpython-312-x86_64-linux-gnu.so
+71af6023a000-71af6023b000 rw-p 00003000 103:06 797138                    /usr/lib/python3.12/lib-dynload/_contextvars.cpython-312-x86_64-linux-gnu.so
+71af6023b000-71af6023c000 r--p 00000000 103:06 523836                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
+71af6023c000-71af6023d000 r-xp 00001000 103:06 523836                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
+71af6023d000-71af6023e000 r--p 00002000 103:06 523836                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
+71af6023e000-71af6023f000 r--p 00002000 103:06 523836                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
+71af6023f000-71af60240000 rw-p 00003000 103:06 523836                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
+71af60240000-71af60241000 r--p 00000000 103:06 981834                    /opt/ros/jazzy/lib/python3.12/site-packages/builtin_interfaces/builtin_interfaces_s__rosidl_typesupport_c.so
+71af60241000-71af60242000 r-xp 00001000 103:06 981834                    /opt/ros/jazzy/lib/python3.12/site-packages/builtin_interfaces/builtin_interfaces_s__rosidl_typesupport_c.so
+71af60242000-71af60243000 r--p 00002000 103:06 981834                    /opt/ros/jazzy/lib/python3.12/site-packages/builtin_interfaces/builtin_interfaces_s__rosidl_typesupport_c.so
+71af60243000-71af60244000 r--p 00002000 103:06 981834                    /opt/ros/jazzy/lib/python3.12/site-packages/builtin_interfaces/builtin_interfaces_s__rosidl_typesupport_c.so
+71af60244000-71af60245000 rw-p 00003000 103:06 981834                    /opt/ros/jazzy/lib/python3.12/site-packages/builtin_interfaces/builtin_interfaces_s__rosidl_typesupport_c.so
+71af60245000-71af60246000 r--p 00000000 103:06 523615                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_py.so
+71af60246000-71af60247000 r-xp 00001000 103:06 523615                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_py.so
+71af60247000-71af60248000 r--p 00002000 103:06 523615                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_py.so
+71af60248000-71af60249000 r--p 00002000 103:06 523615                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_py.so
+71af60249000-71af6024a000 rw-p 00003000 103:06 523615                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_py.so
+71af6024a000-71af6024e000 r--p 00000000 103:06 526559                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_py.so
+71af6024e000-71af60263000 r-xp 00004000 103:06 526559                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_py.so
+71af60263000-71af6026a000 r--p 00019000 103:06 526559                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_py.so
+71af6026a000-71af6026b000 r--p 0001f000 103:06 526559                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_py.so
+71af6026b000-71af6026c000 rw-p 00020000 103:06 526559                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_py.so
+71af6026c000-71af60273000 r--p 00000000 103:06 934046                    /opt/ros/jazzy/lib/python3.12/site-packages/rcl_interfaces/rcl_interfaces_s__rosidl_typesupport_c.so
+71af60273000-71af60279000 r-xp 00007000 103:06 934046                    /opt/ros/jazzy/lib/python3.12/site-packages/rcl_interfaces/rcl_interfaces_s__rosidl_typesupport_c.so
+71af60279000-71af6027d000 r--p 0000d000 103:06 934046                    /opt/ros/jazzy/lib/python3.12/site-packages/rcl_interfaces/rcl_interfaces_s__rosidl_typesupport_c.so
+71af6027d000-71af6027e000 r--p 00010000 103:06 934046                    /opt/ros/jazzy/lib/python3.12/site-packages/rcl_interfaces/rcl_interfaces_s__rosidl_typesupport_c.so
+71af6027e000-71af6027f000 rw-p 00011000 103:06 934046                    /opt/ros/jazzy/lib/python3.12/site-packages/rcl_interfaces/rcl_interfaces_s__rosidl_typesupport_c.so
+71af6027f000-71af60281000 r--p 00000000 103:06 797146                    /usr/lib/python3.12/lib-dynload/_json.cpython-312-x86_64-linux-gnu.so
+71af60281000-71af60288000 r-xp 00002000 103:06 797146                    /usr/lib/python3.12/lib-dynload/_json.cpython-312-x86_64-linux-gnu.so
+71af60288000-71af6028a000 r--p 00009000 103:06 797146                    /usr/lib/python3.12/lib-dynload/_json.cpython-312-x86_64-linux-gnu.so
+71af6028a000-71af6028b000 r--p 0000a000 103:06 797146                    /usr/lib/python3.12/lib-dynload/_json.cpython-312-x86_64-linux-gnu.so
+71af6028b000-71af6028c000 rw-p 0000b000 103:06 797146                    /usr/lib/python3.12/lib-dynload/_json.cpython-312-x86_64-linux-gnu.so
+71af6028c000-71af6038c000 rw-p 00000000 00:00 0 
+71af6038c000-71af60390000 r--p 00000000 103:06 797426                    /usr/lib/python3.12/lib-dynload/_hashlib.cpython-312-x86_64-linux-gnu.so
+71af60390000-71af60396000 r-xp 00004000 103:06 797426                    /usr/lib/python3.12/lib-dynload/_hashlib.cpython-312-x86_64-linux-gnu.so
+71af60396000-71af6039a000 r--p 0000a000 103:06 797426                    /usr/lib/python3.12/lib-dynload/_hashlib.cpython-312-x86_64-linux-gnu.so
+71af6039a000-71af6039b000 r--p 0000d000 103:06 797426                    /usr/lib/python3.12/lib-dynload/_hashlib.cpython-312-x86_64-linux-gnu.so
+71af6039b000-71af6039d000 rw-p 0000e000 103:06 797426                    /usr/lib/python3.12/lib-dynload/_hashlib.cpython-312-x86_64-linux-gnu.so
+71af6039d000-71af603a0000 r--p 00000000 103:06 797170                    /usr/lib/python3.12/lib-dynload/termios.cpython-312-x86_64-linux-gnu.so
+71af603a0000-71af603a2000 r-xp 00003000 103:06 797170                    /usr/lib/python3.12/lib-dynload/termios.cpython-312-x86_64-linux-gnu.so
+71af603a2000-71af603a4000 r--p 00005000 103:06 797170                    /usr/lib/python3.12/lib-dynload/termios.cpython-312-x86_64-linux-gnu.so
+71af603a4000-71af603a5000 r--p 00006000 103:06 797170                    /usr/lib/python3.12/lib-dynload/termios.cpython-312-x86_64-linux-gnu.so
+71af603a5000-71af603a7000 rw-p 00007000 103:06 797170                    /usr/lib/python3.12/lib-dynload/termios.cpython-312-x86_64-linux-gnu.so
+71af603a7000-71af603b7000 r--p 00000000 103:07 4196440                   /home/vicen/.local/lib/python3.12/site-packages/regex/_regex.cpython-312-x86_64-linux-gnu.so
+71af603b7000-71af603f1000 r-xp 00010000 103:07 4196440                   /home/vicen/.local/lib/python3.12/site-packages/regex/_regex.cpython-312-x86_64-linux-gnu.so
+71af603f1000-71af60470000 r--p 0004a000 103:07 4196440                   /home/vicen/.local/lib/python3.12/site-packages/regex/_regex.cpython-312-x86_64-linux-gnu.so
+71af60470000-71af60471000 r--p 000c8000 103:07 4196440                   /home/vicen/.local/lib/python3.12/site-packages/regex/_regex.cpython-312-x86_64-linux-gnu.so
+71af60471000-71af6047a000 rw-p 000c9000 103:07 4196440                   /home/vicen/.local/lib/python3.12/site-packages/regex/_regex.cpython-312-x86_64-linux-gnu.so
+71af6047a000-71af6057a000 rw-p 00000000 00:00 0 
+71af6057a000-71af60596000 r--p 00000000 103:06 526615                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
+71af60596000-71af6059d000 r-xp 0001c000 103:06 526615                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
+71af6059d000-71af605a1000 r--p 00023000 103:06 526615                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
+71af605a1000-71af605a2000 r--p 00027000 103:06 526615                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
+71af605a2000-71af605a7000 rw-p 00028000 103:06 526615                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
+71af605aa000-71af605b7000 rw-s 00000000 00:1c 7479                       /dev/shm/fastrtps_port7017
+71af605b7000-71af605c4000 rw-s 00000000 00:1c 7128                       /dev/shm/fastrtps_port7015
+71af605c4000-71af605d1000 rw-s 00000000 00:1c 6839                       /dev/shm/fastrtps_port7013
+71af605d1000-71af605de000 rw-s 00000000 00:1c 107630                     /dev/shm/fastrtps_port7014
+71af605de000-71af605eb000 rw-s 00000000 00:1c 6698                       /dev/shm/fastrtps_port7012
+71af605eb000-71af605f8000 rw-s 00000000 00:1c 6080                       /dev/shm/fastrtps_port7447
+71af605f8000-71af60605000 rw-s 00000000 00:1c 5815                       /dev/shm/fastrtps_port7435
+71af60605000-71af60612000 rw-s 00000000 00:1c 5780                       /dev/shm/fastrtps_port7429
+71af60612000-71af6061f000 rw-s 00000000 00:1c 24442                      /dev/shm/fastrtps_port7441
+71af6061f000-71af6062c000 rw-s 00000000 00:1c 5788                       /dev/shm/fastrtps_port7433
+71af6062c000-71af60639000 rw-s 00000000 00:1c 24303                      /dev/shm/fastrtps_port7421
+71af60639000-71af60646000 rw-s 00000000 00:1c 234685                     /dev/shm/fastrtps_port7417
+71af60646000-71af60653000 rw-s 00000000 00:1c 6689                       /dev/shm/fastrtps_port7011
+71af60653000-71af60660000 rw-s 00000000 00:1c 6023                       /dev/shm/fastrtps_port7007
+71af60660000-71af6066d000 rw-s 00000000 00:1c 234779                     /dev/shm/fastrtps_port7427
+71af6066d000-71af6067a000 rw-s 00000000 00:1c 235375                     /dev/shm/fastrtps_port7008
+71af6067a000-71af60687000 rw-s 00000000 00:1c 24708                      /dev/shm/fastrtps_port7461
+71af60687000-71af60694000 rw-s 00000000 00:1c 5749                       /dev/shm/fastrtps_port7411
+71af60694000-71af606a1000 rw-s 00000000 00:1c 234692                     /dev/shm/fastrtps_port7000
+71af606a1000-71af60775000 rw-p 00000000 00:00 0 
+71af60775000-71af60776000 ---p 00000000 00:00 0 
+71af60776000-71af60f76000 rw-p 00000000 00:00 0 
+71af60f76000-71af60ffd000 rw-s 00000000 00:1c 246183                     /dev/shm/fastrtps_044489960d0eb89d
+71af60ffd000-71af60ffe000 ---p 00000000 00:00 0 
+71af60ffe000-71af617fe000 rw-p 00000000 00:00 0 
+71af617fe000-71af617ff000 ---p 00000000 00:00 0 
+71af617ff000-71af61fff000 rw-p 00000000 00:00 0 
+71af61fff000-71af62000000 ---p 00000000 00:00 0 
+71af62000000-71af62800000 rw-p 00000000 00:00 0 
+71af62800000-71af628b3000 r--p 00000000 103:06 396752                    /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+71af628b3000-71af62be6000 r-xp 000b3000 103:06 396752                    /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+71af62be6000-71af62cb1000 r--p 003e6000 103:06 396752                    /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+71af62cb1000-71af62d0d000 r--p 004b0000 103:06 396752                    /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+71af62d0d000-71af62d10000 rw-p 0050c000 103:06 396752                    /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+71af62d10000-71af62d13000 rw-p 00000000 00:00 0 
+71af62d14000-71af62d15000 r--p 00000000 103:06 523849                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_py.so
+71af62d15000-71af62d16000 r-xp 00001000 103:06 523849                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_py.so
+71af62d16000-71af62d17000 r--p 00002000 103:06 523849                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_py.so
+71af62d17000-71af62d18000 r--p 00002000 103:06 523849                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_py.so
+71af62d18000-71af62d19000 rw-p 00003000 103:06 523849                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_py.so
+71af62d19000-71af62d1a000 r--p 00000000 103:06 523840                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
+71af62d1a000-71af62d1b000 r-xp 00001000 103:06 523840                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
+71af62d1b000-71af62d1c000 r--p 00002000 103:06 523840                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
+71af62d1c000-71af62d1d000 r--p 00002000 103:06 523840                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
+71af62d1d000-71af62d1e000 rw-p 00003000 103:06 523840                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
+71af62d1e000-71af62d1f000 r--p 00000000 103:06 523854                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_c.so
+71af62d1f000-71af62d20000 r-xp 00001000 103:06 523854                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_c.so
+71af62d20000-71af62d21000 r--p 00002000 103:06 523854                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_c.so
+71af62d21000-71af62d22000 r--p 00002000 103:06 523854                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_c.so
+71af62d22000-71af62d23000 rw-p 00003000 103:06 523854                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_introspection_c.so
+71af62d23000-71af62d36000 r--p 00000000 103:06 526606                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
+71af62d36000-71af62d4c000 r-xp 00013000 103:06 526606                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
+71af62d4c000-71af62d52000 r--p 00029000 103:06 526606                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
+71af62d52000-71af62d53000 r--p 0002e000 103:06 526606                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
+71af62d53000-71af62d56000 rw-p 0002f000 103:06 526606                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
+71af62d56000-71af62d74000 r--p 00000000 103:06 396754                    /usr/lib/x86_64-linux-gnu/libssl.so.3
+71af62d74000-71af62dd6000 r-xp 0001e000 103:06 396754                    /usr/lib/x86_64-linux-gnu/libssl.so.3
+71af62dd6000-71af62df2000 r--p 00080000 103:06 396754                    /usr/lib/x86_64-linux-gnu/libssl.so.3
+71af62df2000-71af62dfc000 r--p 0009c000 103:06 396754                    /usr/lib/x86_64-linux-gnu/libssl.so.3
+71af62dfc000-71af62e00000 rw-p 000a6000 103:06 396754                    /usr/lib/x86_64-linux-gnu/libssl.so.3
+71af62e00000-71af62f79000 r--p 00000000 103:06 573369                    /opt/ros/jazzy/lib/libfastrtps.so.2.14.5
+71af62f79000-71af63572000 r-xp 00179000 103:06 573369                    /opt/ros/jazzy/lib/libfastrtps.so.2.14.5
+71af63572000-71af6369c000 r--p 00772000 103:06 573369                    /opt/ros/jazzy/lib/libfastrtps.so.2.14.5
+71af6369c000-71af636b1000 r--p 0089c000 103:06 573369                    /opt/ros/jazzy/lib/libfastrtps.so.2.14.5
+71af636b1000-71af636c0000 rw-p 008b1000 103:06 573369                    /opt/ros/jazzy/lib/libfastrtps.so.2.14.5
+71af636c0000-71af6372c000 rw-p 00000000 00:00 0 
+71af6372d000-71af6372f000 r--p 00000000 103:06 523838                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
+71af6372f000-71af63730000 r-xp 00002000 103:06 523838                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
+71af63730000-71af63731000 r--p 00003000 103:06 523838                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
+71af63731000-71af63732000 r--p 00003000 103:06 523838                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
+71af63732000-71af63733000 rw-p 00004000 103:06 523838                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
+71af63733000-71af6373a000 r--p 00000000 103:06 454134                    /usr/lib/x86_64-linux-gnu/libtinyxml2.so.10.0.0
+71af6373a000-71af63744000 r-xp 00007000 103:06 454134                    /usr/lib/x86_64-linux-gnu/libtinyxml2.so.10.0.0
+71af63744000-71af63748000 r--p 00011000 103:06 454134                    /usr/lib/x86_64-linux-gnu/libtinyxml2.so.10.0.0
+71af63748000-71af63749000 r--p 00014000 103:06 454134                    /usr/lib/x86_64-linux-gnu/libtinyxml2.so.10.0.0
+71af63749000-71af6374a000 rw-p 00015000 103:06 454134                    /usr/lib/x86_64-linux-gnu/libtinyxml2.so.10.0.0
+71af6374c000-71af6374e000 r--p 00000000 103:06 523852                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_c.so
+71af6374e000-71af6374f000 r-xp 00002000 103:06 523852                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_c.so
+71af6374f000-71af63750000 r--p 00003000 103:06 523852                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_c.so
+71af63750000-71af63751000 r--p 00003000 103:06 523852                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_c.so
+71af63751000-71af63752000 rw-p 00004000 103:06 523852                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_typesupport_fastrtps_c.so
+71af63752000-71af6375f000 rw-s 00000000 00:1c 246203                     /dev/shm/fastrtps_port7006
+71af6375f000-71af63762000 r--p 00000000 103:06 526706                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_introspection_cpp.so
+71af63762000-71af63764000 r-xp 00003000 103:06 526706                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_introspection_cpp.so
+71af63764000-71af63765000 r--p 00005000 103:06 526706                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_introspection_cpp.so
+71af63765000-71af63766000 r--p 00005000 103:06 526706                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_introspection_cpp.so
+71af63766000-71af63767000 rw-p 00006000 103:06 526706                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_introspection_cpp.so
+71af63767000-71af6376a000 r--p 00000000 103:06 526690                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_fastrtps_cpp.so
+71af6376a000-71af6376d000 r-xp 00003000 103:06 526690                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_fastrtps_cpp.so
+71af6376d000-71af6376e000 r--p 00006000 103:06 526690                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_fastrtps_cpp.so
+71af6376e000-71af6376f000 r--p 00006000 103:06 526690                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_fastrtps_cpp.so
+71af6376f000-71af63770000 rw-p 00007000 103:06 526690                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_fastrtps_cpp.so
+71af63770000-71af6377d000 rw-s 00000000 00:1c 106020                     /dev/shm/fastrtps_port7425
+71af6377d000-71af6377e000 r--p 00000000 103:06 573225                    /opt/ros/jazzy/lib/librosidl_typesupport_cpp.so
+71af6377e000-71af63780000 r-xp 00001000 103:06 573225                    /opt/ros/jazzy/lib/librosidl_typesupport_cpp.so
+71af63780000-71af63781000 r--p 00003000 103:06 573225                    /opt/ros/jazzy/lib/librosidl_typesupport_cpp.so
+71af63781000-71af63782000 r--p 00003000 103:06 573225                    /opt/ros/jazzy/lib/librosidl_typesupport_cpp.so
+71af63782000-71af63783000 rw-p 00004000 103:06 573225                    /opt/ros/jazzy/lib/librosidl_typesupport_cpp.so
+71af63783000-71af6378b000 r--p 00000000 103:06 573090                    /opt/ros/jazzy/lib/libfastcdr.so.2.2.5
+71af6378b000-71af63796000 r-xp 00008000 103:06 573090                    /opt/ros/jazzy/lib/libfastcdr.so.2.2.5
+71af63796000-71af6379a000 r--p 00013000 103:06 573090                    /opt/ros/jazzy/lib/libfastcdr.so.2.2.5
+71af6379a000-71af6379b000 r--p 00016000 103:06 573090                    /opt/ros/jazzy/lib/libfastcdr.so.2.2.5
+71af6379b000-71af6379c000 rw-p 00017000 103:06 573090                    /opt/ros/jazzy/lib/libfastcdr.so.2.2.5
+71af6379c000-71af637ad000 r--p 00000000 103:06 573466                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport_fastrtps.so
+71af637ad000-71af637c5000 r-xp 00011000 103:06 573466                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport_fastrtps.so
+71af637c5000-71af637cd000 r--p 00029000 103:06 573466                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport_fastrtps.so
+71af637cd000-71af637ce000 r--p 00030000 103:06 573466                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport_fastrtps.so
+71af637ce000-71af637cf000 rw-p 00031000 103:06 573466                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport_fastrtps.so
+71af637cf000-71af637d1000 rw-p 00000000 00:00 0 
+71af637d1000-71af637d8000 r--p 00000000 103:06 526648                    /opt/ros/jazzy/lib/librmw_dds_common.so
+71af637d8000-71af637eb000 r-xp 00007000 103:06 526648                    /opt/ros/jazzy/lib/librmw_dds_common.so
+71af637eb000-71af637ef000 r--p 0001a000 103:06 526648                    /opt/ros/jazzy/lib/librmw_dds_common.so
+71af637ef000-71af637f0000 r--p 0001e000 103:06 526648                    /opt/ros/jazzy/lib/librmw_dds_common.so
+71af637f0000-71af637f1000 rw-p 0001f000 103:06 526648                    /opt/ros/jazzy/lib/librmw_dds_common.so
+71af637f1000-71af63808000 r--p 00000000 103:06 526891                    /opt/ros/jazzy/lib/librmw_fastrtps_shared_cpp.so
+71af63808000-71af63855000 r-xp 00017000 103:06 526891                    /opt/ros/jazzy/lib/librmw_fastrtps_shared_cpp.so
+71af63855000-71af63863000 r--p 00064000 103:06 526891                    /opt/ros/jazzy/lib/librmw_fastrtps_shared_cpp.so
+71af63863000-71af63865000 r--p 00072000 103:06 526891                    /opt/ros/jazzy/lib/librmw_fastrtps_shared_cpp.so
+71af63865000-71af63866000 rw-p 00074000 103:06 526891                    /opt/ros/jazzy/lib/librmw_fastrtps_shared_cpp.so
+71af63866000-71af63877000 rw-p 00000000 00:00 0 
+71af63877000-71af63885000 r--p 00000000 103:06 526911                    /opt/ros/jazzy/lib/librmw_fastrtps_cpp.so
+71af63885000-71af638ac000 r-xp 0000e000 103:06 526911                    /opt/ros/jazzy/lib/librmw_fastrtps_cpp.so
+71af638ac000-71af638b5000 r--p 00035000 103:06 526911                    /opt/ros/jazzy/lib/librmw_fastrtps_cpp.so
+71af638b5000-71af638b7000 r--p 0003d000 103:06 526911                    /opt/ros/jazzy/lib/librmw_fastrtps_cpp.so
+71af638b7000-71af638b8000 rw-p 0003f000 103:06 526911                    /opt/ros/jazzy/lib/librmw_fastrtps_cpp.so
+71af638b8000-71af639c0000 rw-p 00000000 00:00 0 
+71af639c0000-71af639c7000 r--p 00000000 103:06 797145                    /usr/lib/python3.12/lib-dynload/_decimal.cpython-312-x86_64-linux-gnu.so
+71af639c7000-71af63a07000 r-xp 00007000 103:06 797145                    /usr/lib/python3.12/lib-dynload/_decimal.cpython-312-x86_64-linux-gnu.so
+71af63a07000-71af63a18000 r--p 00047000 103:06 797145                    /usr/lib/python3.12/lib-dynload/_decimal.cpython-312-x86_64-linux-gnu.so
+71af63a18000-71af63a19000 r--p 00057000 103:06 797145                    /usr/lib/python3.12/lib-dynload/_decimal.cpython-312-x86_64-linux-gnu.so
+71af63a19000-71af63a1c000 rw-p 00058000 103:06 797145                    /usr/lib/python3.12/lib-dynload/_decimal.cpython-312-x86_64-linux-gnu.so
+71af63a1c000-71af63a57000 r--p 00000000 103:07 1320363                   /home/vicen/.local/lib/python3.12/site-packages/_jpype.cpython-312-x86_64-linux-gnu.so
+71af63a57000-71af63aab000 r-xp 0003b000 103:07 1320363                   /home/vicen/.local/lib/python3.12/site-packages/_jpype.cpython-312-x86_64-linux-gnu.so
+71af63aab000-71af63ad3000 r--p 0008f000 103:07 1320363                   /home/vicen/.local/lib/python3.12/site-packages/_jpype.cpython-312-x86_64-linux-gnu.so
+71af63ad3000-71af63ad4000 ---p 000b7000 103:07 1320363                   /home/vicen/.local/lib/python3.12/site-packages/_jpype.cpython-312-x86_64-linux-gnu.so
+71af63ad4000-71af63ad8000 r--p 000b7000 103:07 1320363                   /home/vicen/.local/lib/python3.12/site-packages/_jpype.cpython-312-x86_64-linux-gnu.so
+71af63ad8000-71af63adc000 rw-p 000bb000 103:07 1320363                   /home/vicen/.local/lib/python3.12/site-packages/_jpype.cpython-312-x86_64-linux-gnu.so
+71af63ade000-71af63ae2000 r--p 00000000 103:06 931033                    /opt/ros/jazzy/lib/python3.12/site-packages/nav_msgs/nav_msgs_s__rosidl_typesupport_c.so
+71af63ae2000-71af63ae5000 r-xp 00004000 103:06 931033                    /opt/ros/jazzy/lib/python3.12/site-packages/nav_msgs/nav_msgs_s__rosidl_typesupport_c.so
+71af63ae5000-71af63ae7000 r--p 00007000 103:06 931033                    /opt/ros/jazzy/lib/python3.12/site-packages/nav_msgs/nav_msgs_s__rosidl_typesupport_c.so
+71af63ae7000-71af63ae8000 r--p 00008000 103:06 931033                    /opt/ros/jazzy/lib/python3.12/site-packages/nav_msgs/nav_msgs_s__rosidl_typesupport_c.so
+71af63ae8000-71af63ae9000 rw-p 00009000 103:06 931033                    /opt/ros/jazzy/lib/python3.12/site-packages/nav_msgs/nav_msgs_s__rosidl_typesupport_c.so
+71af63ae9000-71af63af5000 r--p 00000000 103:06 524902                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
+71af63af5000-71af63b00000 r-xp 0000c000 103:06 524902                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b00000-71af63b04000 r--p 00017000 103:06 524902                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b04000-71af63b05000 r--p 0001b000 103:06 524902                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b05000-71af63b07000 rw-p 0001c000 103:06 524902                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b07000-71af63b14000 r--p 00000000 103:06 525359                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b14000-71af63b20000 r-xp 0000d000 103:06 525359                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b20000-71af63b25000 r--p 00019000 103:06 525359                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b25000-71af63b26000 r--p 0001d000 103:06 525359                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b26000-71af63b28000 rw-p 0001e000 103:06 525359                    /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
+71af63b28000-71af63b2e000 r--p 00000000 103:06 524898                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_c.so
+71af63b2e000-71af63b2f000 r-xp 00006000 103:06 524898                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_c.so
+71af63b2f000-71af63b31000 r--p 00007000 103:06 524898                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_c.so
+71af63b31000-71af63b32000 r--p 00009000 103:06 524898                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_c.so
+71af63b32000-71af63b33000 rw-p 0000a000 103:06 524898                    /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_c.so
+71af63b33000-71af63b38000 r--p 00000000 103:06 982372                    /opt/ros/jazzy/lib/python3.12/site-packages/std_msgs/std_msgs_s__rosidl_typesupport_c.so
+71af63b38000-71af63b3d000 r-xp 00005000 103:06 982372                    /opt/ros/jazzy/lib/python3.12/site-packages/std_msgs/std_msgs_s__rosidl_typesupport_c.so
+71af63b3d000-71af63b40000 r--p 0000a000 103:06 982372                    /opt/ros/jazzy/lib/python3.12/site-packages/std_msgs/std_msgs_s__rosidl_typesupport_c.so
+71af63b40000-71af63b41000 r--p 0000c000 103:06 982372                    /opt/ros/jazzy/lib/python3.12/site-packages/std_msgs/std_msgs_s__rosidl_typesupport_c.so
+71af63b41000-71af63b42000 rw-p 0000d000 103:06 982372                    /opt/ros/jazzy/lib/python3.12/site-packages/std_msgs/std_msgs_s__rosidl_typesupport_c.so
+71af63b42000-71af63d42000 rw-p 00000000 00:00 0 
+71af63d42000-71af63d47000 rw-s 00000000 00:1c 234655                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d47000-71af63d4c000 rw-s 00000000 00:1c 234654                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d4c000-71af63d51000 rw-s 00000000 00:1c 234653                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d51000-71af63d56000 rw-s 00000000 00:1c 234652                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d56000-71af63d5b000 rw-s 00000000 00:1c 234651                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d5b000-71af63d60000 rw-s 00000000 00:1c 234650                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d60000-71af63d65000 rw-s 00000000 00:1c 234649                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d65000-71af63d6a000 rw-s 00000000 00:1c 234648                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d6a000-71af63d6f000 rw-s 00000000 00:1c 234647                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d6f000-71af63d74000 rw-s 00000000 00:1c 234646                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af63d74000-71af63d75000 ---p 00000000 00:00 0 
+71af63d75000-71af64575000 rw-p 00000000 00:00 0 
+71af64575000-71af64576000 ---p 00000000 00:00 0 
+71af64576000-71af64d76000 rw-p 00000000 00:00 0 
+71af64d76000-71af64d79000 r--p 00000000 103:06 455040                    /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0
+71af64d79000-71af64d90000 r-xp 00003000 103:06 455040                    /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0
+71af64d90000-71af64d95000 r--p 0001a000 103:06 455040                    /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0
+71af64d95000-71af64d96000 r--p 0001e000 103:06 455040                    /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0
+71af64d96000-71af64d97000 rw-p 0001f000 103:06 455040                    /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0
+71af64d97000-71af64d99000 r--p 00000000 103:06 397376                    /usr/lib/x86_64-linux-gnu/liblttng-ust-tracepoint.so.1.0.0
+71af64d99000-71af64da0000 r-xp 00002000 103:06 397376                    /usr/lib/x86_64-linux-gnu/liblttng-ust-tracepoint.so.1.0.0
+71af64da0000-71af64da2000 r--p 00009000 103:06 397376                    /usr/lib/x86_64-linux-gnu/liblttng-ust-tracepoint.so.1.0.0
+71af64da2000-71af64da3000 r--p 0000b000 103:06 397376                    /usr/lib/x86_64-linux-gnu/liblttng-ust-tracepoint.so.1.0.0
+71af64da3000-71af64da4000 rw-p 0000c000 103:06 397376                    /usr/lib/x86_64-linux-gnu/liblttng-ust-tracepoint.so.1.0.0
+71af64da4000-71af64db4000 rw-p 00000000 00:00 0 
+71af64db4000-71af64db6000 r--p 00000000 103:06 392869                    /usr/lib/x86_64-linux-gnu/liblttng-ust-common.so.1.0.0
+71af64db6000-71af64dbd000 r-xp 00002000 103:06 392869                    /usr/lib/x86_64-linux-gnu/liblttng-ust-common.so.1.0.0
+71af64dbd000-71af64dbf000 r--p 00009000 103:06 392869                    /usr/lib/x86_64-linux-gnu/liblttng-ust-common.so.1.0.0
+71af64dbf000-71af64dc0000 r--p 0000a000 103:06 392869                    /usr/lib/x86_64-linux-gnu/liblttng-ust-common.so.1.0.0
+71af64dc0000-71af64dc1000 rw-p 0000b000 103:06 392869                    /usr/lib/x86_64-linux-gnu/liblttng-ust-common.so.1.0.0
+71af64dc1000-71af64dc4000 r--p 00000000 103:06 392773                    /usr/lib/x86_64-linux-gnu/libnuma.so.1.0.0
+71af64dc4000-71af64dcb000 r-xp 00003000 103:06 392773                    /usr/lib/x86_64-linux-gnu/libnuma.so.1.0.0
+71af64dcb000-71af64dcd000 r--p 0000a000 103:06 392773                    /usr/lib/x86_64-linux-gnu/libnuma.so.1.0.0
+71af64dcd000-71af64dce000 r--p 0000b000 103:06 392773                    /usr/lib/x86_64-linux-gnu/libnuma.so.1.0.0
+71af64dce000-71af64dcf000 rw-p 0000c000 103:06 392773                    /usr/lib/x86_64-linux-gnu/libnuma.so.1.0.0
+71af64dcf000-71af64de5000 r--p 00000000 103:06 526545                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_c.so
+71af64de5000-71af64e01000 r-xp 00016000 103:06 526545                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_c.so
+71af64e01000-71af64e0c000 r--p 00032000 103:06 526545                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_c.so
+71af64e0c000-71af64e0f000 r--p 0003c000 103:06 526545                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_c.so
+71af64e0f000-71af64e1a000 rw-p 0003f000 103:06 526545                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_generator_c.so
+71af64e1a000-71af64e1d000 rw-p 00000000 00:00 0 
+71af64e1d000-71af64e50000 r--p 00000000 103:06 456157                    /usr/lib/x86_64-linux-gnu/libspdlog.so.1.12.0
+71af64e50000-71af64e90000 r-xp 00033000 103:06 456157                    /usr/lib/x86_64-linux-gnu/libspdlog.so.1.12.0
+71af64e90000-71af64ea0000 r--p 00073000 103:06 456157                    /usr/lib/x86_64-linux-gnu/libspdlog.so.1.12.0
+71af64ea0000-71af64ea3000 r--p 00083000 103:06 456157                    /usr/lib/x86_64-linux-gnu/libspdlog.so.1.12.0
+71af64ea3000-71af64ea4000 rw-p 00086000 103:06 456157                    /usr/lib/x86_64-linux-gnu/libspdlog.so.1.12.0
+71af64ea4000-71af64ea6000 r--p 00000000 103:06 523611                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
+71af64ea6000-71af64ea8000 r-xp 00002000 103:06 523611                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
+71af64ea8000-71af64ea9000 r--p 00004000 103:06 523611                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
+71af64ea9000-71af64eaa000 r--p 00004000 103:06 523611                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
+71af64eaa000-71af64eab000 rw-p 00005000 103:06 523611                    /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
+71af64eab000-71af64eb7000 r--p 00000000 103:06 397377                    /usr/lib/x86_64-linux-gnu/liblttng-ust.so.1.0.0
+71af64eb7000-71af64f02000 r-xp 0000c000 103:06 397377                    /usr/lib/x86_64-linux-gnu/liblttng-ust.so.1.0.0
+71af64f02000-71af64f1b000 r--p 00057000 103:06 397377                    /usr/lib/x86_64-linux-gnu/liblttng-ust.so.1.0.0
+71af64f1b000-71af64f1f000 r--p 00070000 103:06 397377                    /usr/lib/x86_64-linux-gnu/liblttng-ust.so.1.0.0
+71af64f1f000-71af64f25000 rw-p 00074000 103:06 397377                    /usr/lib/x86_64-linux-gnu/liblttng-ust.so.1.0.0
+71af64f25000-71af64f2e000 rw-p 00000000 00:00 0 
+71af64f2e000-71af64f32000 r--p 00000000 103:06 573206                    /opt/ros/jazzy/lib/librcpputils.so
+71af64f32000-71af64f39000 r-xp 00004000 103:06 573206                    /opt/ros/jazzy/lib/librcpputils.so
+71af64f39000-71af64f3b000 r--p 0000b000 103:06 573206                    /opt/ros/jazzy/lib/librcpputils.so
+71af64f3b000-71af64f3c000 r--p 0000c000 103:06 573206                    /opt/ros/jazzy/lib/librcpputils.so
+71af64f3c000-71af64f3d000 rw-p 0000d000 103:06 573206                    /opt/ros/jazzy/lib/librcpputils.so
+71af64f3d000-71af64f40000 r--p 00000000 103:06 573327                    /opt/ros/jazzy/lib/libament_index_cpp.so
+71af64f40000-71af64f46000 r-xp 00003000 103:06 573327                    /opt/ros/jazzy/lib/libament_index_cpp.so
+71af64f46000-71af64f47000 r--p 00009000 103:06 573327                    /opt/ros/jazzy/lib/libament_index_cpp.so
+71af64f47000-71af64f48000 r--p 00009000 103:06 573327                    /opt/ros/jazzy/lib/libament_index_cpp.so
+71af64f48000-71af64f49000 rw-p 0000a000 103:06 573327                    /opt/ros/jazzy/lib/libament_index_cpp.so
+71af64f49000-71af64f50000 r--p 00000000 103:06 573181                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
+71af64f50000-71af64f5b000 r-xp 00007000 103:06 573181                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
+71af64f5b000-71af64f5f000 r--p 00012000 103:06 573181                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
+71af64f5f000-71af64f60000 r--p 00015000 103:06 573181                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
+71af64f60000-71af64f61000 rw-p 00016000 103:06 573181                    /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
+71af64f61000-71af64f62000 rw-p 00000000 00:00 0 
+71af64f62000-71af64f68000 r--p 00000000 103:06 526947                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_c.so
+71af64f68000-71af64f70000 r-xp 00006000 103:06 526947                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_c.so
+71af64f70000-71af64f73000 r--p 0000e000 103:06 526947                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_c.so
+71af64f73000-71af64f74000 r--p 00011000 103:06 526947                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_c.so
+71af64f74000-71af64f79000 rw-p 00012000 103:06 526947                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_generator_c.so
+71af64f79000-71af64f7a000 rw-p 00000000 00:00 0 
+71af64f7a000-71af64f83000 r--p 00000000 103:06 526576                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_c.so
+71af64f83000-71af64f84000 r-xp 00009000 103:06 526576                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_c.so
+71af64f84000-71af64f87000 r--p 0000a000 103:06 526576                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_c.so
+71af64f87000-71af64f89000 r--p 0000c000 103:06 526576                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_c.so
+71af64f89000-71af64f8a000 rw-p 0000e000 103:06 526576                    /opt/ros/jazzy/lib/librcl_interfaces__rosidl_typesupport_c.so
+71af64f8a000-71af64f8e000 r--p 00000000 103:06 573352                    /opt/ros/jazzy/lib/librcl_logging_spdlog.so
+71af64f8e000-71af64f91000 r-xp 00004000 103:06 573352                    /opt/ros/jazzy/lib/librcl_logging_spdlog.so
+71af64f91000-71af64f92000 r--p 00007000 103:06 573352                    /opt/ros/jazzy/lib/librcl_logging_spdlog.so
+71af64f92000-71af64f93000 r--p 00008000 103:06 573352                    /opt/ros/jazzy/lib/librcl_logging_spdlog.so
+71af64f93000-71af64f94000 rw-p 00009000 103:06 573352                    /opt/ros/jazzy/lib/librcl_logging_spdlog.so
+71af64f94000-71af64f9e000 r--p 00000000 103:06 527290                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_generator_c.so
+71af64f9e000-71af64faa000 r-xp 0000a000 103:06 527290                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_generator_c.so
+71af64faa000-71af64faf000 r--p 00016000 103:06 527290                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_generator_c.so
+71af64faf000-71af64fb1000 r--p 0001a000 103:06 527290                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_generator_c.so
+71af64fb1000-71af64fb6000 rw-p 0001c000 103:06 527290                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_generator_c.so
+71af64fb6000-71af64fb8000 rw-p 00000000 00:00 0 
+71af64fb8000-71af64fc2000 r--p 00000000 103:06 573432                    /opt/ros/jazzy/lib/libtracetools.so
+71af64fc2000-71af64fc9000 r-xp 0000a000 103:06 573432                    /opt/ros/jazzy/lib/libtracetools.so
+71af64fc9000-71af64fcd000 r--p 00011000 103:06 573432                    /opt/ros/jazzy/lib/libtracetools.so
+71af64fcd000-71af64fd0000 r--p 00015000 103:06 573432                    /opt/ros/jazzy/lib/libtracetools.so
+71af64fd0000-71af64fd2000 rw-p 00018000 103:06 573432                    /opt/ros/jazzy/lib/libtracetools.so
+71af64fd2000-71af64fd6000 r--p 00000000 103:06 394798                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+71af64fd6000-71af64ffa000 r-xp 00004000 103:06 394798                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+71af64ffa000-71af64ffe000 r--p 00028000 103:06 394798                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+71af64ffe000-71af64fff000 r--p 0002b000 103:06 394798                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+71af64fff000-71af65000000 rw-p 0002c000 103:06 394798                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+71af65000000-71af6509d000 r--p 00000000 103:06 394800                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33
+71af6509d000-71af651e5000 r-xp 0009d000 103:06 394800                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33
+71af651e5000-71af6526c000 r--p 001e5000 103:06 394800                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33
+71af6526c000-71af65277000 r--p 0026b000 103:06 394800                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33
+71af65277000-71af6527a000 rw-p 00276000 103:06 394800                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33
+71af6527a000-71af6527e000 rw-p 00000000 00:00 0 
+71af65280000-71af65281000 ---p 00000000 00:00 0 
+71af65281000-71af65282000 r--p 00000000 00:00 0 
+71af65282000-71af65283000 r--p 00000000 103:06 523848                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_c.so
+71af65283000-71af65284000 r-xp 00001000 103:06 523848                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_c.so
+71af65284000-71af65285000 r--p 00002000 103:06 523848                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_c.so
+71af65285000-71af65286000 r--p 00002000 103:06 523848                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_c.so
+71af65286000-71af65287000 rw-p 00003000 103:06 523848                    /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_c.so
+71af65287000-71af6528e000 r--p 00000000 103:06 573177                    /opt/ros/jazzy/lib/librosidl_runtime_c.so
+71af6528e000-71af6529b000 r-xp 00007000 103:06 573177                    /opt/ros/jazzy/lib/librosidl_runtime_c.so
+71af6529b000-71af652a1000 r--p 00014000 103:06 573177                    /opt/ros/jazzy/lib/librosidl_runtime_c.so
+71af652a1000-71af652a2000 r--p 00019000 103:06 573177                    /opt/ros/jazzy/lib/librosidl_runtime_c.so
+71af652a2000-71af652a6000 rw-p 0001a000 103:06 573177                    /opt/ros/jazzy/lib/librosidl_runtime_c.so
+71af652a7000-71af652ac000 rw-s 00000000 00:1c 234645                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652ac000-71af652b1000 rw-s 00000000 00:1c 234644                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652b1000-71af652b6000 rw-s 00000000 00:1c 234643                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652b6000-71af652bb000 rw-s 00000000 00:1c 234642                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652bb000-71af652c0000 rw-s 00000000 00:1c 234641                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652c0000-71af652c5000 rw-s 00000000 00:1c 234640                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652c5000-71af652ca000 rw-s 00000000 00:1c 234639                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652ca000-71af652cf000 rw-s 00000000 00:1c 234638                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652cf000-71af652d4000 rw-s 00000000 00:1c 234637                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652d4000-71af652d9000 rw-s 00000000 00:1c 234636                     /dev/shm/shm-event-notifier-error-accounting-1332 (deleted)
+71af652d9000-71af652de000 r--p 00000000 103:06 573170                    /opt/ros/jazzy/lib/librcutils.so
+71af652de000-71af652eb000 r-xp 00005000 103:06 573170                    /opt/ros/jazzy/lib/librcutils.so
+71af652eb000-71af652f1000 r--p 00012000 103:06 573170                    /opt/ros/jazzy/lib/librcutils.so
+71af652f1000-71af652f2000 r--p 00017000 103:06 573170                    /opt/ros/jazzy/lib/librcutils.so
+71af652f2000-71af652f3000 rw-p 00018000 103:06 573170                    /opt/ros/jazzy/lib/librcutils.so
+71af652f3000-71af652f9000 rw-p 00000000 00:00 0 
+71af652f9000-71af652fc000 r--p 00000000 103:06 573185                    /opt/ros/jazzy/lib/librmw.so
+71af652fc000-71af65300000 r-xp 00003000 103:06 573185                    /opt/ros/jazzy/lib/librmw.so
+71af65300000-71af65302000 r--p 00007000 103:06 573185                    /opt/ros/jazzy/lib/librmw.so
+71af65302000-71af65303000 r--p 00009000 103:06 573185                    /opt/ros/jazzy/lib/librmw.so
+71af65303000-71af65304000 rw-p 0000a000 103:06 573185                    /opt/ros/jazzy/lib/librmw.so
+71af65304000-71af65309000 r--p 00000000 103:06 527304                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_typesupport_c.so
+71af65309000-71af6530a000 r-xp 00005000 103:06 527304                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_typesupport_c.so
+71af6530a000-71af6530c000 r--p 00006000 103:06 527304                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_typesupport_c.so
+71af6530c000-71af6530d000 r--p 00007000 103:06 527304                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_typesupport_c.so
+71af6530d000-71af6530e000 rw-p 00008000 103:06 527304                    /opt/ros/jazzy/lib/liblifecycle_msgs__rosidl_typesupport_c.so
+71af6530e000-71af65311000 r--p 00000000 103:06 538072                    /opt/ros/jazzy/lib/librmw_implementation.so
+71af65311000-71af65316000 r-xp 00003000 103:06 538072                    /opt/ros/jazzy/lib/librmw_implementation.so
+71af65316000-71af65319000 r--p 00008000 103:06 538072                    /opt/ros/jazzy/lib/librmw_implementation.so
+71af65319000-71af6531a000 r--p 0000a000 103:06 538072                    /opt/ros/jazzy/lib/librmw_implementation.so
+71af6531a000-71af6531b000 rw-p 0000b000 103:06 538072                    /opt/ros/jazzy/lib/librmw_implementation.so
+71af6531b000-71af6531d000 r--p 00000000 103:06 538061                    /opt/ros/jazzy/lib/librcl_yaml_param_parser.so
+71af6531d000-71af65323000 r-xp 00002000 103:06 538061                    /opt/ros/jazzy/lib/librcl_yaml_param_parser.so
+71af65323000-71af65325000 r--p 00008000 103:06 538061                    /opt/ros/jazzy/lib/librcl_yaml_param_parser.so
+71af65325000-71af65326000 r--p 00009000 103:06 538061                    /opt/ros/jazzy/lib/librcl_yaml_param_parser.so
+71af65326000-71af65327000 rw-p 0000a000 103:06 538061                    /opt/ros/jazzy/lib/librcl_yaml_param_parser.so
+71af65327000-71af65333000 r--p 00000000 103:06 526926                    /opt/ros/jazzy/lib/librcl.so
+71af65333000-71af6535d000 r-xp 0000c000 103:06 526926                    /opt/ros/jazzy/lib/librcl.so
+71af6535d000-71af6536b000 r--p 00036000 103:06 526926                    /opt/ros/jazzy/lib/librcl.so
+71af6536b000-71af6536c000 r--p 00043000 103:06 526926                    /opt/ros/jazzy/lib/librcl.so
+71af6536c000-71af6536e000 rw-p 00044000 103:06 526926                    /opt/ros/jazzy/lib/librcl.so
+71af6536e000-71af65388000 r--p 00000000 103:06 928718                    /opt/ros/jazzy/lib/python3.12/site-packages/rclpy/_rclpy_pybind11.cpython-312-x86_64-linux-gnu.so
+71af65388000-71af65458000 r-xp 0001a000 103:06 928718                    /opt/ros/jazzy/lib/python3.12/site-packages/rclpy/_rclpy_pybind11.cpython-312-x86_64-linux-gnu.so
+71af65458000-71af6548e000 r--p 000ea000 103:06 928718                    /opt/ros/jazzy/lib/python3.12/site-packages/rclpy/_rclpy_pybind11.cpython-312-x86_64-linux-gnu.so
+71af6548e000-71af65493000 r--p 00120000 103:06 928718                    /opt/ros/jazzy/lib/python3.12/site-packages/rclpy/_rclpy_pybind11.cpython-312-x86_64-linux-gnu.so
+71af65493000-71af65495000 rw-p 00125000 103:06 928718                    /opt/ros/jazzy/lib/python3.12/site-packages/rclpy/_rclpy_pybind11.cpython-312-x86_64-linux-gnu.so
+71af65495000-71af6549b000 r--p 00000000 103:06 414003                    /usr/lib/python3/dist-packages/yaml/_yaml.cpython-312-x86_64-linux-gnu.so
+71af6549b000-71af654c6000 r-xp 00006000 103:06 414003                    /usr/lib/python3/dist-packages/yaml/_yaml.cpython-312-x86_64-linux-gnu.so
+71af654c6000-71af654ca000 r--p 00031000 103:06 414003                    /usr/lib/python3/dist-packages/yaml/_yaml.cpython-312-x86_64-linux-gnu.so
+71af654ca000-71af654cb000 r--p 00034000 103:06 414003                    /usr/lib/python3/dist-packages/yaml/_yaml.cpython-312-x86_64-linux-gnu.so
+71af654cb000-71af654ce000 rw-p 00035000 103:06 414003                    /usr/lib/python3/dist-packages/yaml/_yaml.cpython-312-x86_64-linux-gnu.so
+71af654ce000-71af658ce000 rw-p 00000000 00:00 0 
+71af658ce000-71af658d1000 r--p 00000000 103:06 394794                    /usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5
+71af658d1000-71af658f3000 r-xp 00003000 103:06 394794                    /usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5
+71af658f3000-71af658fe000 r--p 00025000 103:06 394794                    /usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5
+71af658fe000-71af658ff000 r--p 00030000 103:06 394794                    /usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5
+71af658ff000-71af65900000 rw-p 00031000 103:06 394794                    /usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5
+71af65900000-71af65a00000 rw-p 00000000 00:00 0 
+71af65a00000-71af66254000 r--p 00000000 103:06 393322                    /usr/lib/locale/locale-archive
+71af66255000-71af66256000 r--p 00000000 103:06 573210                    /opt/ros/jazzy/lib/librosidl_typesupport_c.so
+71af66256000-71af66258000 r-xp 00001000 103:06 573210                    /opt/ros/jazzy/lib/librosidl_typesupport_c.so
+71af66258000-71af66259000 r--p 00003000 103:06 573210                    /opt/ros/jazzy/lib/librosidl_typesupport_c.so
+71af66259000-71af6625a000 r--p 00003000 103:06 573210                    /opt/ros/jazzy/lib/librosidl_typesupport_c.so
+71af6625a000-71af6625b000 rw-p 00004000 103:06 573210                    /opt/ros/jazzy/lib/librosidl_typesupport_c.so
+71af6625b000-71af6625d000 r--p 00000000 103:06 527278                    /opt/ros/jazzy/lib/librcl_lifecycle.so
+71af6625d000-71af66261000 r-xp 00002000 103:06 527278                    /opt/ros/jazzy/lib/librcl_lifecycle.so
+71af66261000-71af66263000 r--p 00006000 103:06 527278                    /opt/ros/jazzy/lib/librcl_lifecycle.so
+71af66263000-71af66264000 r--p 00007000 103:06 527278                    /opt/ros/jazzy/lib/librcl_lifecycle.so
+71af66264000-71af66265000 rw-p 00008000 103:06 527278                    /opt/ros/jazzy/lib/librcl_lifecycle.so
+71af66265000-71af66269000 r--p 00000000 103:06 538083                    /opt/ros/jazzy/lib/librcl_action.so
+71af66269000-71af66272000 r-xp 00004000 103:06 538083                    /opt/ros/jazzy/lib/librcl_action.so
+71af66272000-71af66276000 r--p 0000d000 103:06 538083                    /opt/ros/jazzy/lib/librcl_action.so
+71af66276000-71af66277000 r--p 00010000 103:06 538083                    /opt/ros/jazzy/lib/librcl_action.so
+71af66277000-71af66278000 rw-p 00011000 103:06 538083                    /opt/ros/jazzy/lib/librcl_action.so
+71af66278000-71af66279000 r--p 00000000 00:00 0 
+71af66279000-71af6627b000 r--p 00000000 103:06 526661                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_generator_c.so
+71af6627b000-71af6627d000 r-xp 00002000 103:06 526661                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_generator_c.so
+71af6627d000-71af6627e000 r--p 00004000 103:06 526661                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_generator_c.so
+71af6627e000-71af6627f000 r--p 00005000 103:06 526661                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_generator_c.so
+71af6627f000-71af66280000 rw-p 00006000 103:06 526661                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_generator_c.so
+71af66280000-71af66281000 r--p 00000000 103:06 573258                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_c.so
+71af66281000-71af66282000 r-xp 00001000 103:06 573258                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_c.so
+71af66282000-71af66283000 r--p 00002000 103:06 573258                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_c.so
+71af66283000-71af66284000 r--p 00002000 103:06 573258                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_c.so
+71af66284000-71af66285000 rw-p 00003000 103:06 573258                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_c.so
+71af66285000-71af66286000 r--p 00000000 103:06 573262                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_cpp.so
+71af66286000-71af66287000 r-xp 00001000 103:06 573262                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_cpp.so
+71af66287000-71af66288000 r--p 00002000 103:06 573262                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_cpp.so
+71af66288000-71af66289000 r--p 00002000 103:06 573262                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_cpp.so
+71af66289000-71af6628a000 rw-p 00003000 103:06 573262                    /opt/ros/jazzy/lib/librosidl_typesupport_introspection_cpp.so
+71af6628a000-71af6628c000 r--p 00000000 103:06 526685                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_cpp.so
+71af6628c000-71af6628d000 r-xp 00002000 103:06 526685                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_cpp.so
+71af6628d000-71af6628e000 r--p 00003000 103:06 526685                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_cpp.so
+71af6628e000-71af6628f000 r--p 00003000 103:06 526685                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_cpp.so
+71af6628f000-71af66290000 rw-p 00004000 103:06 526685                    /opt/ros/jazzy/lib/librmw_dds_common__rosidl_typesupport_cpp.so
+71af66290000-71af66291000 r--p 00000000 103:06 573254                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
+71af66291000-71af66292000 r-xp 00001000 103:06 573254                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
+71af66292000-71af66293000 r--p 00002000 103:06 573254                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
+71af66293000-71af66294000 r--p 00002000 103:06 573254                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
+71af66294000-71af66295000 rw-p 00003000 103:06 573254                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
+71af66295000-71af66296000 r--p 00000000 103:06 573250                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
+71af66296000-71af66297000 r-xp 00001000 103:06 573250                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
+71af66297000-71af66298000 r--p 00002000 103:06 573250                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
+71af66298000-71af66299000 r--p 00002000 103:06 573250                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
+71af66299000-71af6629a000 rw-p 00003000 103:06 573250                    /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
+71af6629a000-71af6629b000 r--p 00000000 103:06 400376                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+71af6629b000-71af6629c000 r-xp 00001000 103:06 400376                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+71af6629c000-71af6629d000 r--p 00002000 103:06 400376                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+71af6629d000-71af6629e000 r--p 00002000 103:06 400376                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+71af6629e000-71af6629f000 rw-p 00003000 103:06 400376                    /usr/lib/x86_64-linux-gnu/libpthread.so.0
+71af6629f000-71af662a0000 r--p 00000000 103:06 400366                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+71af662a0000-71af662a1000 r-xp 00001000 103:06 400366                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+71af662a1000-71af662a2000 r--p 00002000 103:06 400366                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+71af662a2000-71af662a3000 r--p 00002000 103:06 400366                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+71af662a3000-71af662a4000 rw-p 00003000 103:06 400366                    /usr/lib/x86_64-linux-gnu/libdl.so.2
+71af662a4000-71af662a6000 r--p 00000000 103:06 797152                    /usr/lib/python3.12/lib-dynload/_queue.cpython-312-x86_64-linux-gnu.so
+71af662a6000-71af662a8000 r-xp 00002000 103:06 797152                    /usr/lib/python3.12/lib-dynload/_queue.cpython-312-x86_64-linux-gnu.so
+71af662a8000-71af662a9000 r--p 00004000 103:06 797152                    /usr/lib/python3.12/lib-dynload/_queue.cpython-312-x86_64-linux-gnu.so
+71af662a9000-71af662aa000 r--p 00004000 103:06 797152                    /usr/lib/python3.12/lib-dynload/_queue.cpython-312-x86_64-linux-gnu.so
+71af662aa000-71af662ab000 rw-p 00005000 103:06 797152                    /usr/lib/python3.12/lib-dynload/_queue.cpython-312-x86_64-linux-gnu.so
+71af662ab000-71af662ad000 r--p 00000000 103:06 392577                    /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+71af662ad000-71af662bb000 r-xp 00002000 103:06 392577                    /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+71af662bb000-71af662bd000 r--p 00010000 103:06 392577                    /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+71af662bd000-71af662be000 r--p 00011000 103:06 392577                    /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+71af662be000-71af662bf000 rw-p 00012000 103:06 392577                    /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+71af662bf000-71af66400000 rw-p 00000000 00:00 0 
+71af66400000-71af66428000 r--p 00000000 103:06 400364                    /usr/lib/x86_64-linux-gnu/libc.so.6
+71af66428000-71af665b0000 r-xp 00028000 103:06 400364                    /usr/lib/x86_64-linux-gnu/libc.so.6
+71af665b0000-71af665ff000 r--p 001b0000 103:06 400364                    /usr/lib/x86_64-linux-gnu/libc.so.6
+71af665ff000-71af66603000 r--p 001fe000 103:06 400364                    /usr/lib/x86_64-linux-gnu/libc.so.6
+71af66603000-71af66605000 rw-p 00202000 103:06 400364                    /usr/lib/x86_64-linux-gnu/libc.so.6
+71af66605000-71af66612000 rw-p 00000000 00:00 0 
+71af66612000-71af66613000 ---p 00000000 00:00 0 
+71af66613000-71af66614000 r--s 00000000 00:1c 5495                       /dev/shm/lttng-ust-wait-8-1000
+71af66614000-71af66617000 r--p 00000000 103:06 526951                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_c.so
+71af66617000-71af66618000 r-xp 00003000 103:06 526951                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_c.so
+71af66618000-71af66619000 r--p 00004000 103:06 526951                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_c.so
+71af66619000-71af6661a000 r--p 00005000 103:06 526951                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_c.so
+71af6661a000-71af6661b000 rw-p 00006000 103:06 526951                    /opt/ros/jazzy/lib/libtype_description_interfaces__rosidl_typesupport_c.so
+71af6661b000-71af6661d000 r--p 00000000 103:06 392588                    /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.9
+71af6661d000-71af66636000 r-xp 00002000 103:06 392588                    /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.9
+71af66636000-71af6663a000 r--p 0001b000 103:06 392588                    /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.9
+71af6663a000-71af6663b000 r--p 0001e000 103:06 392588                    /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.9
+71af6663b000-71af6663c000 rw-p 0001f000 103:06 392588                    /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.9
+71af6663c000-71af6663f000 r--p 00000000 103:06 797148                    /usr/lib/python3.12/lib-dynload/_lzma.cpython-312-x86_64-linux-gnu.so
+71af6663f000-71af66644000 r-xp 00003000 103:06 797148                    /usr/lib/python3.12/lib-dynload/_lzma.cpython-312-x86_64-linux-gnu.so
+71af66644000-71af66647000 r--p 00008000 103:06 797148                    /usr/lib/python3.12/lib-dynload/_lzma.cpython-312-x86_64-linux-gnu.so
+71af66647000-71af66648000 r--p 0000a000 103:06 797148                    /usr/lib/python3.12/lib-dynload/_lzma.cpython-312-x86_64-linux-gnu.so
+71af66648000-71af66649000 rw-p 0000b000 103:06 797148                    /usr/lib/python3.12/lib-dynload/_lzma.cpython-312-x86_64-linux-gnu.so
+71af66649000-71af6664b000 r--p 00000000 103:06 797131                    /usr/lib/python3.12/lib-dynload/_bz2.cpython-312-x86_64-linux-gnu.so
+71af6664b000-71af6664e000 r-xp 00002000 103:06 797131                    /usr/lib/python3.12/lib-dynload/_bz2.cpython-312-x86_64-linux-gnu.so
+71af6664e000-71af66650000 r--p 00005000 103:06 797131                    /usr/lib/python3.12/lib-dynload/_bz2.cpython-312-x86_64-linux-gnu.so
+71af66650000-71af66651000 r--p 00006000 103:06 797131                    /usr/lib/python3.12/lib-dynload/_bz2.cpython-312-x86_64-linux-gnu.so
+71af66651000-71af66652000 rw-p 00007000 103:06 797131                    /usr/lib/python3.12/lib-dynload/_bz2.cpython-312-x86_64-linux-gnu.so
+71af66652000-71af66757000 rw-p 00000000 00:00 0 
+71af66757000-71af6675b000 r--p 00000000 103:06 394785                    /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+71af6675b000-71af66778000 r-xp 00004000 103:06 394785                    /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+71af66778000-71af66780000 r--p 00021000 103:06 394785                    /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+71af66780000-71af66782000 r--p 00028000 103:06 394785                    /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+71af66782000-71af66783000 rw-p 0002a000 103:06 394785                    /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+71af66783000-71af66785000 r--p 00000000 103:06 394788                    /usr/lib/x86_64-linux-gnu/libz.so.1.3
+71af66785000-71af66797000 r-xp 00002000 103:06 394788                    /usr/lib/x86_64-linux-gnu/libz.so.1.3
+71af66797000-71af6679d000 r--p 00014000 103:06 394788                    /usr/lib/x86_64-linux-gnu/libz.so.1.3
+71af6679d000-71af6679e000 r--p 0001a000 103:06 394788                    /usr/lib/x86_64-linux-gnu/libz.so.1.3
+71af6679e000-71af6679f000 rw-p 0001b000 103:06 394788                    /usr/lib/x86_64-linux-gnu/libz.so.1.3
+71af6679f000-71af667af000 r--p 00000000 103:06 400367                    /usr/lib/x86_64-linux-gnu/libm.so.6
+71af667af000-71af6682e000 r-xp 00010000 103:06 400367                    /usr/lib/x86_64-linux-gnu/libm.so.6
+71af6682e000-71af66886000 r--p 0008f000 103:06 400367                    /usr/lib/x86_64-linux-gnu/libm.so.6
+71af66886000-71af66887000 r--p 000e7000 103:06 400367                    /usr/lib/x86_64-linux-gnu/libm.so.6
+71af66887000-71af66888000 rw-p 000e8000 103:06 400367                    /usr/lib/x86_64-linux-gnu/libm.so.6
+71af66888000-71af66889000 r--s 00000000 00:1c 2                          /dev/shm/lttng-ust-wait-8
+71af66889000-71af6688a000 rw-p 00000000 00:00 0 
+71af6688a000-71af6688b000 r--p 00000000 103:06 573345                    /opt/ros/jazzy/lib/librcl_logging_interface.so
+71af6688b000-71af6688c000 r-xp 00001000 103:06 573345                    /opt/ros/jazzy/lib/librcl_logging_interface.so
+71af6688c000-71af6688d000 r--p 00002000 103:06 573345                    /opt/ros/jazzy/lib/librcl_logging_interface.so
+71af6688d000-71af6688e000 r--p 00002000 103:06 573345                    /opt/ros/jazzy/lib/librcl_logging_interface.so
+71af6688e000-71af6688f000 rw-p 00003000 103:06 573345                    /opt/ros/jazzy/lib/librcl_logging_interface.so
+71af6688f000-71af668b4000 rw-p 00000000 00:00 0 
+71af668b4000-71af668bb000 r--s 00000000 103:06 400352                    /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+71af668bb000-71af668bd000 rw-p 00000000 00:00 0 
+71af668bd000-71af668bf000 r--p 00000000 00:00 0                          [vvar]
+71af668bf000-71af668c1000 r--p 00000000 00:00 0                          [vvar_vclock]
+71af668c1000-71af668c3000 r-xp 00000000 00:00 0                          [vdso]
+71af668c3000-71af668c4000 r--p 00000000 103:06 400361                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+71af668c4000-71af668ef000 r-xp 00001000 103:06 400361                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+71af668ef000-71af668f9000 r--p 0002c000 103:06 400361                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+71af668f9000-71af668fb000 r--p 00036000 103:06 400361                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+71af668fb000-71af668fd000 rw-p 00038000 103:06 400361                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffdf873b000-7ffdf873f000 ---p 00000000 00:00 0 
+7ffdf873f000-7ffdf883b000 rw-p 00000000 00:00 0                          [stack]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+Total number of mappings: 1332
+
+JVMTI agents: none
+
+
+VM Arguments:
+java_command: <unknown>
+java_class_path (initial): /home/vicen/prti1516e/lib/prti1516e.jar:/home/vicen/prti1516e/lib/prticore.jar:/home/vicen/.local/lib/python3.12/site-packages/org.jpype.jar
+Launcher Type: generic
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 4                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 15                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 4194304                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 524288000                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 8334082048                                {product} {ergonomic}
+   size_t MaxNewSize                               = 4999610368                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 4194304                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7602480                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122027880                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122027880                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 8334082048                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: 
+[error occurred during error reporting (printing log configuration), id 0xb, SIGSEGV (0xb) at pc=0x000071af0b396576]
+Release file:
+IMPLEMENTOR="Ubuntu"
+JAVA_RUNTIME_VERSION="21.0.9+10-Ubuntu-124.04"
+JAVA_VERSION="21.0.9"
+JAVA_VERSION_DATE="2025-10-21"
+LIBC="gnu"
+MODULES="java.base java.compiler java.datatransfer java.xml java.prefs java.desktop java.instrument java.logging java.management java.security.sasl java.naming java.rmi java.management.rmi java.net.http java.scripting java.security.jgss java.transaction.xa java.sql java.sql.rowset java.xml.crypto java.se java.smartcardio jdk.accessibility jdk.internal.jvmstat jdk.attach jdk.charsets jdk.internal.opt jdk.zipfs jdk.compiler jdk.crypto.ec jdk.crypto.cryptoki jdk.dynalink jdk.internal.ed jdk.editpad jdk.hotspot.agent jdk.httpserver jdk.incubator.vector jdk.internal.le jdk.internal.vm.ci jdk.internal.vm.compiler jdk.internal.vm.compiler.management jdk.jartool jdk.javadoc jdk.jcmd jdk.management jdk.management.agent jdk.jconsole jdk.jdeps jdk.jdwp.agent jdk.jdi jdk.jfr jdk.jlink jdk.jpackage jdk.jshell jdk.jsobject jdk.jstatd jdk.localedata jdk.management.jfr jdk.naming.dns jdk.naming.rmi jdk.net jdk.nio.mapmode jdk.random jdk.sctp jdk.security.auth jdk.security.jgss jdk.unsupported jdk.unsupported.desktop jdk.xml.dom"
+OS_ARCH="x86_64"
+OS_NAME="Linux"
+SOURCE=""
+
+Environment Variables:
+PATH=/usr/local/cuda-13.0/bin:/home/vicen/.local/bin:/usr/local/cuda-13.0/bin:/home/vicen/.nvm/versions/node/v24.11.0/bin:/home/vicen/anaconda3/condabin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/vicen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/vicen/.antigravity/extensions/ms-python.debugpy-2025.14.1-linux-x64/bundled/scripts/noConfigScripts
+USERNAME=vicen
+LD_LIBRARY_PATH=/usr/local/cuda-13.0/lib64:/usr/local/cuda-13.0/lib64:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib
+SHELL=/bin/bash
+DISPLAY=:1
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+TERM=xterm-256color
+
+Active Locale:
+LC_ALL=LC_CTYPE=en_US.UTF-8;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_MONETARY=C;LC_MESSAGES=C;LC_PAPER=en_US.UTF-8;LC_NAME=en_US.UTF-8;LC_ADDRESS=en_US.UTF-8;LC_TELEPHONE=en_US.UTF-8;LC_MEASUREMENT=en_US.UTF-8;LC_IDENTIFICATION=en_US.UTF-8
+LC_COLLATE=C
+LC_CTYPE=en_US.UTF-8
+LC_MESSAGES=C
+LC_MONETARY=C
+LC_NUMERIC=C
+LC_TIME=C
+
+Signal Handlers:
+   SIGSEGV: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGBUS: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGFPE: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGPIPE: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+  *** Handler was modified!
+  *** Expected: 0x000000001d780b90, mask=00001000110011111101111010111000, flags=SA_RESTART|SA_SIGINFO
+   SIGXFSZ: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+  *** Handler was modified!
+  *** Expected: 0x000000001d7e8810, mask=00001101110111000000011001100110, flags=SA_RESTART|SA_SIGINFO
+    SIGILL: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGUSR2: SR_handler in libjvm.so, mask=00000000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO, blocked
+  *** Handler was modified!
+  *** Expected: 0x000000001d7e4490, mask=00001000000100010111111010111000, flags=SA_RESTART|SA_SIGINFO
+    SIGHUP: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGINT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTERM: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGQUIT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTRAP: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=24.04
+DISTRIB_CODENAME=noble
+DISTRIB_DESCRIPTION="Ubuntu 24.04.3 LTS"
+uname: Linux 6.14.0-36-generic #36~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Oct 15 15:45:17 UTC 2 x86_64
+OS uptime: 0 days 1:02 hours
+libc: glibc 2.39 NPTL 2.39 
+rlimit (soft/hard): STACK 8192k/infinity , CORE 0k/infinity , NPROC 126308/126308 , NOFILE 1048576/1048576 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 4068056k/4068056k
+load average: 5.61 6.38 4.14
+
+/proc/meminfo:
+MemTotal:       32544452 kB
+MemFree:        14513088 kB
+MemAvailable:   21031116 kB
+Buffers:          334976 kB
+Cached:          5040036 kB
+SwapCached:            0 kB
+Active:         11508732 kB
+Inactive:        4307480 kB
+Active(anon):    9170220 kB
+Inactive(anon):        0 kB
+Active(file):    2338512 kB
+Inactive(file):  4307480 kB
+Unevictable:       17844 kB
+Mlocked:             120 kB
+SwapTotal:      32226300 kB
+SwapFree:       32226300 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:              9772 kB
+Writeback:             0 kB
+AnonPages:      10458760 kB
+Mapped:          1967908 kB
+Shmem:            250240 kB
+KReclaimable:     344536 kB
+Slab:             808304 kB
+SReclaimable:     344536 kB
+SUnreclaim:       463768 kB
+KernelStack:       59856 kB
+PageTables:       124940 kB
+SecPageTables:      5280 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    48498524 kB
+Committed_AS:   43019540 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      173960 kB
+VmallocChunk:          0 kB
+Percpu:            26240 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:    14336 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+Unaccepted:            0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:     1868032 kB
+DirectMap2M:    19832832 kB
+DirectMap1G:    11534336 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled: always [madvise] never
+/sys/kernel/mm/transparent_hugepage/hpage_pmd_size: 2097152
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter): always defer defer+madvise [madvise] never
+
+Process Memory:
+Virtual Size: 15710064K (peak: 15710168K)
+Resident Set Size: 329556K (peak: 329556K) (anon: 262904K, file: 58060K, shmem: 8592K)
+Swapped out: 0K

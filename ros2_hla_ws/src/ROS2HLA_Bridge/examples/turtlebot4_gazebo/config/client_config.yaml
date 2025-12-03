@@ -22,17 +22,23 @@ ros_to_hla:
     fixed_parameters:
       robotName: "TurtleBot4"
 
+ros_actions:
+  - ros_action: "/client/undock" # Exposed to client
+    ros_type: "irobot_create_msgs.action.Undock"
+    hla_goal_interaction: "UndockGoal"
+    hla_result_interaction: "UndockResult"
+    mapping:
+      goal: {}
+      result:
+        is_docked: "isDocked"
+    fixed_parameters:
+      robotName: "TurtleBot4"
+
 # HLA -> ROS2 (Client receives pose/odom from HLA)
 # The bridge receives updates for 'Robot' object and publishes to /turtlebot4_control/odom_monitor
 hla_to_ros:
   - ros_topic: "/turtlebot4_control/odom_monitor"
-    ros_type: "nav_msgs.msg.Odometry" # Re-using Odom type if we can map back, or maybe just Pose
-    # The turtlesim example mapped to turtlesim/Pose.
-    # Since our FOM has X, Y, Theta (maybe), and we mapped Odom->Robot(X,Y) on server side.
-    # We can map Robot(X,Y) -> Odom(pose.pose.position.x, ...) on client side?
-    # The bridge might not support deep mapping for nested fields on the subscriber side (HLA->ROS) easily without checking code.
-    # Let's check the bridge code or just use a simpler message type for monitoring if possible, or try mapping.
-    # The bridge_node.py likely handles dot notation.
+    ros_type: "nav_msgs.msg.Odometry"
     hla_object_class: "Robot"
     hla_instance_name: "TurtleBot4"
     mapping:

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
+from rclpy.action import ActionClient
+from irobot_create_msgs.action import Undock
 from geometry_msgs.msg import TwistStamped
 import sys
 import select
@@ -18,6 +20,7 @@ Moving around:
 q/z : increase/decrease max speeds by 10%
 w/x : increase/decrease only linear speed by 10%
 e/c : increase/decrease only angular speed by 10%
+d   : undock
 space key, k : force stop
 anything else : stop smoothly
 
@@ -58,6 +61,7 @@ class TeleopNode(Node):
     def __init__(self):
         super().__init__('control_node')
         self.publisher_ = self.create_publisher(TwistStamped, '/turtlebot4_control/cmd_vel', 10)
+        self.undock_client = ActionClient(self, Undock, '/client/undock')
         self.speed = 0.5
         self.turn = 1.0
         self.x = 0.0
@@ -81,12 +85,25 @@ class TeleopNode(Node):
             if (self.status == 14):
                 print(msg)
             self.status = (self.status + 1) % 15
+        elif key == 'd':
+            # Undock
+            self.get_logger().info("Undocking...")
+            goal_msg = Undock.Goal()
+            
+            if not self.undock_client.wait_for_server(timeout_sec=1.0):
+                self.get_logger().warn("Undock action server not ready")
+            else:
+                self.get_logger().info("Sending Undock goal...")
+                self.future = self.undock_client.send_goal_async(goal_msg)
+                self.future.add_done_callback(self.goal_response_callback)
+
         elif key == ' ' or key == 'k':
             self.x = 0.0
             self.th = 0.0
         elif key == '\x03':
             rclpy.shutdown()
             return
+
         else:
             self.x = 0.0
             self.th = 0.0
@@ -100,6 +117,20 @@ class TeleopNode(Node):
         twist.twist.angular.y = 0.0
         twist.twist.angular.z = self.th * self.turn
         self.publisher_.publish(twist)
+
+    def goal_response_callback(self, future):
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().info('Goal rejected :(')
+            return
+
+        self.get_logger().info('Goal accepted :)')
+        self._get_result_future = goal_handle.get_result_async()
+        self._get_result_future.add_done_callback(self.get_result_callback)
+
+    def get_result_callback(self, future):
+        result = future.result().result
+        self.get_logger().info(f'Result: is_docked = {result.is_docked}')
 
 def main(args=None):
     rclpy.init(args=args)

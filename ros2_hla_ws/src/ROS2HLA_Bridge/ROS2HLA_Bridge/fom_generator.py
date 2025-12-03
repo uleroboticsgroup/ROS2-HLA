@@ -8,7 +8,9 @@ class FOMGenerator:
 
     def generate(self, config, output_path):
         self._parse_config(config.get('ros_to_hla', []))
+        self._parse_config(config.get('ros_to_hla', []))
         self._parse_config(config.get('hla_to_ros', []))
+        self._parse_actions(config.get('ros_actions', []))
         
         xml_content = self._build_xml()
         
@@ -46,6 +48,24 @@ class FOMGenerator:
                 # Filter parameter
                 if 'filter_parameter' in item:
                     self.interactions[cls]['parameters'][item['filter_parameter']] = 'HLAunicodeString'
+
+    def _parse_actions(self, actions_list):
+        for item in actions_list:
+            # Goal Interaction
+            goal_cls = item['hla_goal_interaction']
+            if goal_cls not in self.interactions:
+                self.interactions[goal_cls] = {'parameters': {}}
+            
+            for _, param in item.get('mapping', {}).get('goal', {}).items():
+                self.interactions[goal_cls]['parameters'][param] = 'HLAfloat64BE' # Default
+                
+            # Result Interaction
+            res_cls = item['hla_result_interaction']
+            if res_cls not in self.interactions:
+                self.interactions[res_cls] = {'parameters': {}}
+                
+            for _, param in item.get('mapping', {}).get('result', {}).items():
+                self.interactions[res_cls]['parameters'][param] = 'HLAfloat64BE' # Default
 
     def _build_xml(self):
         root = ET.Element('objectModel', {

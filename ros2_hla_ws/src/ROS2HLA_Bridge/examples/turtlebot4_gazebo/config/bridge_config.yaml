@@ -23,13 +23,6 @@ ros_to_hla:
     mapping:
       pose.pose.position.x: "positionX"
       pose.pose.position.y: "positionY"
-      # Orientation in Odom is quaternion, but our simple FOM might expect theta (float) or we map a component.
-      # For simplicity in this demo, let's just map position. 
-      # If we need theta, we'd need a converter or update the FOM/Bridge to handle quaternions or conversion.
-      # The turtlesim example mapped 'theta' directly.
-      # Let's assume for now we just map X and Y.
-      # If we really need theta, we might need a custom bridge extension or a helper node to convert Odom -> Pose (with theta).
-      # Let's stick to X and Y for now.
 
 # HLA -> ROS2 (We receive Interaction/Attribute Update from HLA and Publish to ROS2 topic)
 hla_to_ros:
@@ -41,3 +34,13 @@ hla_to_ros:
     mapping:
       twist.linear.x: "linearVel"
       twist.angular.z: "angularVel"
+
+ros_actions:
+  - ros_action: "/undock"
+    ros_type: "irobot_create_msgs.action.Undock"
+    hla_goal_interaction: "UndockGoal"
+    hla_result_interaction: "UndockResult"
+    mapping:
+      goal: {}
+      result: 
+        is_docked: "isDocked"
