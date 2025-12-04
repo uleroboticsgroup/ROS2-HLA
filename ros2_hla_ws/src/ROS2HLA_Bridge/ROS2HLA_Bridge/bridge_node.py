@@ -279,7 +279,6 @@ class ROS2HLABridge(Node):
         self.pending_action_goals = {} # goal_id -> Event
         
         # Callback group for actions to allow reentrancy
-        # self.action_cb_group = ReentrantCallbackGroup() # Initialized in __init__
         
         for item in actions_config:
             # 1. Subscribe to Goal Interaction (Server side)
@@ -499,12 +498,14 @@ class ROS2HLABridge(Node):
         goal_handle = future.result()
         if not goal_handle.accepted:
             self.get_logger().info('Goal rejected')
+            
             # Send rejection result to HLA
             action_name = item['ros_action']
             if action_name in self.action_map:
                 config = self.action_map[action_name]
                 result_interaction = config['hla_result_interaction']
                 
+                # Construct a result indicating failure
                 hla_data = {}
                 if 'Undock' in action_name:
                      hla_data['isDocked'] = True 
