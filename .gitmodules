@@ -1,0 +1,3 @@
+[submodule "TrickHLA"]
+	path = TrickHLA
+	url = https://github.com/nasa/TrickHLA.git
