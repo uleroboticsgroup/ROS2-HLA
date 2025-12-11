@@ -134,3 +134,28 @@ Use the keyboard keys (u, i, o, j, k, l, m, ,, .) in the client terminal to move
 - **space**: Force Stop
 - **d**: Undock
 - **f**: Dock
+
+## Example 3: Webots Simulation
+This example demonstrates controlling a robot in a Webots simulation via HLA.
+
+### 1. Prerequisites
+Ensure you have the Webots ROS2 driver installed (e.g., `webots_ros2_turtlebot`).
+
+### 2. Start Webots
+Launch your Webots simulation.
+```bash
+ros2 launch webots_ros2_turtlebot robot_launch.py
+```
+
+### 3. Start the Server (Regulating Federate)
+Launches the bridge configured for Webots.
+```bash
+ros2 launch ROS2HLA_Bridge server_webots.launch.py
+```
+
+### 4. Start the Client (Constrained Federate)
+Launches the client bridge and an interactive teleop controller in the same terminal.
+```bash
+ros2 run ROS2HLA_Bridge client_interactive
+```
+

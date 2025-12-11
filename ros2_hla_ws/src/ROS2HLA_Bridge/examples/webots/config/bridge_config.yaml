@@ -1,0 +1,55 @@
+hla:
+  federation_name: "RoboticsFed"
+  federate_name: "ROS2Bridge_Webots"
+  fom_file_path: "/home/vicen/ISDEFE/ros2_hla_ws/src/ROS2HLA_Bridge/examples/webots/fom/robotics.xml"
+  pitch_jar_path: "/home/vicen/prti1516e/lib/prti1516e.jar"
+
+time_management:
+  is_regulating: true
+  is_constrained: false
+  time_step: 0.1
+  lookahead: 0.1
+
+sync_points:
+  - "InitialSetup"
+  - "ReadyToRun"
+
+# ROS2 -> HLA (We subscribe to ROS2 topic and Update Attribute Values in HLA)
+ros_to_hla:
+  - ros_topic: "/odom"
+    ros_type: "nav_msgs.msg.Odometry"
+    hla_object_class: "Robot"
+    hla_instance_name: "TurtleBot4"
+    mapping:
+      pose.pose.position.x: "positionX"
+      pose.pose.position.y: "positionY"
+
+# HLA -> ROS2 (We receive Interaction/Attribute Update from HLA and Publish to ROS2 topic)
+hla_to_ros:
+  - ros_topic: "/cmd_vel"
+    ros_type: "geometry_msgs.msg.TwistStamped"
+    hla_interaction_class: "Control"
+    filter_parameter: "robotName"
+    filter_value: "TurtleBot4"
+    mapping:
+      twist.linear.x: "linearVel"
+      twist.angular.z: "angularVel"
+
+ros_actions:
+  - ros_action: "/undock"
+    ros_type: "irobot_create_msgs.action.Undock"
+    hla_goal_interaction: "UndockGoal"
+    hla_result_interaction: "UndockResult"
+    mapping:
+      goal: {}
+      result: 
+        is_docked: "isDocked"
+
+  - ros_action: "/dock"
+    ros_type: "irobot_create_msgs.action.Dock"
+    hla_goal_interaction: "DockGoal"
+    hla_result_interaction: "DockResult"
+    mapping:
+      goal: {}
+      result: 
+        is_docked: "isDocked"
