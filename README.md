@@ -9,10 +9,10 @@ Este es el directorio raíz del entorno de trabajo para la integración de ROS 2
 
 ## Índice de Directorios
 
-- **[Pruebas_HLA](Pruebas_HLA/README.md)**  
+- **[Pruebas_HLA](Pruebas_HLA)**  
   Ejemplos básicos de funcionamiento de la HLA (Chatter/Listener) para verificar la conectividad y el uso básico de la RTI.
 
-- **[Pruebas_timers_HLA](Pruebas_timers_HLA/README.md)**  
+- **[Pruebas_timers_HLA](Pruebas_timers_HLA)**  
   Ejemplos avanzados utilizando la gestión de tiempo de HLA (Time Management) y sincronización. Incluye simulaciones de "Sine Wave" sincronizadas.
 
 - **[ros2_hla_ws](ros2_hla_ws)**  
