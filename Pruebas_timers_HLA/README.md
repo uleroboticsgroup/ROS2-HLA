@@ -37,3 +37,45 @@ python3 sine_listener.py
 *El listener esperará automáticamente al punto de sincronización.*
 
 Una vez ambos estén corriendo, presiona **Enter** en la terminal del `sine_publisher.py` para iniciar la simulación sincronizada.
+
+---
+
+# HLA Timers Tests
+
+This directory contains examples of synchronization and Time Management in HLA. It shows how to coordinate federates to advance in logical time in a synchronized way. The goal is to understand synchronization and time management processes in HLA using jpype as an intermediary between Python and the RTI.
+
+**Attribution Note:** These files are based on the example in the README of [TrickHLA](https://github.com/nasa/TrickHLA/tree/master?tab=readme-ov-file#running-an-example-simulation).
+
+## Content
+
+### [sine_publisher.py](file:///home/vicen/ISDEFE/Pruebas_timers_HLA/sine_publisher.py)
+**Time Regulating** Federate.
+- Publishes sine wave values (`SineWave.value`) associated with a logical time.
+- Controls the federation's time advancement.
+- Uses **Synchronization Points** (`ReadyToStart`) to ensure all federates start at the same time.
+
+### [sine_listener.py](file:///home/vicen/ISDEFE/Pruebas_timers_HLA/sine_listener.py)
+**Time Constrained** Federate.
+- Subscribes to the sine wave values.
+- Its time advancement is constrained by the `sine_publisher`. It only advances when it receives the Grant (TAG) from the RTI, ensuring it processes messages in the correct temporal order.
+
+### [sine.xml](file:///home/vicen/ISDEFE/Pruebas_timers_HLA/sine.xml)
+The FOM for this example.
+
+## How to run
+
+It is necessary to run both scripts. The ideal order is to start the publisher (which usually creates the federation) first and then the listener, although the code handles waiting. It is also important that the RTI is running for the federation to be created and federates to join.
+
+**Terminal 1 (Publisher):**
+```bash
+python3 sine_publisher.py
+```
+*The script will ask for user confirmation (Enter) once the synchronization point is registered.*
+
+**Terminal 2 (Listener):**
+```bash
+python3 sine_listener.py
+```
+*The listener will automatically wait for the synchronization point.*
+
+Once both are running, press **Enter** in the `sine_publisher.py` terminal to start the synchronized simulation.

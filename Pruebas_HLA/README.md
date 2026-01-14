@@ -32,3 +32,40 @@ python3 chatter.py
 ```bash
 python3 listener.py
 ```
+
+---
+
+# HLA Tests
+
+This directory contains basic examples of HLA (High Level Architecture) communication using `jpype` to interact with the RTI (Pitch pRTI 1516e). The goal is to mimic the ROS2 Publisher and Subscriber structure for HLA.
+
+## Content
+
+### [chatter.py](file:///home/vicen/ISDEFE/Pruebas_HLA/chatter.py)
+A simple "Publisher" federate.
+- Creates (if it doesn't exist) and joins the `ChatterFed` federation.
+- Publishes objects of the `Communication` class with the `Message` attribute.
+- Sends "Hello World: X" messages periodically.
+
+### [listener.py](file:///home/vicen/ISDEFE/Pruebas_HLA/listener.py)
+A simple "Subscriber" federate.
+- Joins the `ChatterFed` federation.
+- Subscribes to the `Communication` class.
+- Receives and decodes messages sent by the `chatter`.
+
+### [chatter.xml](file:///home/vicen/ISDEFE/Pruebas_HLA/chatter.xml)
+The FOM (Federation Object Model) defining the data structure for the federation (`Communication` Class, `Message` Attribute).
+
+## How to run
+
+Two terminals are required. Make sure you have configured the environment variable or the path to the RTI JAR (defined in the first lines of the Python scripts). Also, the RTI must be running for the Federation to be created and Federates to join.
+
+**Terminal 1 (Publisher):**
+```bash
+python3 chatter.py
+```
+
+**Terminal 2 (Subscriber):**
+```bash
+python3 listener.py
+```

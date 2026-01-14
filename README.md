@@ -23,3 +23,31 @@ Este es el directorio raíz del entorno de trabajo para la integración de ROS 2
 
 - **[Documentacion](Documentacion)**  
   Documentación general adicional del proyecto.
+
+---
+
+# ROS2-HLA Project Documentation
+
+This is the root directory of the workspace for the ROS 2 and HLA (High Level Architecture) integration. The content of each directory is described below:
+
+**Author:** Vicente Barreiro Serrano  
+**Supervision:** Vicente Matellán Olivera  
+*Robotics Group of the University of León*
+
+
+## Directory Index
+
+- **[Pruebas_HLA](Pruebas_HLA)**  
+  Basic examples of HLA operation (Chatter/Listener) to verify connectivity and basic RTI usage.
+
+- **[Pruebas_timers_HLA](Pruebas_timers_HLA)**  
+  Advanced examples using HLA Time Management and synchronization. Includes synchronized "Sine Wave" simulations.
+
+- **[ros2_hla_ws](ros2_hla_ws)**  
+  ROS 2 Workspace containing the `ROS2HLA_Bridge`. For more information on the bridge, see the [`ROS2HLA_Bridge` README](ros2_hla_ws/src/ROS2HLA_Bridge/README.md).
+
+- **[TrickHLA](TrickHLA)**  
+  Resources related to NASA's TrickHLA framework.
+
+- **[Documentacion](Documentacion)**  
+  Additional general project documentation.
