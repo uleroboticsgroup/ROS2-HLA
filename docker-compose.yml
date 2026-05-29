@@ -1,0 +1,9 @@
+services:
+  ros2-desktop-vnc:
+    container_name: PitchRTI
+    ports:
+      - 6080:80
+    security_opt:
+      - seccomp=unconfined
+    shm_size: 512m
+    image: ghcr.io/tiryoh/ros2-desktop-vnc:jazzy
