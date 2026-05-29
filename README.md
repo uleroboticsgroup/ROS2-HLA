@@ -24,6 +24,12 @@ Este es el directorio raíz del entorno de trabajo para la integración de ROS 2
 - **[Documentacion](Documentacion)**  
   Documentación general adicional del proyecto.
 
+- **[TurtleBot_DualSim](TurtleBot_DualSim)**  
+  Workspace de ROS 2 (`ros2_ws`) que contiene el paquete `dual_sim_bridge`. Este puente actúa como un federado HLA que sincroniza bidireccionalmente la pose de un robot simulado en Gazebo con otros federados. Incluye soporte para sincronización de tiempo (Time Regulation/Constrained), mapeo de coordenadas Gazebo-Unity, selección de mundos compartidos (como `dual_rooms`) y aplicación de offset de alturas.
+
+- **[Pruebas Unity](Pruebas%20Unity)**  
+  Proyecto de Unity que actúa como el gemelo digital (Digital Twin) en el sistema de simulación dual. Se conecta a la federación HLA usando un plugin nativo de Pitch pRTI y scripts (`HlaPlayerSender.cs`, `HlaNetworkManager.cs`) para enviar su posición y representar entidades remotas (el TurtleBot de Gazebo). Incluye el sistema `DualRoomsBuilder.cs` para la generación dinámica de entornos que coinciden métricamente con la simulación de Gazebo.
+
 ---
 
 # ROS2-HLA Project Documentation
@@ -51,3 +57,9 @@ This is the root directory of the workspace for the ROS 2 and HLA (High Level Ar
 
 - **[Documentacion](Documentacion)**  
   Additional general project documentation.
+
+- **[TurtleBot_DualSim](TurtleBot_DualSim)**  
+  ROS 2 workspace (`ros2_ws`) containing the `dual_sim_bridge` package. This bridge acts as an HLA federate that bidirectionally synchronizes the pose of a simulated robot in Gazebo with other federates. It features time management support (Time Regulation/Constrained), Gazebo-Unity coordinate mapping, shared world selection (such as `dual_rooms`), and automatic height offset adjustments.
+
+- **[Pruebas Unity](Pruebas%20Unity)**  
+  Unity project acting as the digital twin in the dual simulation system. It connects to the HLA federation using a native Pitch pRTI plugin and custom scripts (`HlaPlayerSender.cs`, `HlaNetworkManager.cs`) to publish its position and visualize remote entities (the Gazebo TurtleBot). It includes the `DualRoomsBuilder.cs` system for generating dynamic environments that exactly match the metrics of the Gazebo simulation.
