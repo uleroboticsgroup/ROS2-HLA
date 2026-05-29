@@ -212,7 +212,7 @@ class ROS2HLABridge(Node):
 
         # Find matching config
         for item in self.config['hla_to_ros']:
-            if 'hla_object_class' in item and item['hla_instance_name'] == obj_name:
+            if 'hla_object_class' in item and item.get('hla_instance_name', obj_name) == obj_name:
                 # Decode and publish
                 msg = get_ros_class(item['ros_type'])() 
                 
