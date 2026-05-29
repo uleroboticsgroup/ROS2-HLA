@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: bf00f8911e6e34f439d9e2d82f9a7a9e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Runtime/Libraries/RosBridgeClient/MessageTypes/ROS2/ObjectRecognition/srv/GetObjectInformationRequest.cs
+  uploadId: 774722

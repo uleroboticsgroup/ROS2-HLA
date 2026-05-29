@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4abbabf276e2c8b49971e836082b8a6b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Gazebo Simulation Scenes ROS2/Urdf/file_server2/Materials/white.mat
+  uploadId: 774722

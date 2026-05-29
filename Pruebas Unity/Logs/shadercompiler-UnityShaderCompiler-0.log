@@ -1,0 +1,6 @@
+Base path: '/home/vicen/Unity/Hub/Editor/6000.3.4f1/Editor/Data', plugins path '/home/vicen/Unity/Hub/Editor/6000.3.4f1/Editor/Data/PlaybackEngines', jobs: y
+Cmd: initializeCompiler
+
+Cmd: shutdown
+
+Quitting shader compiler process

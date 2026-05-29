@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e2f06e580ab8bcd4aa1565765201c331
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Gazebo Simulation Scenes ROS2/Scenes/Completed/gazebo_simulation_scene_ROS2_2_Diff_Drive_COMPLETED.unity
+  uploadId: 774722

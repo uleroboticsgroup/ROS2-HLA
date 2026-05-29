@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9762e3636092c3b4189ad569da162083
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Runtime/Libraries/RosBridgeClient/MessageTypes/ROS2/Std/msg/Int32MultiArray.cs
+  uploadId: 774722

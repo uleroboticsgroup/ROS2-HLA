@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b61a2ff203cc1b948afae483e7d4f30d
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Runtime/siemens.ros-sharp.Runtime.asmdef
+  uploadId: 774722

@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Pruebas ROS# y HLA-Unity/DualSim_UnityRos.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fae53a797b5479c43b9a3aeac7e35e5c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Runtime/Urdf/UrdfComponents/UrdfPlugins.cs
+  uploadId: 774722

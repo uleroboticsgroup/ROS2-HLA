@@ -1,0 +1,14 @@
+Starting connection...
+Created RTI ambassador.
+Connection established successfully!
+------- Exception occurred, FederationExecutionDoesNotExist -------
+Federation Execution Does Not Exist (909146015)
+------- End Exception -------
+After federation destroyed...
+TestFederation_ANSI_Verify_v2
+TestFederate
+/home/vicen/ISDEFE/Pruebas Unity/Assets/StreamingAssets/BoxFOM.xml
+------- Exception occurred, createFederation -------
+Error loading FOM module file:/home/vicen/ISDEFE/Pruebas%20Unity/Assets/StreamingAssets/BoxFOM.xml
+unexpected element (uri:"http://standards.ieee.org/IEEE1516-2010/2010/root", local:"objectModel"). Expected elements are <{http://standards.ieee.org/IEEE1516-2010}attribute>,<{http://standards.ieee.org/IEEE1516-2010}interactionClass>,<{http://standards.ieee.org/IEEE1516-2010}objectClass>,<{http://standards.ieee.org/IEEE1516-2010}objectModel>,<{http://standards.ieee.org/IEEE1516-2010}parameter>
+------- End Exception -------

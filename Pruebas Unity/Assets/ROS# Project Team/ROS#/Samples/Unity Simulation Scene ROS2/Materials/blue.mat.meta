@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fb5af7f4f42afbf4bb4880e8f14a8d9d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Unity Simulation Scene ROS2/Materials/blue.mat
+  uploadId: 774722

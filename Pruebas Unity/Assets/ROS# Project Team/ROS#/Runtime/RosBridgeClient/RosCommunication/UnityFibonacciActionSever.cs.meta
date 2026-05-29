@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: eeae0d9267561a442aec151edbc0917f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Runtime/RosBridgeClient/RosCommunication/UnityFibonacciActionSever.cs
+  uploadId: 774722

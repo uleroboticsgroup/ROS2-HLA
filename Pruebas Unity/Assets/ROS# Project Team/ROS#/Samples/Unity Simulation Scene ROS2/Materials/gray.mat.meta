@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a3713e387acf15648a1f60ebe5ed9b09
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Unity Simulation Scene ROS2/Materials/gray.mat
+  uploadId: 774722

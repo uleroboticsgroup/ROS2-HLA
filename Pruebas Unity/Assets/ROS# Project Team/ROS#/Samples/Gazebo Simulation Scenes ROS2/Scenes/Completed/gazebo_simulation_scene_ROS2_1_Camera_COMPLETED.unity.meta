@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8d8d7235a95b51e40a490472d587bcd0
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Gazebo Simulation Scenes ROS2/Scenes/Completed/gazebo_simulation_scene_ROS2_1_Camera_COMPLETED.unity
+  uploadId: 774722

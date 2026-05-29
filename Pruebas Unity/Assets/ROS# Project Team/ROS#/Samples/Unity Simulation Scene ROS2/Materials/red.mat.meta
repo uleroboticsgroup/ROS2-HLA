@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f19e49fc978210b409173c6c0d542fcd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Unity Simulation Scene ROS2/Materials/red.mat
+  uploadId: 774722

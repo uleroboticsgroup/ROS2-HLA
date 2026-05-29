@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cd9f31e8713b4b9439be74107150ccfe
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Editor/Urdf/MeshProcessing/StlWriter.cs
+  uploadId: 774722

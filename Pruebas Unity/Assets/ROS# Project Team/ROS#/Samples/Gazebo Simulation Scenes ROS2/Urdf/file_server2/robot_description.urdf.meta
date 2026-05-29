@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8b857e0fee1399b4b8408cca6c2c4298
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Gazebo Simulation Scenes ROS2/Urdf/file_server2/robot_description.urdf
+  uploadId: 774722

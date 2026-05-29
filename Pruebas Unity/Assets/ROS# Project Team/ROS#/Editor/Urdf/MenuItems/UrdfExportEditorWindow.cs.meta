@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 768373ef7850e1545bc59ecba181aecd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Editor/Urdf/MenuItems/UrdfExportEditorWindow.cs
+  uploadId: 774722

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 16f26aaa0c70b03459cb6f774574cbe0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Editor/RosBridgeClient/MessageGeneration/SingleActionAutoGenEditorWindow.cs
+  uploadId: 774722

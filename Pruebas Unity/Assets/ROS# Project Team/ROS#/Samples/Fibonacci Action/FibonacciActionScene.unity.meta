@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b764064f57e6f9c40ac0a1456ad0ad83
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Fibonacci Action/FibonacciActionScene.unity
+  uploadId: 774722

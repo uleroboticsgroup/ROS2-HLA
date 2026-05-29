@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ca1f9ead5e42e1e4ebddb773c74c0878
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Editor/Urdf/AssetHandlers/UrdfAssetPathHandler.cs
+  uploadId: 774722

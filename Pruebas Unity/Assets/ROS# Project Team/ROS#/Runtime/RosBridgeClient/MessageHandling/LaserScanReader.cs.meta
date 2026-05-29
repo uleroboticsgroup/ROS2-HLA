@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c87b3c7b7739511498b2993d8daf6c51
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Runtime/RosBridgeClient/MessageHandling/LaserScanReader.cs
+  uploadId: 774722

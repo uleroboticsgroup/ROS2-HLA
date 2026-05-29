@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: db3871ed332d40d46a89ccaaf699a5ff
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Runtime/Libraries/MessageGeneration/ActionAutoGen.cs
+  uploadId: 774722

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: fdba2ed5c45510348b098566f7c6396c
+timeCreated: 1516375370
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Runtime/Extensions/HeaderExtensions.cs
+  uploadId: 774722

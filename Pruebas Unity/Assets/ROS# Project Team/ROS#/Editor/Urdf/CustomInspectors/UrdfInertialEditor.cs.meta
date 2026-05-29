@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4ed621f95ac033a42bf718db5f13818e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Editor/Urdf/CustomInspectors/UrdfInertialEditor.cs
+  uploadId: 774722

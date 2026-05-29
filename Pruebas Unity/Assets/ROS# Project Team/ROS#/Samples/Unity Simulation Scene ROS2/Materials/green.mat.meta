@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5fa6ed49cd8cac5449cf2242da64b4bd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Unity Simulation Scene ROS2/Materials/green.mat
+  uploadId: 774722

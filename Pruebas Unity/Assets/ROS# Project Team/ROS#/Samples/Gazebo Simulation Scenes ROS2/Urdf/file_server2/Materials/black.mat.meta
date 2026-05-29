@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4301081fd7b6a1a4980a62b3610b4b39
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/Gazebo Simulation Scenes ROS2/Urdf/file_server2/Materials/black.mat
+  uploadId: 774722

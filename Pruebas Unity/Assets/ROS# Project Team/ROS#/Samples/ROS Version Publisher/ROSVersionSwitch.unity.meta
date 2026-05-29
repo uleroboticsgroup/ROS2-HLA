@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 463c466724a1b4d43a736a818f3cfde9
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Samples/ROS Version Publisher/ROSVersionSwitch.unity
+  uploadId: 774722

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cf904492fa9a2594e86c4f81354565b4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107085
+  packageName: ROS#
+  packageVersion: 2.2.0
+  assetPath: Assets/ROS# Project Team/ROS#/Editor/RosBridgeClient/FibonacciAction/FibonacciActionClientEditor.cs
+  uploadId: 774722
