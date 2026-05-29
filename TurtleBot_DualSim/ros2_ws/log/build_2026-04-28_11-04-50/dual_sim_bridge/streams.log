@@ -1,0 +1,31 @@
+[0.615s] Invoking command in '/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/src/dual_sim_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dual_sim_bridge build --build-base /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/build install --record /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/install.log --single-version-externally-managed install_data
+[0.830s] running egg_info
+[0.847s] writing ../../build/dual_sim_bridge/dual_sim_bridge.egg-info/PKG-INFO
+[0.847s] writing dependency_links to ../../build/dual_sim_bridge/dual_sim_bridge.egg-info/dependency_links.txt
+[0.848s] writing entry points to ../../build/dual_sim_bridge/dual_sim_bridge.egg-info/entry_points.txt
+[0.848s] writing requirements to ../../build/dual_sim_bridge/dual_sim_bridge.egg-info/requires.txt
+[0.848s] writing top-level names to ../../build/dual_sim_bridge/dual_sim_bridge.egg-info/top_level.txt
+[0.884s] reading manifest file '../../build/dual_sim_bridge/dual_sim_bridge.egg-info/SOURCES.txt'
+[0.885s] writing manifest file '../../build/dual_sim_bridge/dual_sim_bridge.egg-info/SOURCES.txt'
+[0.885s] running build
+[0.885s] running build_py
+[0.885s] copying dual_sim_bridge/hla_manager.py -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/build/lib/dual_sim_bridge
+[0.885s] copying dual_sim_bridge/bridge_node.py -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/build/lib/dual_sim_bridge
+[0.885s] copying dual_sim_bridge/__init__.py -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/build/lib/dual_sim_bridge
+[0.885s] running install
+[0.888s] running install_lib
+[0.906s] copying /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/build/lib/dual_sim_bridge/hla_manager.py -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/lib/python3.12/site-packages/dual_sim_bridge
+[0.906s] byte-compiling /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/lib/python3.12/site-packages/dual_sim_bridge/hla_manager.py to hla_manager.cpython-312.pyc
+[0.909s] running install_data
+[0.909s] copying resource/dual_sim_bridge -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/share/ament_index/resource_index/packages
+[0.909s] copying package.xml -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/share/dual_sim_bridge
+[0.909s] copying config/gazebo_bridge.yaml -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/share/dual_sim_bridge/config
+[0.909s] copying fom/DualSimFOM.xml -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/share/dual_sim_bridge/fom
+[0.909s] copying launch/gazebo_bridge.launch.py -> /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/share/dual_sim_bridge/launch
+[0.909s] running install_egg_info
+[0.927s] removing '/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/lib/python3.12/site-packages/dual_sim_bridge-1.0.0-py3.12.egg-info' (and everything under it)
+[0.927s] Copying ../../build/dual_sim_bridge/dual_sim_bridge.egg-info to /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/lib/python3.12/site-packages/dual_sim_bridge-1.0.0-py3.12.egg-info
+[0.927s] running install_scripts
+[1.025s] Installing bridge_node script to /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/lib/dual_sim_bridge
+[1.025s] writing list of installed files to '/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/install.log'
+[1.039s] Invoked command in '/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/src/dual_sim_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/install/dual_sim_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dual_sim_bridge build --build-base /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/build install --record /home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/build/dual_sim_bridge/install.log --single-version-externally-managed install_data

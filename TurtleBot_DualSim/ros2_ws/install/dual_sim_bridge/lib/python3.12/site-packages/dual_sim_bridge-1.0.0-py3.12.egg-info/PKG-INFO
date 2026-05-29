@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: dual_sim_bridge
+Version: 1.0.0
+Summary: Bridge HLA para sincronizar TurtleBot entre Gazebo y Unity
+Maintainer: Vicente Barreiro
+Maintainer-email: vbars@unileon.es
+License: MIT
+Requires-Dist: setuptools
+Requires-Dist: pyyaml

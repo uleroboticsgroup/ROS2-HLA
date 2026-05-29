@@ -1,0 +1,42 @@
+# ─── Configuración del DualSim Bridge (lado Gazebo/ROS2) ───
+# Este archivo configura el federado de Gazebo para sincronizar
+# la pose del TurtleBot con Unity a través de HLA.
+
+hla:
+  federation_name: "DualSimFed"
+  federate_name: "GazeboBridge"
+  fom_file_path: "/home/vicen/ISDEFE/TurtleBot_DualSim/ros2_ws/src/dual_sim_bridge/fom/DualSimFOM.xml"
+  pitch_jar_path: "/home/vicen/prti1516e/lib/prti1516e.jar"
+
+# Gestión de tiempo: Hybrid (Regulating + Constrained)
+# Ambos simuladores avanzan juntos
+time_management:
+  is_regulating: true
+  is_constrained: true
+  time_step: 0.05      # 20 Hz de actualización
+  lookahead: 0.05
+
+# Puntos de sincronización para arranque coordinado
+sync_points: []
+
+# Clase de objeto HLA (compatible con el plugin C++ de Unity)
+hla_object_class: "Box"
+hla_attributes:
+  - "PositionX"
+  - "PositionY"
+  - "RotationY"
+  - "PositionZ"
+
+# Codificación: float32le = compatible con plugin Unity C++
+encoding: "float32le"
+
+# Robot local (el TurtleBot de Gazebo)
+local_robot:
+  hla_instance_name: "GazeboRobot"
+  odom_topic: "/odom"
+
+# Robot remoto (el TurtleBot de Unity)
+remote_robot:
+  hla_instance_name: "UnityRobot"
+  pose_topic: "/unity_robot/pose"
+  marker_topic: "/unity_robot/marker"
